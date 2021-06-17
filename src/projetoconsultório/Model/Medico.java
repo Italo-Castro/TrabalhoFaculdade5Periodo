@@ -14,10 +14,17 @@ public class Medico {
     private String sexo;
     private boolean disponibilidade;
 
-    public Medico() {}
+    public Medico() {
+        this.nome = "";
+        this.cpf = "";
+        this.dataNascimento = new Date(0);
+        this.especializacao = "";
+        this.sexo = "";
+        this.disponibilidade = false;
+    }
 
-    public Medico(String nome, String cpf, Date dataNascimento, String especializacao, String sexo, boolean disponibilidade) {
-        
+    public Medico(int id,String nome, String cpf, Date dataNascimento, String especializacao, String sexo, boolean disponibilidade) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -81,9 +88,4 @@ public class Medico {
     public void setDisponibilidade(boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
-    
-    
-    
-    
-    
 }

@@ -11,9 +11,14 @@ public class Plano_De_Saude {
     private Date dataExpiracao;
     private String tipo;
  
-    public Plano_De_Saude() {}
+    public Plano_De_Saude() {
+        this.Valor = 0;
+        this.dataExpiracao = new Date(0);
+        this.tipo = "";
+    }
 
-    public Plano_De_Saude(double Valor, Date dataExpiracao, String tipo) {
+    public Plano_De_Saude(int id, double Valor, Date dataExpiracao, String tipo) {
+        this.id = id;
         this.Valor = Valor;
         this.dataExpiracao = dataExpiracao;
         this.tipo = tipo;

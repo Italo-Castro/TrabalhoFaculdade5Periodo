@@ -8,9 +8,15 @@ public class Endereco {
     private String estado;
     private String cidade;
 
-    public Endereco() {}
+    public Endereco() {
+        this.rua = "";
+        this.bairro = "";
+        this.estado = "";
+        this.cidade = "";
+    }
 
-    public Endereco(String rua, String bairro, String estado, String cidade) {
+    public Endereco(int id, String rua, String bairro, String estado, String cidade) {
+        this.id = id;
         this.rua = rua;
         this.bairro = bairro;
         this.estado = estado;

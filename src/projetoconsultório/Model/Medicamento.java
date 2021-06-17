@@ -10,7 +10,11 @@ public class Medicamento {
     private Date dataValidade;
     private String bula;
 
-    public Medicamento() {}
+    public Medicamento() {
+        this.nome = "";
+        this.dataValidade = new Date(0);
+        this.bula = "";
+    }
 
     public Medicamento(String nome, Date dataValidade, String bula) {
         this.id = id;
