@@ -1,12 +1,9 @@
-package util;
+package projetoconsultório.Util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *
- * @author Marcelo
- */
+
 public class Conexao {
     public Connection con;
     public void conectar(){
@@ -15,9 +12,12 @@ public class Conexao {
         } catch (ClassNotFoundException ex) {
             System.out.println("Driver não encontrado!");
         }
-        String url = "jdbc:mysql://172.17.0.2:/projetoSG?useTimezone=true&serverTimezone=UTC";
+        
+        String url = "jdbc:mysql://localhost:3306/projetoSG?useTimezone=true&serverTimezone=UTC";
+        
+        //Marcelo String url = "jdbc:mysql://172.17.0.2:/projetoSG?useTimezone=true&serverTimezone=UTC";
         String user = "root";
-        String password = "root";
+        String password = "8523";
         try{
             con = DriverManager.getConnection(url, user, password);
         }catch(SQLException e){
