@@ -3,9 +3,9 @@ package projetoconsultório.Model;
 public class Paciente {
 
     private int id;
-    private String nome;
     private int idEndereco;
     private int idPlanoSaude;
+    private String nome;
     private String sexo;
 
     public Paciente() {

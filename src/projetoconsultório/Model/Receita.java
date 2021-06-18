@@ -1,21 +1,22 @@
 package projetoconsultório.Model;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Receita {
 
     private int id;
     private ArrayList<Integer> medicamentos;
-    private String validade;
+    private Date validade;
     private double dosagem;
 
     public Receita() {
         this.medicamentos = new ArrayList<>();
-        this.validade = "";
+        this.validade = new Date(0);
         this.dosagem = 0;
     }
 
-    public Receita(int id, ArrayList<Integer> medicamentos, String validade, double dosagem) {
+    public Receita(int id, ArrayList<Integer> medicamentos, Date validade, double dosagem) {
         this.id = id;
         this.medicamentos = medicamentos;
         this.validade = validade;
@@ -38,11 +39,11 @@ public class Receita {
         this.medicamentos = medicamentos;
     }
 
-    public String getValidade() {
+    public Date getValidade() {
         return validade;
     }
 
-    public void setValidade(String validade) {
+    public void setValidade(Date validade) {
         this.validade = validade;
     }
 
