@@ -1,11 +1,9 @@
-
 package projetoconsultório.Model;
 
 import java.sql.Date;
 
-
 public class Medico {
-    
+
     private int id;
     private String nome;
     private String cpf;
@@ -23,7 +21,7 @@ public class Medico {
         this.disponibilidade = false;
     }
 
-    public Medico(int id,String nome, String cpf, Date dataNascimento, String especializacao, String sexo, boolean disponibilidade) {
+    public Medico(int id, String nome, String cpf, Date dataNascimento, String especializacao, String sexo, boolean disponibilidade) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;

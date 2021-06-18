@@ -1,25 +1,23 @@
-
 package projetoconsultório.Model;
 
 import java.sql.Date;
 
-
 public class Plano_De_Saude {
-    
+
     private int id;
-    private double Valor;
+    private double valor;
     private Date dataExpiracao;
     private String tipo;
- 
+
     public Plano_De_Saude() {
-        this.Valor = 0;
+        this.valor = 0;
         this.dataExpiracao = new Date(0);
         this.tipo = "";
     }
 
     public Plano_De_Saude(int id, double Valor, Date dataExpiracao, String tipo) {
         this.id = id;
-        this.Valor = Valor;
+        this.valor = Valor;
         this.dataExpiracao = dataExpiracao;
         this.tipo = tipo;
     }
@@ -33,11 +31,11 @@ public class Plano_De_Saude {
     }
 
     public double getValor() {
-        return Valor;
+        return valor;
     }
 
     public void setValor(double Valor) {
-        this.Valor = Valor;
+        this.valor = Valor;
     }
 
     public Date getDataExpiracao() {
@@ -55,9 +53,5 @@ public class Plano_De_Saude {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-    
-    
-    
-    
+
 }

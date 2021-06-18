@@ -1,8 +1,7 @@
-
 package projetoconsultório.Model;
 
-
 public class Paciente {
+
     private int id;
     private String nome;
     private int idEndereco;
@@ -13,7 +12,7 @@ public class Paciente {
         this.nome = "";
         this.idEndereco = 0;
         this.idPlanoSaude = 0;
-        this.sexo = "";    
+        this.sexo = "";
     }
 
     public Paciente(int id, String nome, int idEndereco, int idPlanoSaude, String sexo) {
@@ -63,6 +62,5 @@ public class Paciente {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    
-    
+
 }
