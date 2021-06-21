@@ -6,6 +6,7 @@ public class Paciente {
     private int idEndereco;
     private int idPlanoSaude;
     private String nome;
+    private String cpf; 
     private String sexo;
 
     public Paciente() {
@@ -15,18 +16,28 @@ public class Paciente {
         this.sexo = "";
     }
 
-    public Paciente(int id, String nome, int idEndereco, int idPlanoSaude, String sexo) {
+    public Paciente(int id, String nome, int idEndereco, int idPlanoSaude, String sexo,String cpf) {
         this.id = id;
         this.nome = nome;
         this.idEndereco = idEndereco;
         this.idPlanoSaude = idPlanoSaude;
         this.sexo = sexo;
+        this.cpf=cpf;
     }
 
     public int getId() {
         return id;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    
     public void setId(int id) {
         this.id = id;
     }

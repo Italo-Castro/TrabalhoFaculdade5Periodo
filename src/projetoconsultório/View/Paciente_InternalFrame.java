@@ -26,26 +26,30 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jTextNome = new javax.swing.JTextField();
+        jRadioMasculino = new javax.swing.JRadioButton();
+        jRadioFeminino = new javax.swing.JRadioButton();
+        jRadioIndiferente = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jRadioSim = new javax.swing.JRadioButton();
+        jRadioNao = new javax.swing.JRadioButton();
+        jComboPlanoSaude = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextRua = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jTextBairro = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextCidade = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jTextCep = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextCpf = new javax.swing.JFormattedTextField();
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,7 +82,7 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel3Layout.createSequentialGroup()
                 .add(jButton2)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 583, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 638, Short.MAX_VALUE)
                 .add(jButton1))
         );
 
@@ -90,31 +94,37 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Codigo");
 
+        jTextCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextCodigoKeyPressed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel1.setText("Nome");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jRadioButton1.setText("Masculino");
+        buttonGroup1.add(jRadioMasculino);
+        jRadioMasculino.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jRadioMasculino.setText("Masculino");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jRadioButton2.setText("Feminino");
+        buttonGroup1.add(jRadioFeminino);
+        jRadioFeminino.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jRadioFeminino.setText("Feminino");
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jRadioButton3.setText("Indiferente");
+        buttonGroup1.add(jRadioIndiferente);
+        jRadioIndiferente.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jRadioIndiferente.setText("Indiferente");
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setText("Plano Saude");
 
-        jRadioButton4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jRadioButton4.setText("Sim");
+        jRadioSim.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jRadioSim.setText("Sim");
 
-        jRadioButton5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jRadioButton5.setText("Não");
+        jRadioNao.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jRadioNao.setText("Não");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plano Saude X", "Plano Saude Y", "Plano Saude Z" }));
+        jComboPlanoSaude.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plano Saude X", "Plano Saude Y", "Plano Saude Z" }));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel4.setText("Endereço");
@@ -132,7 +142,7 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
         jLabel8.setText("Cep");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            jTextCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -140,47 +150,67 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel9.setText("Sexo");
 
+        jLabel10.setText("Tecle 0 e enter para um novo cliente");
+
+        jLabel11.setText("Informe o cpf e telce enter  ");
+
+        jLabel12.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel12.setText("CPF");
+
+        try {
+            jTextCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         org.jdesktop.layout.GroupLayout jPanel5Layout = new org.jdesktop.layout.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                        .add(jLabel3)
-                        .add(jLabel1)
-                        .add(jPanel5Layout.createSequentialGroup()
-                            .add(jRadioButton1)
-                            .add(18, 18, 18)
-                            .add(jRadioButton2)
-                            .add(18, 18, 18)
-                            .add(jRadioButton3))
-                        .add(jPanel5Layout.createSequentialGroup()
-                            .add(9, 9, 9)
-                            .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(jPanel5Layout.createSequentialGroup()
-                                    .add(jRadioButton4)
-                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                    .add(jRadioButton5))
-                                .add(jLabel2)))
-                        .add(jLabel4)
-                        .add(jPanel5Layout.createSequentialGroup()
-                            .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(jLabel6)
-                                .add(jLabel5)
-                                .add(jLabel7)
-                                .add(jLabel8))
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                                .add(jTextField5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                                .add(org.jdesktop.layout.GroupLayout.LEADING, jTextField3)
-                                .add(org.jdesktop.layout.GroupLayout.LEADING, jTextField4)
-                                .add(org.jdesktop.layout.GroupLayout.LEADING, jFormattedTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 213, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 72, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(jTextField2)
-                        .add(jComboBox1, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .add(jLabel9))
+                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jLabel3)
+                    .add(jLabel1)
+                    .add(jPanel5Layout.createSequentialGroup()
+                        .add(jRadioMasculino)
+                        .add(18, 18, 18)
+                        .add(jRadioFeminino)
+                        .add(18, 18, 18)
+                        .add(jRadioIndiferente))
+                    .add(jPanel5Layout.createSequentialGroup()
+                        .add(9, 9, 9)
+                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel5Layout.createSequentialGroup()
+                                .add(jRadioSim)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(jRadioNao))
+                            .add(jLabel2)))
+                    .add(jLabel4)
+                    .add(jPanel5Layout.createSequentialGroup()
+                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel6)
+                            .add(jLabel5)
+                            .add(jLabel7)
+                            .add(jLabel8))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                            .add(jTextCidade)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextRua)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextBairro)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel5Layout.createSequentialGroup()
+                                .add(jTextCep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 213, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jLabel11))))
+                    .add(jPanel5Layout.createSequentialGroup()
+                        .add(jTextCodigo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 72, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabel10))
+                    .add(jTextNome)
+                    .add(jComboPlanoSaude, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jLabel9)
+                    .add(jLabel12)
+                    .add(jTextCpf))
                 .addContainerGap(492, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -189,47 +219,54 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
                 .add(27, 27, 27)
                 .add(jLabel3)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jTextCodigo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel10))
                 .add(18, 18, 18)
                 .add(jLabel1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jTextNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jLabel12)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jTextCpf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(jLabel9)
                 .add(2, 2, 2)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jRadioButton1)
-                    .add(jRadioButton2)
-                    .add(jRadioButton3))
+                    .add(jRadioMasculino)
+                    .add(jRadioFeminino)
+                    .add(jRadioIndiferente))
                 .add(36, 36, 36)
                 .add(jLabel2)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jRadioButton4)
-                    .add(jRadioButton5))
+                    .add(jRadioSim)
+                    .add(jRadioNao))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jComboPlanoSaude, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(31, 31, 31)
                 .add(jLabel4)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel8)
-                    .add(jFormattedTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jTextCep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel11))
                 .add(11, 11, 11)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jLabel5)
-                        .add(jTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(jTextRua, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel5Layout.createSequentialGroup()
                         .add(42, 42, 42)
                         .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 28, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jTextBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 28, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jLabel6))))
                 .add(18, 18, 18)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
-                    .add(jTextField5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(161, Short.MAX_VALUE))
+                    .add(jTextCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel5);
@@ -239,13 +276,13 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -269,16 +306,38 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTextCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCodigoKeyPressed
+        if(jTextCodigo.equals("0")) {
+           jTextNome.setText("");
+           jTextCpf.setText("");
+           jTextCep.setText("");
+           jRadioMasculino.setSelected(false);
+           jRadioFeminino.setSelected(false);
+           jRadioIndiferente.setSelected(false);
+           jTextRua.setText("");
+           jTextBairro.setText("");
+           jTextCidade.setText("");
+           jRadioSim.setSelected(false);
+           jRadioNao.setSelected(false);
+           jComboPlanoSaude.setSelectedIndex(0);
+        }
+        else {
+            //aqui efetua  a busca pelo ID digitado no campo codigo e preenche os campos da tela.
+        }
+    }//GEN-LAST:event_jTextCodigoKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboPlanoSaude;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -291,18 +350,20 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioFeminino;
+    private javax.swing.JRadioButton jRadioIndiferente;
+    private javax.swing.JRadioButton jRadioMasculino;
+    private javax.swing.JRadioButton jRadioNao;
+    private javax.swing.JRadioButton jRadioSim;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JSplitPane jSplitPane3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextBairro;
+    private javax.swing.JFormattedTextField jTextCep;
+    private javax.swing.JTextField jTextCidade;
+    private javax.swing.JTextField jTextCodigo;
+    private javax.swing.JFormattedTextField jTextCpf;
+    private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextField jTextRua;
     // End of variables declaration//GEN-END:variables
 }
