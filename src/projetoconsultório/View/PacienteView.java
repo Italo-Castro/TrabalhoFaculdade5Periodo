@@ -75,7 +75,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Adicionar");
+        jButton2.setText("Gravar");
 
         org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -87,8 +87,9 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .add(jButton2)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 624, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 609, Short.MAX_VALUE)
                 .add(jButton1))
         );
 
@@ -100,6 +101,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Codigo");
 
+        jTextCodigo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTextCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextCodigoKeyPressed(evt);
@@ -108,6 +110,8 @@ public class PacienteView extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel1.setText("Nome");
+
+        jTextNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         buttonGroup1.add(jRadioMasculino);
         jRadioMasculino.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -138,11 +142,17 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("Rua");
 
+        jTextRua.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
         jLabel6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel6.setText("Bairro");
 
+        jTextBairro.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel7.setText("Cidade");
+
+        jTextCidade.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel8.setText("Cep");
@@ -152,6 +162,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jTextCep.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel9.setText("Sexo");
@@ -168,6 +179,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jTextCpf.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         org.jdesktop.layout.GroupLayout jPanel5Layout = new org.jdesktop.layout.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
