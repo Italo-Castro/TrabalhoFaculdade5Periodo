@@ -1,10 +1,12 @@
 
 package projetoconsultório.View;
 
-public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
+import static java.awt.event.KeyEvent.VK_ENTER;
+
+public class PacienteView extends javax.swing.JInternalFrame {
 
     
-    public Paciente_InternalFrame() {
+    public PacienteView() {
         initComponents();
     }
 
@@ -62,6 +64,10 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
             .add(0, 100, Short.MAX_VALUE)
         );
 
+        setClosable(true);
+        setIconifiable(true);
+        setResizable(true);
+
         jButton1.setText("Sair");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +88,7 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel3Layout.createSequentialGroup()
                 .add(jButton2)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 638, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 624, Short.MAX_VALUE)
                 .add(jButton1))
         );
 
@@ -276,13 +282,13 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -292,11 +298,11 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jSplitPane2)
+            .add(jSplitPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jSplitPane2)
+            .add(jSplitPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
         );
 
         pack();
@@ -307,22 +313,26 @@ public class Paciente_InternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCodigoKeyPressed
-        if(jTextCodigo.equals("0")) {
-           jTextNome.setText("");
-           jTextCpf.setText("");
-           jTextCep.setText("");
-           jRadioMasculino.setSelected(false);
-           jRadioFeminino.setSelected(false);
-           jRadioIndiferente.setSelected(false);
-           jTextRua.setText("");
-           jTextBairro.setText("");
-           jTextCidade.setText("");
-           jRadioSim.setSelected(false);
-           jRadioNao.setSelected(false);
-           jComboPlanoSaude.setSelectedIndex(0);
-        }
+        if(evt.getKeyCode() == VK_ENTER){
+            if(jTextCodigo.getText().equals("0")) {
+               jTextCodigo.setEnabled(false);
+               jTextNome.requestFocus();
+               jTextNome.setText("");
+               jTextCpf.setText("");
+               jTextCep.setText("");
+               jRadioMasculino.setSelected(false);
+               jRadioFeminino.setSelected(false);
+               jRadioIndiferente.setSelected(false);
+               jTextRua.setText("");
+               jTextBairro.setText("");
+               jTextCidade.setText("");
+               jRadioSim.setSelected(false);
+               jRadioNao.setSelected(false);
+               jComboPlanoSaude.setSelectedIndex(0);
+            }
         else {
             //aqui efetua  a busca pelo ID digitado no campo codigo e preenche os campos da tela.
+        }
         }
     }//GEN-LAST:event_jTextCodigoKeyPressed
 
