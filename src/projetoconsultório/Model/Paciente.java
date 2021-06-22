@@ -3,11 +3,11 @@ package projetoconsultório.Model;
 public class Paciente {
 
     private int id;
-    private int idEndereco;
-    private int idPlanoSaude;
     private String nome;
     private String cpf; 
     private String sexo;
+    private int idEndereco;
+    private int idPlanoSaude;
 
     public Paciente() {
         this.nome = "";

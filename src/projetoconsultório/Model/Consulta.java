@@ -2,11 +2,11 @@ package projetoconsultório.Model;
 
 public class Consulta {
 
-    private int idConsulta;
+    private int id;
     private int idMedico;
     private int idPaciente;
-    private String relatoPaciente;
     private int idReceita;
+    private String relatoPaciente;
 
     public Consulta() {
         this.idPaciente = 0;
@@ -22,11 +22,11 @@ public class Consulta {
     }
 
     public int getIdConsulta() {
-        return idConsulta;
+        return id;
     }
 
     public void setIdConsulta(int idConsulta) {
-        this.idConsulta = idConsulta;
+        this.id = idConsulta;
     }
 
     public int getIdMedico() {
