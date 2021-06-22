@@ -1,4 +1,3 @@
 Italo -------
 
-Alterei a classe Paciente, adicionando uma String para armazenar o cpf.
-Alterei o arquivo PacienteView, deixando a tela em estado final.
+Alterei as telas de medico, medicamento e Plano de Saude
