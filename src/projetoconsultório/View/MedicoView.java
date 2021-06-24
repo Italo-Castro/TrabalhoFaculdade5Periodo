@@ -2,6 +2,12 @@
 package projetoconsultório.View;
 
 import static java.awt.event.KeyEvent.VK_ENTER;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import projetoconsultório.Controller.MedicoController;
+import projetoconsultório.Model.Medico;
 
 public class MedicoView extends javax.swing.JInternalFrame {
 
@@ -17,9 +23,9 @@ public class MedicoView extends javax.swing.JInternalFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonNovo = new javax.swing.JButton();
+        jButtonSave = new javax.swing.JButton();
+        jButtonExit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -36,19 +42,24 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextEspecializacao = new javax.swing.JTextField();
 
-        jButton1.setText("Novo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNovo.setText("Novo");
+        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonNovoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Gravar");
-
-        jButton3.setText("Sair");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSave.setText("Gravar");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonSaveActionPerformed(evt);
+            }
+        });
+
+        jButtonExit.setText("Sair");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExitActionPerformed(evt);
             }
         });
 
@@ -56,19 +67,19 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jButton3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jButtonSave, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jButtonNovo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jButtonExit, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jButton1)
+                .add(jButtonNovo)
                 .add(18, 18, 18)
-                .add(jButton2)
+                .add(jButtonSave)
                 .add(18, 18, 18)
-                .add(jButton3)
+                .add(jButtonExit)
                 .addContainerGap(248, Short.MAX_VALUE))
         );
 
@@ -197,23 +208,6 @@ public class MedicoView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-       jTextCodigo.setEnabled(false);
-       jTextNome.requestFocus();
-       jTextNome.setText("");
-       jTextCpf.setText("");
-       jTextDataNascimento.setText("");
-       jRadioMasculino.setSelected(false);
-       jRadioFeminino.setSelected(false);
-       jTextEspecializacao.setText("");
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jTextCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCodigoKeyPressed
         if(evt.getKeyCode() == VK_ENTER){
             if(jTextCodigo.getText().equals("0")) {
@@ -231,11 +225,72 @@ public class MedicoView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTextCodigoKeyPressed
 
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonExitActionPerformed
+
+    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
+
+        jTextCodigo.setEnabled(false);
+        jTextNome.requestFocus();
+        jTextNome.setText("");
+        jTextCpf.setText("");
+        jTextDataNascimento.setText("");
+        jRadioMasculino.setSelected(false);
+        jRadioFeminino.setSelected(false);
+        jTextEspecializacao.setText("");
+
+    }//GEN-LAST:event_jButtonNovoActionPerformed
+
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
+        Medico medico = new Medico();
+        MedicoController controller = new MedicoController();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String sexo = "";
+
+        
+        String data = jTextDataNascimento.getText();
+        
+        
+       // try {
+         //   Date dataNascimento  = (Date) sdf.parse(data);
+            //medico.setDataNascimento(dataNascimento);
+           
+            
+            
+            if(jRadioFeminino.isSelected()) {
+                sexo = "FEMININO";
+            }
+            else if (jRadioMasculino.isSelected()) {
+                sexo = "MASCULINO";
+            }
+           
+                medico.setNome(jTextNome.getText());
+                medico.setCpf(jTextCpf.getText());
+                medico.setEspecializacao(jTextEspecializacao.getText());
+                medico.setSexo(sexo);
+                
+                 boolean retorno = controller.cadastrarMedico(medico);    
+          
+            
+                if(retorno){
+                    JOptionPane.showMessageDialog(null,"Erro ao inserir no banco de dados");
+                }else {
+                     JOptionPane.showMessageDialog(null,"Medico cadastrado com sucesso");
+                   
+                }
+            
+        //} catch (ParseException ex) {
+          //  JOptionPane.showMessageDialog(null,"Erro ao gravar data de nascimento"+ex.getMessage());
+        //}
+
+    }//GEN-LAST:event_jButtonSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonNovo;
+    private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

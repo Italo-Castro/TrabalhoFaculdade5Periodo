@@ -13,7 +13,7 @@ public class Conexao {
             System.out.println("Driver não encontrado!");
         }
         
-        String url = "jdbc:mysql://localhost:3306/projetoConsultorioSG?useTimezone=true&serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:3306/projetoConsultorio";
         
         //Marcelo String url = "jdbc:mysql://172.17.0.2:/projetoConsultorioSG?useTimezone=true&serverTimezone=UTC";
         String user = "root";
