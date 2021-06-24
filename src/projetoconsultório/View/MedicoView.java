@@ -11,7 +11,7 @@ import projetoconsultório.Model.Medico;
 
 public class MedicoView extends javax.swing.JInternalFrame {
 
-    
+    MedicoController controller = new MedicoController();
     public MedicoView() {
         initComponents();
     }
@@ -220,6 +220,22 @@ public class MedicoView extends javax.swing.JInternalFrame {
                 jRadioFeminino.setSelected(false);
                 jTextEspecializacao.setText("");
             }else {
+                int id = Integer.parseInt(jTextCodigo.getText());
+                Medico medico = controller.buscarPorId(id);
+                jTextNome.setText(medico.getNome());
+                jTextDataNascimento.setText(medico.getDataNascimento().toString());
+                jTextEspecializacao.setText(medico.getEspecializacao());
+                jTextCpf.setText(medico.getCpf());
+                
+                String sexo = medico.getSexo();
+                
+                if(sexo.equals("MASCULINO")){
+                    jRadioMasculino.setSelected(true);
+                }
+                else if (sexo.equals("FEMININO")) {
+                    jRadioFeminino.setSelected(true);
+                }
+                
                 //aqui busca pelo id do medico digitado no campo de codigo
             }
         }
@@ -244,7 +260,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         Medico medico = new Medico();
-        MedicoController controller = new MedicoController();
+        
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String sexo = "";
 
