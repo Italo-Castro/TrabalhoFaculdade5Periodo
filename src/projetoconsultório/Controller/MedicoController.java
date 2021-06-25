@@ -1,6 +1,6 @@
 package projetoconsultório.Controller;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +23,7 @@ public class MedicoController {
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             
             sentenca.setString(1, medico.getNome());   
-            sentenca.setDate(2, (Date) medico.getDataNascimento());   
+            //sentenca.setDate(2,  medico.getDataNascimento());   
             sentenca.setString(3, medico.getEspecializacao());   
             sentenca.setString(4, medico.getSexo());   
             sentenca.setBoolean(5, medico.isDisponibilidade());   
@@ -120,7 +120,9 @@ public class MedicoController {
             sentenca.setInt(1, medico.getId());
             sentenca.setString(1,medico.getNome());
             sentenca.setString(2,medico.getCpf());
-            sentenca.setDate(3,medico.getDataNascimento());
+            
+            //sentenca.setDate(3,medico.getDataNascimento());
+            
             sentenca.setString(4,medico.getSexo());
             sentenca.setString(5,medico.getEspecializacao());
             sentenca.setBoolean(6,medico.isDisponibilidade());

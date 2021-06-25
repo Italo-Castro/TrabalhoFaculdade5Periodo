@@ -269,7 +269,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
         
         String data = jTextDataNascimento.getText().toString();
         
-        
+/*
         try {
             
            Date dataNascimento  =  sdf.parse(data); 
@@ -277,6 +277,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
             medico.setDataNascimento(dataNascimento);
            
             JOptionPane.showMessageDialog(null, sdf.format(dataNascimento));
+*/
             if(jRadioFeminino.isSelected()) {
                 sexo = "FEMININO";
             }
@@ -298,11 +299,11 @@ public class MedicoView extends javax.swing.JInternalFrame {
                      JOptionPane.showMessageDialog(null,"Medico cadastrado com sucesso");
                    
                 }
-            
+/*    
         } catch (ParseException ex) {
            JOptionPane.showMessageDialog(null,"Erro ao gravar data de nascimento"+ex.getMessage());
        }
-
+*/
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
 
