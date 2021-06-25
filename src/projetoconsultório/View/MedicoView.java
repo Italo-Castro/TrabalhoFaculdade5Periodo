@@ -220,6 +220,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
                 jRadioFeminino.setSelected(false);
                 jTextEspecializacao.setText("");
             }else {
+                jTextCodigo.setEnabled(false);
                 int id = Integer.parseInt(jTextCodigo.getText());
                 Medico medico = controller.buscarPorId(id);
                 jTextNome.setText(medico.getNome());

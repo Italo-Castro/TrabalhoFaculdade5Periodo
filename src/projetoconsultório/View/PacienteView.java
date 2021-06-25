@@ -2,14 +2,38 @@
 package projetoconsultório.View;
 
 import static java.awt.event.KeyEvent.VK_ENTER;
+import java.util.ArrayList;
+import projetoconsultório.Controller.PlanoDeSaudeController;
+import projetoconsultório.Model.Paciente;
+import projetoconsultório.Model.PlanoDeSaude;
 
 public class PacienteView extends javax.swing.JInternalFrame {
 
     
     public PacienteView() {
         initComponents();
+        carregarJcomboPlanoSaude();
     }
-
+    
+    public void carregarJcomboPlanoSaude(){
+        ArrayList<PlanoDeSaude> lista = new ArrayList();
+        PlanoDeSaudeController controller = new PlanoDeSaudeController();
+        
+        lista = controller.buscarPlanoSaude();
+        
+        if(lista.isEmpty()){
+            jComboPlanoDeSaude.addItem("NÃO HÁ PLANOS DE SAUDE CADASTRADOS");
+        }
+        
+        else {
+            
+        for (PlanoDeSaude planos : lista){
+            
+            jComboPlanoDeSaude.addItem(planos.getTipo());
+            
+            }
+        }
+    }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,6 +47,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jSplitPane2 = new javax.swing.JSplitPane();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -41,7 +66,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jRadioSim = new javax.swing.JRadioButton();
         jRadioNao = new javax.swing.JRadioButton();
-        jComboPlanoSaude = new javax.swing.JComboBox<>();
+        jComboPlanoDeSaude = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextRua = new javax.swing.JTextField();
@@ -86,8 +111,18 @@ public class PacienteView extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Gravar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Novo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -144,13 +179,13 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setText("Plano Saude");
 
+        buttonGroup2.add(jRadioSim);
         jRadioSim.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jRadioSim.setText("Sim");
 
+        buttonGroup2.add(jRadioNao);
         jRadioNao.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jRadioNao.setText("Não");
-
-        jComboPlanoSaude.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Plano Saude X", "Plano Saude Y", "Plano Saude Z" }));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel4.setText("Endereço");
@@ -183,7 +218,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel9.setText("Sexo");
 
-        jLabel10.setText("Tecle 0 e enter para um novo cliente");
+        jLabel10.setText("Tecle 0 e enter para um novo paciente");
 
         jLabel11.setText("Informe o cpf e telce enter  ");
 
@@ -241,7 +276,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jLabel10))
                     .add(jTextNome)
-                    .add(jComboPlanoSaude, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jComboPlanoDeSaude, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jLabel9)
                     .add(jLabel12)
                     .add(jTextCpf))
@@ -278,7 +313,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
                     .add(jRadioSim)
                     .add(jRadioNao))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jComboPlanoSaude, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jComboPlanoDeSaude, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(31, 31, 31)
                 .add(jLabel4)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
@@ -356,7 +391,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
                jTextCidade.setText("");
                jRadioSim.setSelected(false);
                jRadioNao.setSelected(false);
-               jComboPlanoSaude.setSelectedIndex(0);
+               jComboPlanoDeSaude.setSelectedIndex(0);
             }
         else {
             //aqui efetua  a busca pelo ID digitado no campo codigo e preenche os campos da tela.
@@ -364,14 +399,64 @@ public class PacienteView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTextCodigoKeyPressed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        jTextCodigo.setEnabled(false);
+        jTextNome.setText("");
+        jTextNome.requestFocus();
+        jTextCpf.setText("");
+        jRadioMasculino.setSelected(false);
+        jRadioFeminino.setSelected(false);
+        jRadioIndiferente.setSelected(false);
+        jRadioSim.setSelected(false);
+        jRadioNao.setSelected(false);
+        jTextCep.setText("");
+        jTextRua.setText("");
+        jTextBairro.setText("");
+        jTextCidade.setText("");
+        jComboPlanoDeSaude.setSelectedIndex(-1);
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Paciente paciente = new Paciente();
+        
+        paciente.setCpf(jTextCpf.getText());
+        paciente.setNome(jTextNome.getText());
+        
+        String sexo = "";
+        if(jRadioFeminino.isSelected()) {
+            sexo = "FEMININO";
+        }
+        else if (jRadioMasculino.isSelected()) {
+            sexo = "MASCULINO";
+        }
+        else if (jRadioIndiferente.isSelected()){
+            sexo = "INDIFERENTE";
+        }
+        
+        paciente.setSexo(sexo);
+        
+        PlanoDeSaude plano = new PlanoDeSaude();
+       
+        
+        PlanoDeSaudeController controllerPlanoSaude = new PlanoDeSaudeController();
+        plano = controllerPlanoSaude.buscarPlanoSaudePorNome(jComboPlanoDeSaude.getSelectedItem().toString());
+        
+        paciente.setIdPlanoSaude(plano.getId());
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboPlanoSaude;
+    private javax.swing.JComboBox<String> jComboPlanoDeSaude;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

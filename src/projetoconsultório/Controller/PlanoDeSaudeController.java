@@ -5,14 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import projetoconsultório.Model.Plano_De_Saude;
+import projetoconsultório.Model.PlanoDeSaude;
 import projetoconsultório.Util.Conexao;
 
-public class Plano_De_SaudeController {
-    public Boolean cadastrarPlanoSaude(Plano_De_Saude plano){
+public class PlanoDeSaudeController {
+    
+    public Boolean cadastrarPlanoSaude(PlanoDeSaude plano){
         boolean retorno = false;
         
-        String sql = "INSERT INTO plano (tipo, dataExpiracao, valor) VALUES(?,?,?)";
+        String sql = "INSERT INTO planosaude (tipo, dataExpiracao, valor) VALUES(?,?,?)";
         
         Conexao conexao = new Conexao();
         
@@ -38,10 +39,10 @@ public class Plano_De_SaudeController {
     }
     
     
-    public Plano_De_Saude buscarPorId(int id){
-        Plano_De_Saude plano = new Plano_De_Saude();
+    public PlanoDeSaude buscarPorId(int id){
+        PlanoDeSaude plano = new PlanoDeSaude();
 
-        String sql = "SELECT * FROM plano WHERE id = ?";
+        String sql = "SELECT * FROM planosaude WHERE id = ?";
         
         Conexao conexao = new Conexao();
 
@@ -65,10 +66,10 @@ public class Plano_De_SaudeController {
         return plano;
     }
     
-    public ArrayList<Plano_De_Saude> buscarPlanoSaude(){
-        ArrayList<Plano_De_Saude> planos = new ArrayList<>();
+    public ArrayList<PlanoDeSaude> buscarPlanoSaude(){
+        ArrayList<PlanoDeSaude> planos = new ArrayList<>();
 
-        String sql = "SELECT * FROM plano";
+        String sql = "SELECT * FROM planosaude";
         
         Conexao conexao = new Conexao();
         
@@ -78,7 +79,7 @@ public class Plano_De_SaudeController {
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             ResultSet resultSet = sentenca.executeQuery();
             while(resultSet.next()){
-                Plano_De_Saude plano = new Plano_De_Saude();
+                PlanoDeSaude plano = new PlanoDeSaude();
                 
                 plano.setId(resultSet.getInt("id"));
                 plano.setDataExpiracao(resultSet.getDate("dataExpiracao"));
@@ -95,7 +96,7 @@ public class Plano_De_SaudeController {
         return planos;
     }
     
-    public Boolean atualizarPlanoSaude(Plano_De_Saude plano){
+    public Boolean atualizarPlanoSaude(PlanoDeSaude plano){
         boolean retorno = false;
         
         String sql = "UPDATE plano p set p.dataExpiracao = ?, p.tipo = ?, p.valor = ? WHERE id = ?";
@@ -120,5 +121,35 @@ public class Plano_De_SaudeController {
         
         conexao.desconectar();
         return retorno;
+    }
+    
+    public PlanoDeSaude buscarPlanoSaudePorNome(String nome){
+        PlanoDeSaude plano = new PlanoDeSaude();
+        
+        String sql = "SELECT * FROM planoSaude where nome = "+nome;
+        
+        Conexao conexao = new Conexao();
+        
+        conexao.conectar();
+        
+        try{
+            PreparedStatement sentenca = conexao.con.prepareStatement(sql);
+            ResultSet resultSet = sentenca.executeQuery();
+            while(resultSet.next()){
+                
+                
+                plano.setId(resultSet.getInt("id"));
+                plano.setDataExpiracao(resultSet.getDate("dataExpiracao"));
+                plano.setTipo(resultSet.getString("tipo"));
+                plano.setValor(resultSet.getDouble("valor"));
+                
+                
+            }
+        }catch(SQLException e){
+            System.out.println("Falha ao buscar planos: \n" + e.getMessage());
+        }
+        
+        conexao.desconectar();
+        return plano;
     }
 }

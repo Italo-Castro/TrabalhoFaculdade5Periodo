@@ -2,20 +2,20 @@ package projetoconsultório.Model;
 
 import java.sql.Date;
 
-public class Plano_De_Saude {
+public class PlanoDeSaude {
 
     private int id;
     private double valor;
     private Date dataExpiracao;
     private String tipo;
 
-    public Plano_De_Saude() {
+    public PlanoDeSaude() {
         this.valor = 0;
         this.dataExpiracao = new Date(0);
         this.tipo = "";
     }
 
-    public Plano_De_Saude(int id, double Valor, Date dataExpiracao, String tipo) {
+    public PlanoDeSaude(int id, double Valor, Date dataExpiracao, String tipo) {
         this.id = id;
         this.valor = Valor;
         this.dataExpiracao = dataExpiracao;
