@@ -2,9 +2,9 @@
 package projetoconsultório.View;
 
 import static java.awt.event.KeyEvent.VK_ENTER;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import projetoconsultório.Controller.MedicoController;
 import projetoconsultório.Model.Medico;
@@ -12,11 +12,11 @@ import projetoconsultório.Model.Medico;
 public class MedicoView extends javax.swing.JInternalFrame {
 
     MedicoController controller = new MedicoController();
+    
     public MedicoView() {
         initComponents();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -264,17 +264,19 @@ public class MedicoView extends javax.swing.JInternalFrame {
         
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String sexo = "";
+ 
+        
+        
+        String data = jTextDataNascimento.getText().toString();
+        
+        
+        try {
+            
+           Date dataNascimento  =  sdf.parse(data); 
 
-        
-        String data = jTextDataNascimento.getText();
-        
-        
-       // try {
-         //   Date dataNascimento  = (Date) sdf.parse(data);
-            //medico.setDataNascimento(dataNascimento);
+            medico.setDataNascimento(dataNascimento);
            
-            
-            
+            JOptionPane.showMessageDialog(null, sdf.format(dataNascimento));
             if(jRadioFeminino.isSelected()) {
                 sexo = "FEMININO";
             }
@@ -287,7 +289,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
                 medico.setEspecializacao(jTextEspecializacao.getText());
                 medico.setSexo(sexo);
                 
-                 boolean retorno = controller.cadastrarMedico(medico);    
+                boolean retorno = controller.cadastrarMedico(medico);    
           
             
                 if(retorno){
@@ -297,9 +299,9 @@ public class MedicoView extends javax.swing.JInternalFrame {
                    
                 }
             
-        //} catch (ParseException ex) {
-          //  JOptionPane.showMessageDialog(null,"Erro ao gravar data de nascimento"+ex.getMessage());
-        //}
+        } catch (ParseException ex) {
+           JOptionPane.showMessageDialog(null,"Erro ao gravar data de nascimento"+ex.getMessage());
+       }
 
     }//GEN-LAST:event_jButtonSaveActionPerformed
 

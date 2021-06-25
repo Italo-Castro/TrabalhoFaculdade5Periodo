@@ -101,13 +101,16 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
         PacienteView p = new PacienteView();
         p.setVisible(false);
         jDesktopPane1.add(p);
         p.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        
          MedicoView m = new MedicoView();
          m.setVisible(true);
          jDesktopPane1.add(m);
@@ -115,9 +118,11 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        
         PlanoDeSaudeView p = new PlanoDeSaudeView();
         jDesktopPane1.add(p);
         p.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     public static void main(String args[]) {

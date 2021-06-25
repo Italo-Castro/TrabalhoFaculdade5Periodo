@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Controller/MedicoController.java</file>
+            <file>file:/C:/ProjetoConsultorio/src/ProjetoConsultorio/Principal.java</file>
+            <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Controller/PlanoDeSaudeController.java</file>
+            <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/View/PacienteView.java</file>
+            <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Model/PlanoDeSaude.java</file>
             <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Util/Conexao.java</file>
+            <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/View/PlanoDeSaudeView.java</file>
             <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/View/MedicoView.java</file>
         </group>
     </open-files>
