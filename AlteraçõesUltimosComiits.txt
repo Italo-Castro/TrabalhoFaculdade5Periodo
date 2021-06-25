@@ -1,6 +1,7 @@
 Italo -------
 
-Alterei as telas de medico, medicamento e Plano de Saude
+Fiz a logica do cadastro de medicos e planos de saude, ainda falta alguns ajustes, mas deixa comigo.
+Cadastro de paciente ainda falta o cadastro do endereco, também farei na proxima oportunidade.
 
 Marcelo ----
 
