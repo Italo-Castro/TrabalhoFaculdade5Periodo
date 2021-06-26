@@ -1,9 +1,13 @@
 
 package projetoconsultório.View;
 
+import br.com.parg.viacep.ViaCEP;
+import br.com.parg.viacep.ViaCEPException;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import projetoconsultório.Controller.PlanoDeSaudeController;
+import projetoconsultório.Model.Endereco;
 import projetoconsultório.Model.Paciente;
 import projetoconsultório.Model.PlanoDeSaude;
 
@@ -81,6 +85,8 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jTextCpf = new javax.swing.JFormattedTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jComboEstado = new javax.swing.JComboBox<>();
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -141,7 +147,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
                 .add(jButton2)
                 .add(18, 18, 18)
                 .add(jButton1)
-                .addContainerGap(574, Short.MAX_VALUE))
+                .addContainerGap(618, Short.MAX_VALUE))
         );
 
         jSplitPane2.setLeftComponent(jPanel3);
@@ -214,6 +220,11 @@ public class PacienteView extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         jTextCep.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextCep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextCepKeyPressed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel9.setText("Sexo");
@@ -231,6 +242,11 @@ public class PacienteView extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         jTextCpf.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        jLabel13.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel13.setText("Estado");
+
+        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RJ", "SP", "MG", "SC" }));
 
         org.jdesktop.layout.GroupLayout jPanel5Layout = new org.jdesktop.layout.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -258,11 +274,15 @@ public class PacienteView extends javax.swing.JInternalFrame {
                     .add(jLabel4)
                     .add(jPanel5Layout.createSequentialGroup()
                         .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel6)
-                            .add(jLabel5)
-                            .add(jLabel7)
-                            .add(jLabel8))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(jPanel5Layout.createSequentialGroup()
+                                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jLabel6)
+                                    .add(jLabel5)
+                                    .add(jLabel8))
+                                .add(15, 15, 15))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .add(jLabel7)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
                         .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(jTextCidade)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jTextRua)
@@ -279,7 +299,11 @@ public class PacienteView extends javax.swing.JInternalFrame {
                     .add(jComboPlanoDeSaude, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jLabel9)
                     .add(jLabel12)
-                    .add(jTextCpf))
+                    .add(jTextCpf)
+                    .add(jPanel5Layout.createSequentialGroup()
+                        .add(jLabel13)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jComboEstado, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(492, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -331,11 +355,15 @@ public class PacienteView extends javax.swing.JInternalFrame {
                         .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jTextBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 28, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jLabel6))))
-                .add(18, 18, 18)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jTextCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel7))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel7)
-                    .add(jTextCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
+                    .add(jLabel13)
+                    .add(jComboEstado, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel5);
@@ -351,7 +379,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -420,6 +448,12 @@ public class PacienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       Endereco endereco = new Endereco();
+       endereco.setBairro(jTextBairro.getText());
+       endereco.setCidade(jTextCidade.getText());
+       endereco.setEstado(jComboEstado.getSelectedItem().toString());
+       
+       
         Paciente paciente = new Paciente();
         
         paciente.setCpf(jTextCpf.getText());
@@ -448,6 +482,25 @@ public class PacienteView extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTextCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCepKeyPressed
+        if(evt.getKeyCode() == VK_ENTER){
+            ViaCEP cep = new ViaCEP();
+            try {
+                
+                cep.buscar(jTextCep.getText().toString());
+                jTextRua.setText(cep.getLogradouro());
+                jTextCidade.setText(cep.getLocalidade());
+                jTextBairro.setText(cep.getBairro());
+                jComboEstado.setSelectedItem(cep.getUf());
+             
+                
+            } catch (ViaCEPException ex) {
+                JOptionPane.showMessageDialog(null,"Erro ao buscar CEP");
+            }
+            
+        }
+    }//GEN-LAST:event_jTextCepKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -456,12 +509,14 @@ public class PacienteView extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboEstado;
     private javax.swing.JComboBox<String> jComboPlanoDeSaude;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
