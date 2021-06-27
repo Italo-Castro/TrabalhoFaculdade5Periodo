@@ -6,13 +6,17 @@ import br.com.parg.viacep.ViaCEPException;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import projetoconsultório.Controller.EnderecoController;
+import projetoconsultório.Controller.PacienteController;
 import projetoconsultório.Controller.PlanoDeSaudeController;
 import projetoconsultório.Model.Endereco;
 import projetoconsultório.Model.Paciente;
 import projetoconsultório.Model.PlanoDeSaude;
 
 public class PacienteView extends javax.swing.JInternalFrame {
-
+    
+    PacienteController controller = new PacienteController();
+    
     
     public PacienteView() {
         initComponents();
@@ -448,17 +452,40 @@ public class PacienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       PlanoDeSaude plano = new PlanoDeSaude();
+       Paciente paciente = new Paciente();
        Endereco endereco = new Endereco();
+       EnderecoController controllerEndereco = new EnderecoController();
+       
+       endereco.setCep(jTextCep.getText());
        endereco.setBairro(jTextBairro.getText());
        endereco.setCidade(jTextCidade.getText());
        endereco.setEstado(jComboEstado.getSelectedItem().toString());
+       endereco.setRua(jTextRua.getText());
+      
+       JOptionPane.showMessageDialog(null,jTextCep.getText());
+     
        
        
-        Paciente paciente = new Paciente();
-        
-        paciente.setCpf(jTextCpf.getText());
-        paciente.setNome(jTextNome.getText());
-        
+       Endereco en = controllerEndereco.buscarEnderecoPorCep(jTextCep.getText()); // nesta linha consulta se o cep ja esta cadastrad
+       int idEndereco = 0;
+       
+       if(en != null){                                                          // se ele ja estiver cadastrado o objeto não sera nulo, ai eu pego o id dele para colocar no idEndereco, do cliente.
+           idEndereco = en.getId();
+           JOptionPane.showMessageDialog(null,"Dentro do if tenho isso ->"+en.getId());
+       }
+       else {
+            controllerEndereco.cadastrarEndereco(endereco);                    // se o objeto for nulo cadastro o endereco;
+            en = controllerEndereco.buscarEnderecoPorCep(jTextCep.getText()); //busco o cep que acabei de cadastrar
+            idEndereco = en.getId();                                                       //pego o id do cep recem cadastrado
+       }
+       
+       JOptionPane.showMessageDialog(null,"Fora do iff tenho isso ->"+idEndereco);
+       paciente.setIdEndereco(idEndereco);
+       paciente.setCpf(jTextCpf.getText());
+       paciente.setNome(jTextNome.getText());
+       
+       
         String sexo = "";
         if(jRadioFeminino.isSelected()) {
             sexo = "FEMININO";
@@ -472,14 +499,28 @@ public class PacienteView extends javax.swing.JInternalFrame {
         
         paciente.setSexo(sexo);
         
-        PlanoDeSaude plano = new PlanoDeSaude();
        
-        
+       
+        if(jRadioSim.isSelected()) {
+            
         PlanoDeSaudeController controllerPlanoSaude = new PlanoDeSaudeController();
-        plano = controllerPlanoSaude.buscarPlanoSaudePorNome(jComboPlanoDeSaude.getSelectedItem().toString());
+        plano = controllerPlanoSaude.buscarPlanoSaudePorTipo(jComboPlanoDeSaude.getSelectedItem().toString());
         
-        paciente.setIdPlanoSaude(plano.getId());
+        }
+        else if(jRadioNao.isSelected()){
+          paciente.setIdPlanoSaude(plano.getId());
+        }
         
+        controller.cadastrarPaciente(paciente);
+        
+        if(controller.cadastrarPaciente(paciente)){
+            JOptionPane.showMessageDialog(null,"Paciente cadastrado");
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Erro ao cadastrar Paciente");
+            
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCepKeyPressed

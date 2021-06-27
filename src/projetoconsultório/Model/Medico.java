@@ -1,6 +1,8 @@
 package projetoconsultório.Model;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 
 
@@ -17,7 +19,7 @@ public class Medico {
     public Medico() {
         this.nome = "";
         this.cpf = "";
-        this.dataNascimento = new Date();
+        this.dataNascimento = new Date(0);
         this.especializacao = "";
         this.sexo = "";
         this.disponibilidade = false;

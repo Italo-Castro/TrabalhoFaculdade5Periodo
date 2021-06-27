@@ -1,9 +1,6 @@
 
 package ProjetoConsultorio;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import projetoconsultório.View.ConsultaView;
 import projetoconsultório.View.MedicoView;
 import projetoconsultório.View.PacienteView;
@@ -11,7 +8,9 @@ import projetoconsultório.View.PlanoDeSaudeView;
 
 public class Principal extends javax.swing.JFrame {
 
-   
+    
+    
+    
     public Principal() {
         initComponents();
         

@@ -1,9 +1,4 @@
-/*
- * PARG Desenvolvimento de Sistemas
- * Pablo Alexander - pablo@parg.com.br
- * 
- * Obtem um CEP no ViaCEP
- */
+
 package br.com.parg.viacep;
 
 import java.util.logging.Level;
@@ -12,11 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Classe java para obter um CEP no ViaCEP
- *
- * @author Pablo Alexander da Rocha Gonçalves
- */
 public class ViaCEP extends ViaCEPBase {
 
     // constantes

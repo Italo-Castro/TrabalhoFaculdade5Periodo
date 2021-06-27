@@ -9,10 +9,13 @@ import projetoconsultório.Model.Endereco;
 import projetoconsultório.Util.Conexao;
 
 public class EnderecoController {
+    
+    
+    
     public Boolean cadastrarEndereco(Endereco endereco){
         boolean retorno = false;
         
-        String sql = "INSERT INTO (rua, bairro, cidade, estado) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO endereco (rua, bairro, cidade, estado, cep) VALUES(?,?,?,?,?)";
         
         Conexao conexao = new Conexao();
         
@@ -25,9 +28,11 @@ public class EnderecoController {
             sentenca.setString(2, endereco.getBairro());
             sentenca.setString(3, endereco.getCidade());
             sentenca.setString(4, endereco.getEstado());
+            sentenca.setString(5, endereco.getCep());
             
-            if(sentenca.execute()){
+           if(sentenca.execute()){
                 retorno = true;
+                
             }
             
         }catch(SQLException e){
@@ -52,10 +57,12 @@ public class EnderecoController {
             sentenca.setInt(1, id);
             ResultSet resultSet = sentenca.executeQuery();
             if(resultSet.next()){
+                endereco.setId(resultSet.getInt("id"));
                 endereco.setRua(resultSet.getString("rua"));
                 endereco.setBairro(resultSet.getString("bairro"));
                 endereco.setCidade(resultSet.getString("cidade"));
                 endereco.setEstado(resultSet.getString("estado"));
+                endereco.setCep(resultSet.getString("cep"));
             }
         }catch(SQLException e){
             System.out.println("Erro ao buscar endereco: \n" + e.getMessage());
@@ -85,6 +92,7 @@ public class EnderecoController {
                 endereco.setBairro(resultSet.getString("bairro"));
                 endereco.setCidade(resultSet.getString("cidade"));
                 endereco.setEstado(resultSet.getString("estado"));
+                endereco.setCep(resultSet.getString("cep"));
                 
                 enderecos.add(endereco);
             }
@@ -94,5 +102,33 @@ public class EnderecoController {
         
         conexao.desconectar();
         return enderecos;
+    }
+    public Endereco buscarEnderecoPorCep(String cep){
+        Endereco endereco = new Endereco();
+        
+        String sql = "SELECT * FROM endereco WHERE cep = ?";
+        
+        Conexao conexao = new Conexao();
+        
+        conexao.conectar();
+        
+        try{
+            PreparedStatement sentenca = conexao.con.prepareStatement(sql);
+            sentenca.setString(1, cep);
+            ResultSet resultSet = sentenca.executeQuery();
+            if(resultSet.next()){
+                endereco.setId(resultSet.getInt("id"));
+                endereco.setRua(resultSet.getString("rua"));
+                endereco.setBairro(resultSet.getString("bairro"));
+                endereco.setCidade(resultSet.getString("cidade"));
+                endereco.setEstado(resultSet.getString("estado"));
+                endereco.setCep(resultSet.getString("cep"));
+            }
+        }catch(SQLException e){
+            System.out.println("Erro ao buscar endereco: \n" + e.getMessage());
+        }
+        
+        conexao.desconectar();
+        return endereco;
     }
 }

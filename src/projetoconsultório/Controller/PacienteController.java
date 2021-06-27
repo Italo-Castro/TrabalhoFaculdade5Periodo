@@ -12,13 +12,13 @@ public class PacienteController {
         boolean retorno = false;
         
         String sql = "INSERT INTO paciente (nome, cpf, sexo, idEndereco, idPlanoSaude) VALUES(?,?,?,?,?)";
-        
+        System.out.print("dentro do insert");
         Conexao conexao = new Conexao();
         
         conexao.conectar();
         
         try{
-                PreparedStatement sentenca = conexao.con.prepareStatement(sql);
+            PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             
             sentenca.setString(1, paciente.getNome());   
             sentenca.setString(2, paciente.getCpf());   
@@ -28,10 +28,11 @@ public class PacienteController {
             
             if(sentenca.execute()){
                 retorno = true;
+                
             }
             
         }catch(SQLException e){
-            System.out.println("Falha ao cadastra paciente:\n" + e.getMessage());
+            System.out.println("Falha ao cadastrar paciente\n Controller" + e.getMessage());
         }
         
         conexao.desconectar();

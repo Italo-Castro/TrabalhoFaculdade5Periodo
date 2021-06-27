@@ -123,10 +123,10 @@ public class PlanoDeSaudeController {
         return retorno;
     }
     
-    public PlanoDeSaude buscarPlanoSaudePorNome(String nome){
+    public PlanoDeSaude buscarPlanoSaudePorTipo(String tipo){
         PlanoDeSaude plano = new PlanoDeSaude();
         
-        String sql = "SELECT * FROM planoSaude where nome = "+nome;
+        String sql = "SELECT * FROM planoSaude where tipo = '"+tipo+"'";
         
         Conexao conexao = new Conexao();
         
