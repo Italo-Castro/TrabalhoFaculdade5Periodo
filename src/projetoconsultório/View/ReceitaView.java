@@ -17,11 +17,11 @@ public class ReceitaView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 394, Short.MAX_VALUE)
+            .add(0, 856, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 274, Short.MAX_VALUE)
+            .add(0, 347, Short.MAX_VALUE)
         );
 
         pack();

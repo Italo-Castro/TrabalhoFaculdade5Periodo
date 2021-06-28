@@ -42,6 +42,10 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextEspecializacao = new javax.swing.JTextField();
 
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jButtonNovo.setText("Novo");
         jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

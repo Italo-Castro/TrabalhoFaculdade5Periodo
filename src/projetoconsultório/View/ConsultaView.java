@@ -1,10 +1,17 @@
 
 package projetoconsultório.View;
 
+import static java.awt.event.KeyEvent.VK_ENTER;
+import projetoconsultório.Controller.MedicoController;
+import projetoconsultório.Controller.PacienteController;
+import projetoconsultório.Model.Medico;
+import projetoconsultório.Model.Paciente;
+
 
 public class ConsultaView extends javax.swing.JInternalFrame {
     
-    
+    public static PacienteController pacienteController = new PacienteController();
+    public static MedicoController medicoController = new MedicoController();
     
     public ConsultaView() {
         initComponents();
@@ -30,12 +37,15 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextRelatoPaciente = new javax.swing.JTextArea();
         jButton6 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextCodPaciente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextCodMedico = new javax.swing.JTextField();
+
+        setClosable(true);
+        setIconifiable(true);
 
         jButton1.setText("Nova Consulta");
 
@@ -96,9 +106,9 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Relato Paciente");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextRelatoPaciente.setColumns(20);
+        jTextRelatoPaciente.setRows(5);
+        jScrollPane1.setViewportView(jTextRelatoPaciente);
 
         jButton6.setText("Gerar Receita");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -110,8 +120,20 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jLabel4.setText("Codigo");
 
+        jTextCodPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextCodPacienteKeyPressed(evt);
+            }
+        });
+
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jLabel5.setText("Codigo");
+
+        jTextCodMedico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextCodMedicoKeyPressed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -221,6 +243,24 @@ public class ConsultaView extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jTextCodPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCodPacienteKeyPressed
+       
+        if(evt.getKeyCode() == VK_ENTER){
+          int idPaciente = Integer.parseInt(jTextCodPaciente.getText());
+            Paciente p = pacienteController.buscarPacientePorId(idPaciente);
+            jTextNomePaciente.setText(p.getNome());
+       }
+        
+    }//GEN-LAST:event_jTextCodPacienteKeyPressed
+
+    private void jTextCodMedicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCodMedicoKeyPressed
+        if(evt.getKeyCode() == VK_ENTER){
+          int idMedico = Integer.parseInt(jTextCodMedico.getText());
+            Medico m = medicoController.buscarPorId(idMedico);
+            jTextNomeMedico.setText(m.getNome());
+       }
+    }//GEN-LAST:event_jTextCodMedicoKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -238,10 +278,10 @@ public class ConsultaView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextCodMedico;
     private javax.swing.JTextField jTextCodPaciente;
     private javax.swing.JTextField jTextNomeMedico;
     private javax.swing.JTextField jTextNomePaciente;
+    private javax.swing.JTextArea jTextRelatoPaciente;
     // End of variables declaration//GEN-END:variables
 }
