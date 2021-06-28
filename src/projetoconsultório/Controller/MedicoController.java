@@ -74,7 +74,8 @@ public class MedicoController {
     
     public ArrayList<Medico> buscarTodosMedicos(){
         ArrayList<Medico> medicos = new ArrayList<>();
-
+        Medico medico = new Medico();
+         
         String sql = "SELECT * FROM medico";
         
         Conexao conexao = new Conexao();
@@ -84,9 +85,9 @@ public class MedicoController {
         try{
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             ResultSet resultSet = sentenca.executeQuery();
+            
             while(resultSet.next()){
-                Medico medico = new Medico();
-                
+                               
                 medico.setId(resultSet.getInt("id"));
                 medico.setNome(resultSet.getString("nome"));
                 medico.setCpf(resultSet.getString("cpf"));
@@ -96,6 +97,7 @@ public class MedicoController {
                 medico.setDisponibilidade(resultSet.getBoolean("disponibilidade"));
                 
                 medicos.add(medico);
+                
             }
         }catch(SQLException e){
             System.out.println("Falha ao buscar médicos: \n" + e.getMessage());

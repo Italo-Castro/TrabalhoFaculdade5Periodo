@@ -83,6 +83,11 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         jLabel2.setText("Nome Medico");
 
         jButton5.setText("F8");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Relato Paciente");
@@ -179,8 +184,15 @@ public class ConsultaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonBuscarClienteActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+     
+      BuscarMedicoView bcMedico = new BuscarMedicoView();
+      bcMedico.setVisible(true);
+      
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
