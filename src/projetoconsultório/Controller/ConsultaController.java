@@ -21,9 +21,9 @@ public class ConsultaController {
         try {
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
 
-            sentenca.setInt(1, consulta.getIdMedico());
-            sentenca.setInt(2, consulta.getIdPaciente());
-            sentenca.setInt(3, consulta.getIdReceita());
+            sentenca.setInt(1, consulta.getIdMedico().getId());
+            sentenca.setInt(2, consulta.getIdPaciente().getId());
+            sentenca.setInt(3, consulta.getIdReceita().getId());
             sentenca.setString(4, consulta.getRelatoPaciente());
 
             if (sentenca.execute()) {
@@ -53,9 +53,9 @@ public class ConsultaController {
             ResultSet resultSet = sentenca.executeQuery();
             if (resultSet.next()) {
                 consulta.setIdConsulta(id);
-                consulta.setIdMedico(resultSet.getInt("idMedico"));
-                consulta.setIdPaciente(resultSet.getInt("idPaciente"));
-                consulta.setIdReceita(resultSet.getInt("idReceita"));
+                consulta.getIdMedico().setId(resultSet.getInt("idMedico"));
+                consulta.getIdPaciente().setId(resultSet.getInt("idPaciente"));
+                consulta.getIdReceita().setId(resultSet.getInt("idReceita"));
                 consulta.setRelatoPaciente(resultSet.getString("relatoPaciente"));
             }
         } catch (SQLException e) {
@@ -82,9 +82,9 @@ public class ConsultaController {
                 Consulta consulta = new Consulta();
 
                 consulta.setIdConsulta(resultSet.getInt("id"));
-                consulta.setIdMedico(resultSet.getInt("idMedico"));
-                consulta.setIdPaciente(resultSet.getInt("idPaciente"));
-                consulta.setIdReceita(resultSet.getInt("idReceita"));
+                consulta.getIdPaciente().setId(resultSet.getInt("idPaciente"));
+                consulta.getIdReceita().setId(resultSet.getInt("idReceita"));
+                consulta.setRelatoPaciente(resultSet.getString("relatoPaciente"));
                 consulta.setRelatoPaciente(resultSet.getString("relatoPaciente"));
                 
                 consultas.add(consulta);
