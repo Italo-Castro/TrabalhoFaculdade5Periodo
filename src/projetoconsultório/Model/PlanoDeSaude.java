@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class PlanoDeSaude {
 
-    private int id;
+    private Integer id;
     private double valor;
     private Date dataExpiracao;
     private String tipo;
@@ -22,11 +22,11 @@ public class PlanoDeSaude {
         this.tipo = tipo;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

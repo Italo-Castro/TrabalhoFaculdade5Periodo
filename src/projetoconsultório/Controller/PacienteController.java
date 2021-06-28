@@ -4,7 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import projetoconsultório.Model.Endereco;
 import projetoconsultório.Model.Paciente;
+import projetoconsultório.Model.PlanoDeSaude;
 import projetoconsultório.Util.Conexao;
 
 public class PacienteController {
@@ -23,8 +25,8 @@ public class PacienteController {
             sentenca.setString(1, paciente.getNome());   
             sentenca.setString(2, paciente.getCpf());   
             sentenca.setString(3, paciente.getSexo());   
-            sentenca.setInt(4, paciente.getIdEndereco());   
-            sentenca.setInt(5, paciente.getIdPlanoSaude());   
+            sentenca.setInt(4, paciente.getIdEndereco().getId());   
+            sentenca.setInt(5, paciente.getIdPlanoSaude().getId());   
             
             if(sentenca.execute()){
                 retorno = true;
@@ -58,8 +60,8 @@ public class PacienteController {
                 paciente.setNome(resultSet.getString("nome"));
                 paciente.setCpf(resultSet.getString("cpf"));
                 paciente.setSexo(resultSet.getString("sexo"));
-                paciente.setIdEndereco(resultSet.getInt("idEndereco"));
-                paciente.setIdPlanoSaude(resultSet.getInt("idPlanoSaude"));
+                paciente.setIdEndereco(resultSet.getObject("idEndereco", Endereco.class));
+                paciente.setIdPlanoSaude(resultSet.getObject("idPlanoSaude",PlanoDeSaude.class));
             }
         }catch(SQLException e){
             System.out.println("Falha ao buscar paciente:\n" + e.getMessage());
@@ -88,8 +90,8 @@ public class PacienteController {
                 paciente.setNome(resultSet.getString("nome"));
                 paciente.setCpf(resultSet.getString("cpf"));
                 paciente.setSexo(resultSet.getString("sexo"));
-                paciente.setIdEndereco(resultSet.getInt("idEndereco"));
-                paciente.setIdPlanoSaude(resultSet.getInt("idPlanoSaude"));
+                paciente.setIdEndereco(resultSet.getObject("idEndereco", Endereco.class));
+                paciente.setIdPlanoSaude(resultSet.getObject("idPlanoSaude",PlanoDeSaude.class));
                 
                 pacientes.add(paciente);
             }
@@ -116,8 +118,8 @@ public class PacienteController {
             sentenca.setString(1,paciente.getNome());
             sentenca.setString(2,paciente.getCpf());
             sentenca.setString(3,paciente.getSexo());
-            sentenca.setInt(4,paciente.getIdEndereco());
-            sentenca.setInt(5,paciente.getIdPlanoSaude());
+            sentenca.setInt(4,paciente.getIdEndereco().getId());
+            sentenca.setInt(5,paciente.getIdPlanoSaude().getId());
             sentenca.setInt(6, paciente.getId());
             
             if(!sentenca.execute()){

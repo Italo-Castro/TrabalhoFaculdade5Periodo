@@ -1,30 +1,24 @@
 package projetoconsultório.Model;
 
+import java.io.Serializable;
+
 public class Paciente {
 
     private int id;
     private String nome;
     private String cpf; 
     private String sexo;
-    private int idEndereco;
-    private int idPlanoSaude;
+    private Endereco idEndereco;
+    private PlanoDeSaude idPlanoSaude;
 
     public Paciente() {
-        this.nome = "";
-        this.idEndereco = 0;
-        this.idPlanoSaude = 0;
-        this.sexo = "";
+        
+       idEndereco = new Endereco();
+       idPlanoSaude = new PlanoDeSaude();
+       
     }
 
-    public Paciente(int id, String nome, int idEndereco, int idPlanoSaude, String sexo,String cpf) {
-        this.id = id;
-        this.nome = nome;
-        this.idEndereco = idEndereco;
-        this.idPlanoSaude = idPlanoSaude;
-        this.sexo = sexo;
-        this.cpf=cpf;
-    }
-
+    
     public int getId() {
         return id;
     }
@@ -50,21 +44,23 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public int getIdEndereco() {
+    public Endereco getIdEndereco() {
         return idEndereco;
     }
 
-    public void setIdEndereco(int idEndereco) {
+    public void setIdEndereco(Endereco idEndereco) {
         this.idEndereco = idEndereco;
     }
 
-    public int getIdPlanoSaude() {
+    public PlanoDeSaude getIdPlanoSaude() {
         return idPlanoSaude;
     }
 
-    public void setIdPlanoSaude(int idPlanoSaude) {
+    public void setIdPlanoSaude(PlanoDeSaude idPlanoSaude) {
         this.idPlanoSaude = idPlanoSaude;
     }
+
+   
 
     public String getSexo() {
         return sexo;

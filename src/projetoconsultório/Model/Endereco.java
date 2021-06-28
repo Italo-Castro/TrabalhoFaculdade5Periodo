@@ -1,5 +1,7 @@
 package projetoconsultório.Model;
 
+
+
 public class Endereco {
     
     private int id;

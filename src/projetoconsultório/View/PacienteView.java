@@ -470,18 +470,19 @@ public class PacienteView extends javax.swing.JInternalFrame {
        Endereco en = controllerEndereco.buscarEnderecoPorCep(jTextCep.getText()); // nesta linha consulta se o cep ja esta cadastrad
        int idEndereco = 0;
        
-       if(en != null){                                                          // se ele ja estiver cadastrado o objeto não sera nulo, ai eu pego o id dele para colocar no idEndereco, do cliente.
+       if(en.getId() != 0){                                                          // se ele ja estiver cadastrado o objeto não sera nulo, ai eu pego o id dele para colocar no idEndereco, do cliente.
            idEndereco = en.getId();
            JOptionPane.showMessageDialog(null,"Dentro do if tenho isso ->"+en.getId());
        }
-       else {
+       if( en.getId() == 0) {
+            JOptionPane.showMessageDialog(null,"Cep não encontrado adicionando cep a base de dados");
             controllerEndereco.cadastrarEndereco(endereco);                    // se o objeto for nulo cadastro o endereco;
             en = controllerEndereco.buscarEnderecoPorCep(jTextCep.getText()); //busco o cep que acabei de cadastrar
             idEndereco = en.getId();                                                       //pego o id do cep recem cadastrado
        }
        
        JOptionPane.showMessageDialog(null,"Fora do iff tenho isso ->"+idEndereco);
-       paciente.setIdEndereco(idEndereco);
+       paciente.getIdEndereco().setId(idEndereco);     
        paciente.setCpf(jTextCpf.getText());
        paciente.setNome(jTextNome.getText());
        
@@ -496,20 +497,27 @@ public class PacienteView extends javax.swing.JInternalFrame {
         else if (jRadioIndiferente.isSelected()){
             sexo = "INDIFERENTE";
         }
-        
         paciente.setSexo(sexo);
-        
-       
-       
+
         if(jRadioSim.isSelected()) {
             
         PlanoDeSaudeController controllerPlanoSaude = new PlanoDeSaudeController();
         plano = controllerPlanoSaude.buscarPlanoSaudePorTipo(jComboPlanoDeSaude.getSelectedItem().toString());
         
+        if(plano == null) {
+                paciente.getIdPlanoSaude().setId(null);
+            }
+            else {
+             paciente.getIdPlanoSaude().setId(plano.getId());
+            }
+        
         }
         else if(jRadioNao.isSelected()){
-          paciente.setIdPlanoSaude(plano.getId());
+            if(plano == null) {
+                paciente.getIdPlanoSaude().setId(null);
+            }           
         }
+        
         
         controller.cadastrarPaciente(paciente);
         
