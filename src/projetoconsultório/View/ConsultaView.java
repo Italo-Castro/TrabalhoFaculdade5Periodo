@@ -4,15 +4,11 @@ package projetoconsultório.View;
 
 public class ConsultaView extends javax.swing.JInternalFrame {
     
-    private static String nomeMedico ="",nomePaciente ="";
     
-    public ConsultaView(String nomePaciente, String nomeMedico) {
+    
+    public ConsultaView() {
         initComponents();
         
-        nomePaciente = nomePaciente;
-        nomeMedico = nomeMedico;
-        
-        jTextNomePaciente.setText(nomePaciente);
     }
 
     
@@ -162,9 +158,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(jSplitPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, Short.MAX_VALUE))
+            .add(jSplitPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -181,7 +175,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
     private void jButtonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarClienteActionPerformed
         BuscarPacienteView bcPaciente = new BuscarPacienteView();
         bcPaciente.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_jButtonBuscarClienteActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

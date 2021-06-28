@@ -90,8 +90,8 @@ public class PacienteController {
                 paciente.setNome(resultSet.getString("nome"));
                 paciente.setCpf(resultSet.getString("cpf"));
                 paciente.setSexo(resultSet.getString("sexo"));
-                paciente.setIdEndereco(resultSet.getObject("idEndereco", Endereco.class));
-                paciente.setIdPlanoSaude(resultSet.getObject("idPlanoSaude",PlanoDeSaude.class));
+                paciente.getIdEndereco().setId(resultSet.getInt("idEndereco"));
+                paciente.getIdPlanoSaude().setId(resultSet.getInt("idPlanoSaude"));
                 
                 pacientes.add(paciente);
             }

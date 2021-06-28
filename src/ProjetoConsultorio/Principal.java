@@ -174,7 +174,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         
-        ConsultaView c = new ConsultaView("","");
+        ConsultaView c = new ConsultaView();
         jDesktopPane1.add(c);
         c.setVisible(true);
         
