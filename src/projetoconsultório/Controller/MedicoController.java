@@ -1,5 +1,7 @@
 package projetoconsultório.Controller;
 
+
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +15,7 @@ public class MedicoController {
     public Boolean cadastrarMedico(Medico medico){
         boolean retorno = false;
         
-        String sql = "INSERT INTO medico (nome, dataNascimento, especializacao, sexo, disponibilidade, cpf) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO medico (nome,  especializacao, sexo, disponibilidade, cpf,crm) VALUES(?,?,?,?,?,?)";
         
         Conexao conexao = new Conexao();
         
@@ -24,10 +26,11 @@ public class MedicoController {
             
             sentenca.setString(1, medico.getNome());   
             //sentenca.setDate(2,  medico.getDataNascimento());   
-            sentenca.setString(3, medico.getEspecializacao());   
-            sentenca.setString(4, medico.getSexo());   
-            sentenca.setBoolean(5, medico.isDisponibilidade());   
-            sentenca.setString(6, medico.getCpf());
+            sentenca.setString(2, medico.getEspecializacao());   
+            sentenca.setString(3, medico.getSexo());   
+            sentenca.setBoolean(4, medico.isDisponibilidade());   
+            sentenca.setString(5, medico.getCpf());
+            sentenca.setString(6, medico.getCrm());
             
             if(sentenca.execute()){
                 retorno = true;
@@ -63,6 +66,7 @@ public class MedicoController {
                 medico.setSexo(resultSet.getString("sexo"));
                 medico.setDisponibilidade(resultSet.getBoolean("disponibilidade"));
                 medico.setEspecializacao(resultSet.getString("especializacao"));
+                medico.setCrm(resultSet.getString("crm"));
             }
         }catch(SQLException e){
             System.out.println("Falha ao buscar medico:\n" + e.getMessage());
@@ -95,6 +99,7 @@ public class MedicoController {
                 medico.setSexo(resultSet.getString("sexo"));
                 medico.setEspecializacao(resultSet.getString("especializacao"));
                 medico.setDisponibilidade(resultSet.getBoolean("disponibilidade"));
+                medico.setCrm(resultSet.getString("crm"));
                 
                 medicos.add(medico);
                 
@@ -128,6 +133,7 @@ public class MedicoController {
             sentenca.setString(4,medico.getSexo());
             sentenca.setString(5,medico.getEspecializacao());
             sentenca.setBoolean(6,medico.isDisponibilidade());
+            
             
             if(!sentenca.execute()){
                 retorno = true;

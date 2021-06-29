@@ -48,8 +48,8 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButtonSave" max="32767" attributes="0"/>
-                  <Component id="jButtonNovo" max="32767" attributes="0"/>
+                  <Component id="jButtonRegister" max="32767" attributes="0"/>
+                  <Component id="jButtonNew" max="32767" attributes="0"/>
                   <Component id="jButtonExit" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -57,9 +57,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonNovo" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonNew" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButtonSave" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonRegister" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonExit" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="248" max="32767" attributes="0"/>
@@ -68,20 +68,20 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButtonNovo">
+            <Component class="javax.swing.JButton" name="jButtonNew">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Novo"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNovoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonSave">
+            <Component class="javax.swing.JButton" name="jButtonRegister">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gravar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegisterActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonExit">
@@ -115,21 +115,11 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTextNome" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextEspecializacao" alignment="0" pref="613" max="32767" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextCodigo" min="-2" pref="293" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextNome" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextCpf" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextDataNascimento" min="-2" pref="93" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jRadioMasculino" min="-2" max="-2" attributes="0"/>
@@ -137,7 +127,22 @@
                                   <Component id="jRadioFeminino" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextEspecializacao" alignment="0" pref="613" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextCpf" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextDataNascimento" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextCrm" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace pref="150" max="32767" attributes="0"/>
                       </Group>
@@ -158,11 +163,13 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextCrm" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -232,6 +239,7 @@
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                       <Format format="##/##/####" subtype="-1" type="5"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="00/00/0000"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
@@ -267,6 +275,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextEspecializacao">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel7">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="sansserif" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="CRM"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextCrm">
                 </Component>
               </SubComponents>
             </Container>

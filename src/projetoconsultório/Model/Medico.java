@@ -2,12 +2,6 @@ package projetoconsultório.Model;
 
 import java.util.Date;
 
-
-
-
-
-
-
 public class Medico {
 
     private int id;
@@ -17,17 +11,17 @@ public class Medico {
     private String especializacao;
     private String sexo;
     private boolean disponibilidade;
+    private String crm;
 
     public Medico() {
         this.nome = "";
         this.cpf = "";
-        this.dataNascimento = new Date();
         this.especializacao = "";
         this.sexo = "";
         this.disponibilidade = false;
     }
 
-    public Medico(int id, String nome, String cpf, Date dataNascimento, String especializacao, String sexo, boolean disponibilidade) {
+    public Medico(int id, String nome, String cpf, Date dataNascimento, String especializacao, String sexo, boolean disponibilidade,String crm) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -35,6 +29,7 @@ public class Medico {
         this.especializacao = especializacao;
         this.sexo = sexo;
         this.disponibilidade = disponibilidade;
+        this.crm = crm;
     }
 
     public int getId() {
@@ -93,5 +88,13 @@ public class Medico {
         this.disponibilidade = disponibilidade;
     }
 
+    public String getCrm() {
+        return crm;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = crm;
+    }
+    
    
 }

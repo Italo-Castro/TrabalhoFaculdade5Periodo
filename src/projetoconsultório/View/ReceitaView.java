@@ -21,7 +21,7 @@ public class ReceitaView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 347, Short.MAX_VALUE)
+            .add(0, 390, Short.MAX_VALUE)
         );
 
         pack();

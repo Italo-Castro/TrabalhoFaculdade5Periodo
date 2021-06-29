@@ -3,9 +3,11 @@ package projetoconsultório.View;
 
 import br.com.parg.viacep.ViaCEP;
 import br.com.parg.viacep.ViaCEPException;
+import java.awt.Color;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import projetoconsultório.Controller.EnderecoController;
 import projetoconsultório.Controller.PacienteController;
 import projetoconsultório.Controller.PlanoDeSaudeController;
@@ -21,6 +23,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
     public PacienteView() {
         initComponents();
         carregarJcomboPlanoSaude();
+        jButtonRegister.setEnabled(false);
     }
     
     public void carregarJcomboPlanoSaude(){
@@ -58,9 +61,9 @@ public class PacienteView extends javax.swing.JInternalFrame {
         buttonGroup3 = new javax.swing.ButtonGroup();
         jSplitPane2 = new javax.swing.JSplitPane();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonExit = new javax.swing.JButton();
+        jButtonRegister = new javax.swing.JButton();
+        jButtonNew = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
@@ -113,24 +116,24 @@ public class PacienteView extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setResizable(true);
 
-        jButton1.setText("Sair");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExit.setText("Sair");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonExitActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Gravar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegister.setText("Gravar");
+        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonRegisterActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Novo");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNew.setText("Novo");
+        jButtonNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonNewActionPerformed(evt);
             }
         });
 
@@ -138,19 +141,19 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jButton3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jButtonExit, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jButtonRegister, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jButtonNew, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jButton3)
+                .add(jButtonNew)
                 .add(18, 18, 18)
-                .add(jButton2)
+                .add(jButtonRegister)
                 .add(18, 18, 18)
-                .add(jButton1)
+                .add(jButtonExit)
                 .addContainerGap(618, Short.MAX_VALUE))
         );
 
@@ -195,6 +198,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
 
         buttonGroup2.add(jRadioNao);
         jRadioNao.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jRadioNao.setSelected(true);
         jRadioNao.setText("Não");
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -403,14 +407,14 @@ public class PacienteView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jTextCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCodigoKeyPressed
         if(evt.getKeyCode() == VK_ENTER){
             if(jTextCodigo.getText().equals("0")) {
-               jTextCodigo.setEnabled(false);
+               
                jTextNome.requestFocus();
                jTextNome.setText("");
                jTextCpf.setText("");
@@ -426,13 +430,39 @@ public class PacienteView extends javax.swing.JInternalFrame {
                jComboPlanoDeSaude.setSelectedIndex(0);
             }
         else {
-            //aqui efetua  a busca pelo ID digitado no campo codigo e preenche os campos da tela.
-        }
-        }
+            int id = Integer.parseInt(jTextCodigo.getText());
+            
+            Paciente p = controller.buscarPacientePorId(id);
+            
+            jTextNome.setText(p.getNome());
+            jTextCpf.setText(p.getCpf());
+            
+            if(p.getSexo().equals("MASCULINO")){
+               jRadioMasculino.setSelected(true);
+            }
+            else if(p.getSexo().equals("FEMININO")){
+                jRadioFeminino.setSelected(true);
+            }
+            
+            Endereco idEndereco = p.getIdEndereco();
+            
+            EnderecoController endController = new EnderecoController();
+            Endereco end = new Endereco();
+            
+            end = endController.buscarEnderecoPorId(p.getIdEndereco().getId());
+            
+            jTextCep.setText(end.getCep());
+            jTextRua.setText(end.getRua());
+            jTextBairro.setText(end.getBairro());
+            jTextCidade.setText(end.getCidade());   
+           }
+              
+          }
+         
     }//GEN-LAST:event_jTextCodigoKeyPressed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+    private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
+        jButtonRegister.setEnabled(true);
         jTextCodigo.setEnabled(false);
         jTextNome.setText("");
         jTextNome.requestFocus();
@@ -449,9 +479,24 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jComboPlanoDeSaude.setSelectedIndex(-1);
         
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonNewActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
+
+        if(jTextNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Informe o nome do paciente","ARGUMENT INVALID",JOptionPane.WARNING_MESSAGE);
+            jTextNome.setBorder(new LineBorder(Color.RED));
+        }
+         if(jTextCpf.getText().equals(" ")) {
+            JOptionPane.showMessageDialog(null,"Informe o cpf do paciente","ARGUMENT INVALID",JOptionPane.WARNING_MESSAGE);
+            jTextCpf.setBorder(new LineBorder(Color.RED));
+        }
+         if(jTextCep.getText().equals("     -   ")) {
+            JOptionPane.showMessageDialog(null,"Informe o CEP do paciente","ARGUMENT INVALID",JOptionPane.WARNING_MESSAGE);
+            jTextCep.setBorder(new LineBorder(Color.RED));
+        }
+        else {
+            
        PlanoDeSaude plano = new PlanoDeSaude();
        Paciente paciente = new Paciente();
        Endereco endereco = new Endereco();
@@ -471,10 +516,9 @@ public class PacienteView extends javax.swing.JInternalFrame {
        int idEndereco = 0;
        
        if(en.getId() != 0){                                                          // se ele ja estiver cadastrado o objeto não sera nulo, ai eu pego o id dele para colocar no idEndereco, do cliente.
-           idEndereco = en.getId();
-           JOptionPane.showMessageDialog(null,"Dentro do if tenho isso ->"+en.getId());
+           idEndereco = en.getId();          
        }
-       if( en.getId() == 0) {
+       else if( en.getId() == 0) {
             JOptionPane.showMessageDialog(null,"Cep não encontrado adicionando cep a base de dados");
             controllerEndereco.cadastrarEndereco(endereco);                    // se o objeto for nulo cadastro o endereco;
             en = controllerEndereco.buscarEnderecoPorCep(jTextCep.getText()); //busco o cep que acabei de cadastrar
@@ -525,11 +569,10 @@ public class PacienteView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,"Paciente cadastrado");
         }
         else {
-            JOptionPane.showMessageDialog(null,"Erro ao cadastrar Paciente");
-            
+            JOptionPane.showMessageDialog(null,"Erro ao cadastrar Paciente","ERROR",JOptionPane.ERROR_MESSAGE);
+            }
         }
-
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     private void jTextCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCepKeyPressed
         if(evt.getKeyCode() == VK_ENTER){
@@ -555,9 +598,9 @@ public class PacienteView extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonNew;
+    private javax.swing.JButton jButtonRegister;
     private javax.swing.JComboBox<String> jComboEstado;
     private javax.swing.JComboBox<String> jComboPlanoDeSaude;
     private javax.swing.JFileChooser jFileChooser1;

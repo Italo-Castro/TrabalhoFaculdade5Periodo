@@ -1,11 +1,13 @@
 
 package projetoconsultório.View;
 
+import java.awt.Color;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import projetoconsultório.Controller.MedicoController;
 import projetoconsultório.Model.Medico;
 
@@ -15,6 +17,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
     
     public MedicoView() {
         initComponents();
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -23,8 +26,8 @@ public class MedicoView extends javax.swing.JInternalFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButtonNovo = new javax.swing.JButton();
-        jButtonSave = new javax.swing.JButton();
+        jButtonNew = new javax.swing.JButton();
+        jButtonRegister = new javax.swing.JButton();
         jButtonExit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
@@ -41,22 +44,24 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jRadioFeminino = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         jTextEspecializacao = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextCrm = new javax.swing.JTextField();
 
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
-        jButtonNovo.setText("Novo");
-        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNew.setText("Novo");
+        jButtonNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNovoActionPerformed(evt);
+                jButtonNewActionPerformed(evt);
             }
         });
 
-        jButtonSave.setText("Gravar");
-        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegister.setText("Gravar");
+        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveActionPerformed(evt);
+                jButtonRegisterActionPerformed(evt);
             }
         });
 
@@ -71,17 +76,17 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jButtonSave, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jButtonNovo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jButtonRegister, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jButtonNew, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .add(jButtonExit, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jButtonNovo)
+                .add(jButtonNew)
                 .add(18, 18, 18)
-                .add(jButtonSave)
+                .add(jButtonRegister)
                 .add(18, 18, 18)
                 .add(jButtonExit)
                 .addContainerGap(248, Short.MAX_VALUE))
@@ -121,6 +126,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jTextDataNascimento.setText("00/00/0000");
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("Sexo");
@@ -134,6 +140,9 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel6.setText("Especialização");
 
+        jLabel7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel7.setText("CRM");
+
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -141,10 +150,17 @@ public class MedicoView extends javax.swing.JInternalFrame {
             .add(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jTextNome)
+                    .add(jTextEspecializacao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                     .add(jLabel1)
                     .add(jTextCodigo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 293, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel2)
-                    .add(jTextNome)
+                    .add(jLabel5)
+                    .add(jPanel2Layout.createSequentialGroup()
+                        .add(jRadioMasculino)
+                        .add(18, 18, 18)
+                        .add(jRadioFeminino))
+                    .add(jLabel6)
                     .add(jPanel2Layout.createSequentialGroup()
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jLabel3)
@@ -152,14 +168,11 @@ public class MedicoView extends javax.swing.JInternalFrame {
                         .add(68, 68, 68)
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jLabel4)
-                            .add(jTextDataNascimento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(jLabel5)
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(jRadioMasculino)
-                        .add(18, 18, 18)
-                        .add(jRadioFeminino))
-                    .add(jLabel6)
-                    .add(jTextEspecializacao, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE))
+                            .add(jTextDataNascimento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(54, 54, 54)
+                        .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel7)
+                            .add(jTextCrm))))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -176,11 +189,13 @@ public class MedicoView extends javax.swing.JInternalFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel3)
-                    .add(jLabel4))
+                    .add(jLabel4)
+                    .add(jLabel7))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jTextCpf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jTextDataNascimento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jTextDataNascimento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jTextCrm, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jLabel5)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -250,9 +265,9 @@ public class MedicoView extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonExitActionPerformed
 
-    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
+    private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
 
-        jTextCodigo.setEnabled(false);
+        jTextCodigo.setEnabled(true);
         jTextNome.requestFocus();
         jTextNome.setText("");
         jTextCpf.setText("");
@@ -261,9 +276,29 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jRadioFeminino.setSelected(false);
         jTextEspecializacao.setText("");
 
-    }//GEN-LAST:event_jButtonNovoActionPerformed
+    }//GEN-LAST:event_jButtonNewActionPerformed
 
-    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
+    private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
+        
+        
+        if(jTextNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Informe o nome do medico","ARGUMENT INVALID",JOptionPane.WARNING_MESSAGE);
+             jTextNome.setBorder(new LineBorder(Color.RED));
+        }
+        else if(jTextCpf.getText().equals("   .   .   -  ")){
+            JOptionPane.showMessageDialog(null,"Informe o cpf do medico","ARGUMENT INVALID",JOptionPane.WARNING_MESSAGE);
+            jTextCpf.setBorder(new LineBorder(Color.RED));
+        }
+        else if(jTextCrm.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Informe o CRM do profissional","ARGUMENT INVALID",JOptionPane.WARNING_MESSAGE);
+            jTextCrm.setBorder(new LineBorder(Color.RED));
+        }
+        else if(jTextEspecializacao.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Informe a especializacao do medico","ARGUMENT INVALID",JOptionPane.WARNING_MESSAGE);
+            jTextEspecializacao.setBorder(new LineBorder(Color.RED));
+        }
+        else {
+        
         Medico medico = new Medico();
         
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -290,6 +325,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
                 medico.setCpf(jTextCpf.getText());
                 medico.setEspecializacao(jTextEspecializacao.getText());
                 medico.setSexo(sexo);
+                medico.setCrm(jTextCrm.getText());
                 
                 boolean retorno = controller.cadastrarMedico(medico);    
           
@@ -304,20 +340,21 @@ public class MedicoView extends javax.swing.JInternalFrame {
         } catch (ParseException ex) {
            JOptionPane.showMessageDialog(null,"Erro ao gravar data de nascimento"+ex.getMessage());
        }
-
-    }//GEN-LAST:event_jButtonSaveActionPerformed
+        }
+    }//GEN-LAST:event_jButtonRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonExit;
-    private javax.swing.JButton jButtonNovo;
-    private javax.swing.JButton jButtonSave;
+    private javax.swing.JButton jButtonNew;
+    private javax.swing.JButton jButtonRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioFeminino;
@@ -326,6 +363,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextField jTextCodigo;
     private javax.swing.JFormattedTextField jTextCpf;
+    private javax.swing.JTextField jTextCrm;
     private javax.swing.JFormattedTextField jTextDataNascimento;
     private javax.swing.JTextField jTextEspecializacao;
     private javax.swing.JTextField jTextNome;
