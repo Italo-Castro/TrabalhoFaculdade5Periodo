@@ -127,7 +127,7 @@ public class MedicoController {
             sentenca.setString(1,medico.getNome());
             sentenca.setString(2,medico.getCpf());
             
-            //sentenca.setDate(3,medico.getDataNascimento());
+            sentenca.setDate(3,(java.sql.Date) medico.getDataNascimento());
             
             sentenca.setString(4,medico.getSexo());
             sentenca.setString(5,medico.getEspecializacao());

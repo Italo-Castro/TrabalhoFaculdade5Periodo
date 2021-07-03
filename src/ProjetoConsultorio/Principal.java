@@ -1,7 +1,7 @@
 
 package ProjetoConsultorio;
 
-import projetoconsultório.View.Agenda;
+import projetoconsultório.View.Agenda.Agenda;
 import projetoconsultório.View.ConsultaView;
 import projetoconsultório.View.MedicoView;
 import projetoconsultório.View.PacienteView;
