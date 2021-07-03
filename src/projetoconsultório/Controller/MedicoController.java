@@ -15,7 +15,7 @@ public class MedicoController {
     public Boolean cadastrarMedico(Medico medico){
         boolean retorno = false;
         
-        String sql = "INSERT INTO medico (nome,  especializacao, sexo, disponibilidade, cpf,crm) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO medico (nome,dataNascimento , especializacao, sexo, disponibilidade, cpf,crm) VALUES(?,?,?,?,?,?,?)";
         
         Conexao conexao = new Conexao();
         
@@ -23,11 +23,11 @@ public class MedicoController {
         
         try{
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
-            
-            sentenca.setDate(2, (java.sql.Date)  medico.getDataNascimento());   
+            sentenca.setString(1, medico.getNome());
+            sentenca.setDate(2, (java.sql.Date) medico.getDataNascimento());   
             sentenca.setString(3, medico.getEspecializacao());   
             sentenca.setString(4, medico.getSexo());   
-            sentenca.setBoolean(5, medico.isDisponibilidade());   
+            sentenca.setBoolean(5, medico.getDisponibilidade());   
             sentenca.setString(6, medico.getCpf());
             sentenca.setString(7, medico.getCrm());
             
@@ -131,7 +131,7 @@ public class MedicoController {
             
             sentenca.setString(4,medico.getSexo());
             sentenca.setString(5,medico.getEspecializacao());
-            sentenca.setBoolean(6,medico.isDisponibilidade());
+            sentenca.setBoolean(6,medico.getDisponibilidade());
             
             
             if(!sentenca.execute()){

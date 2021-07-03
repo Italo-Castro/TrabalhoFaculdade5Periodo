@@ -84,7 +84,7 @@ public class Medico {
         this.sexo = sexo;
     }
 
-    public boolean isDisponibilidade() {
+    public boolean getDisponibilidade() {
         return disponibilidade;
     }
 

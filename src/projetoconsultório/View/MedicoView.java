@@ -306,14 +306,23 @@ public class MedicoView extends javax.swing.JInternalFrame {
         String data = jTextDataNascimento.getText().toString();
         
         try {
+          
+           java.util.Date dateUtil = new java.util.Date();
+           
+            dateUtil = sdf.parse(data);
             
-           Date dataNascimento  = new Date(0);
-           dataNascimento =  (Date) sdf.parse(data); 
-           JOptionPane.showMessageDialog(null,"A data esta assim \n "+dataNascimento);
+           java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime());
            
-           // medico.setDataNascimento();
+           dateUtil = sdf.parse(data);
            
-            JOptionPane.showMessageDialog(null, sdf.format(dataNascimento));
+           
+           
+          
+          
+           
+            medico.setDataNascimento(dateSql);
+           
+      
 
             if(jRadioFeminino.isSelected()) {
                 sexo = "FEMININO";
