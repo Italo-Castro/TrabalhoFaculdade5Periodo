@@ -45,47 +45,47 @@ public class Agenda extends javax.swing.JInternalFrame {
         s6 = new javax.swing.JLabel();
         s7 = new javax.swing.JLabel();
         t1 = new javax.swing.JLabel();
+        t2 = new javax.swing.JLabel();
+        t3 = new javax.swing.JLabel();
+        t4 = new javax.swing.JLabel();
+        t5 = new javax.swing.JLabel();
+        t6 = new javax.swing.JLabel();
+        t7 = new javax.swing.JLabel();
         t8 = new javax.swing.JLabel();
         t15 = new javax.swing.JLabel();
         t22 = new javax.swing.JLabel();
         t29 = new javax.swing.JLabel();
         t36 = new javax.swing.JLabel();
-        t2 = new javax.swing.JLabel();
         t9 = new javax.swing.JLabel();
-        t16 = new javax.swing.JLabel();
-        t23 = new javax.swing.JLabel();
-        t30 = new javax.swing.JLabel();
-        t37 = new javax.swing.JLabel();
-        t17 = new javax.swing.JLabel();
-        t24 = new javax.swing.JLabel();
-        t31 = new javax.swing.JLabel();
-        t38 = new javax.swing.JLabel();
-        t3 = new javax.swing.JLabel();
         t10 = new javax.swing.JLabel();
-        t18 = new javax.swing.JLabel();
-        t25 = new javax.swing.JLabel();
-        t32 = new javax.swing.JLabel();
-        t39 = new javax.swing.JLabel();
-        t4 = new javax.swing.JLabel();
         t11 = new javax.swing.JLabel();
-        t19 = new javax.swing.JLabel();
-        t26 = new javax.swing.JLabel();
-        t33 = new javax.swing.JLabel();
-        t40 = new javax.swing.JLabel();
-        t5 = new javax.swing.JLabel();
         t12 = new javax.swing.JLabel();
-        t20 = new javax.swing.JLabel();
-        t27 = new javax.swing.JLabel();
-        t34 = new javax.swing.JLabel();
-        t41 = new javax.swing.JLabel();
-        t6 = new javax.swing.JLabel();
         t13 = new javax.swing.JLabel();
-        t21 = new javax.swing.JLabel();
-        t28 = new javax.swing.JLabel();
-        t35 = new javax.swing.JLabel();
-        t42 = new javax.swing.JLabel();
-        t7 = new javax.swing.JLabel();
         t14 = new javax.swing.JLabel();
+        t16 = new javax.swing.JLabel();
+        t17 = new javax.swing.JLabel();
+        t18 = new javax.swing.JLabel();
+        t19 = new javax.swing.JLabel();
+        t20 = new javax.swing.JLabel();
+        t21 = new javax.swing.JLabel();
+        t23 = new javax.swing.JLabel();
+        t24 = new javax.swing.JLabel();
+        t25 = new javax.swing.JLabel();
+        t26 = new javax.swing.JLabel();
+        t27 = new javax.swing.JLabel();
+        t28 = new javax.swing.JLabel();
+        t30 = new javax.swing.JLabel();
+        t31 = new javax.swing.JLabel();
+        t32 = new javax.swing.JLabel();
+        t33 = new javax.swing.JLabel();
+        t34 = new javax.swing.JLabel();
+        t35 = new javax.swing.JLabel();
+        t37 = new javax.swing.JLabel();
+        t39 = new javax.swing.JLabel();
+        t38 = new javax.swing.JLabel();
+        t40 = new javax.swing.JLabel();
+        t41 = new javax.swing.JLabel();
+        t42 = new javax.swing.JLabel();
         SemanaPagina1 = new javax.swing.JLabel();
         DiaPagina1 = new javax.swing.JLabel();
         MesPagina1 = new javax.swing.JLabel();
@@ -142,6 +142,18 @@ public class Agenda extends javax.swing.JInternalFrame {
 
         t1.setText("0");
 
+        t2.setText("0");
+
+        t3.setText("0");
+
+        t4.setText("0");
+
+        t5.setText("0");
+
+        t6.setText("0");
+
+        t7.setText("0");
+
         t8.setText("0");
 
         t15.setText("0");
@@ -152,77 +164,65 @@ public class Agenda extends javax.swing.JInternalFrame {
 
         t36.setText("0");
 
-        t2.setText("0");
-
         t9.setText("0");
-
-        t16.setText("0");
-
-        t23.setText("0");
-
-        t30.setText("0");
-
-        t37.setText("0");
-
-        t17.setText("0");
-
-        t24.setText("0");
-
-        t31.setText("0");
-
-        t38.setText("0");
-
-        t3.setText("0");
 
         t10.setText("0");
 
-        t18.setText("0");
-
-        t25.setText("0");
-
-        t32.setText("0");
-
-        t39.setText("0");
-
-        t4.setText("0");
-
         t11.setText("0");
-
-        t19.setText("0");
-
-        t26.setText("0");
-
-        t33.setText("0");
-
-        t40.setText("0");
-
-        t5.setText("0");
 
         t12.setText("0");
 
-        t20.setText("0");
-
-        t27.setText("0");
-
-        t34.setText("0");
-
-        t41.setText("0");
-
-        t6.setText("0");
-
         t13.setText("0");
+
+        t14.setText("0");
+
+        t16.setText("0");
+
+        t17.setText("0");
+
+        t18.setText("0");
+
+        t19.setText("0");
+
+        t20.setText("0");
 
         t21.setText("0");
 
+        t23.setText("0");
+
+        t24.setText("0");
+
+        t25.setText("0");
+
+        t26.setText("0");
+
+        t27.setText("0");
+
         t28.setText("0");
+
+        t30.setText("0");
+
+        t31.setText("0");
+
+        t32.setText("0");
+
+        t33.setText("0");
+
+        t34.setText("0");
 
         t35.setText("0");
 
+        t37.setText("0");
+
+        t39.setText("0");
+
+        t38.setText("0");
+
+        t40.setText("0");
+
+        t41.setText("0");
+
         t42.setText("0");
-
-        t7.setText("0");
-
-        t14.setText("0");
 
         jLayeredPane2.setLayer(SelecaoAno, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(SelecaoMes, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -235,54 +235,54 @@ public class Agenda extends javax.swing.JInternalFrame {
         jLayeredPane2.setLayer(s6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(s7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t8, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t15, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t22, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t29, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t36, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t16, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t23, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t30, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t37, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t17, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t24, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t31, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t38, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t18, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t25, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t32, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t39, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t19, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t26, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t33, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t40, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t20, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t27, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t34, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t41, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t13, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t21, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t28, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t35, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t42, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(t7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(t14, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t16, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t17, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t18, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t19, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t20, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t21, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t23, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t24, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t25, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t26, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t27, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t28, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t30, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t31, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t32, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t33, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t34, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t35, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t37, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t39, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t38, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t40, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t41, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(t42, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(259, Short.MAX_VALUE)
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(SelecaoMes, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,90 +293,67 @@ public class Agenda extends javax.swing.JInternalFrame {
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(s1)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(t8)
-                                    .addComponent(t1)
-                                    .addComponent(t15)
-                                    .addComponent(t22)
-                                    .addComponent(t29)
-                                    .addComponent(t36))))
-                        .addGap(12, 12, 12)
+                            .addComponent(t1)
+                            .addComponent(t8)
+                            .addComponent(t15)
+                            .addComponent(t22)
+                            .addComponent(t29)
+                            .addComponent(t36))
+                        .addGap(18, 18, 18)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(s2)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(t9)
-                                    .addComponent(t2)
-                                    .addComponent(t16)
-                                    .addComponent(t23)
-                                    .addComponent(t30)
-                                    .addComponent(t37))))
+                            .addComponent(t2)
+                            .addComponent(t9)
+                            .addComponent(t16)
+                            .addComponent(t23)
+                            .addComponent(t30)
+                            .addComponent(t37))
                         .addGap(18, 18, 18)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(s3)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(t10)
-                                    .addComponent(t3)
-                                    .addComponent(t17)
-                                    .addComponent(t24)
-                                    .addComponent(t31)
-                                    .addComponent(t38))))
+                            .addComponent(t3)
+                            .addComponent(t10)
+                            .addComponent(t17)
+                            .addComponent(t24)
+                            .addComponent(t31)
+                            .addComponent(t39))
                         .addGap(18, 18, 18)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addComponent(s4)
-                                .addGap(25, 25, 25)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(s5)
-                                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(t12)
-                                            .addComponent(t5)
-                                            .addComponent(t19)
-                                            .addComponent(t26)
-                                            .addComponent(t33)
-                                            .addComponent(t40))))
-                                .addGap(18, 18, 18)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(s6)
-                                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(t20)
-                                            .addComponent(t27)
-                                            .addComponent(t34)
-                                            .addComponent(t41)
-                                            .addComponent(t6)
-                                            .addComponent(t13)))))
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(t11)
-                                    .addComponent(t4)
-                                    .addComponent(t18)
-                                    .addComponent(t25)
-                                    .addComponent(t32)
-                                    .addComponent(t39))))
+                            .addComponent(s4)
+                            .addComponent(t4)
+                            .addComponent(t11)
+                            .addComponent(t18)
+                            .addComponent(t25)
+                            .addComponent(t32)
+                            .addComponent(t38))
                         .addGap(18, 18, 18)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(t7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(t21)
-                                        .addComponent(t28)
-                                        .addComponent(t35)
-                                        .addComponent(t42)
-                                        .addComponent(t14, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(s5)
+                            .addComponent(t5)
+                            .addComponent(t12)
+                            .addComponent(t19)
+                            .addComponent(t26)
+                            .addComponent(t33)
+                            .addComponent(t40))
+                        .addGap(18, 18, 18)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(s6)
+                            .addComponent(t6)
+                            .addComponent(t13)
+                            .addComponent(t20)
+                            .addComponent(t27)
+                            .addComponent(t34)
+                            .addComponent(t41))
+                        .addGap(18, 18, 18)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(t42)
+                            .addComponent(t35)
+                            .addComponent(t28)
+                            .addComponent(t21)
+                            .addComponent(t14)
+                            .addComponent(t7)
                             .addComponent(s7))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 282, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,110 +364,69 @@ public class Agenda extends javax.swing.JInternalFrame {
                     .addComponent(SelecaoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(s1)
-                            .addComponent(s2)
-                            .addComponent(s3)
-                            .addComponent(s4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addComponent(t1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t29)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t36))
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addComponent(t2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t37))
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                        .addComponent(t3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(t10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(t17)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(t24)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(t31))
-                                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                        .addComponent(t4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(t11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(t18)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(t25)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(t32)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(t38)
-                                    .addComponent(t39)))))
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(s5)
-                            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(s6)
-                                .addComponent(s7, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12)
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addComponent(t5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t33)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t40))
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addComponent(t6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t41))
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addComponent(t7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t35)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(t42)))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(s1)
+                    .addComponent(s2)
+                    .addComponent(s5)
+                    .addComponent(s7, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(s3)
+                    .addComponent(s4)
+                    .addComponent(s6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t1)
+                    .addComponent(t2)
+                    .addComponent(t3)
+                    .addComponent(t4)
+                    .addComponent(t5)
+                    .addComponent(t6)
+                    .addComponent(t7))
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t8)
+                    .addComponent(t9)
+                    .addComponent(t10)
+                    .addComponent(t11)
+                    .addComponent(t12)
+                    .addComponent(t13)
+                    .addComponent(t14))
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t15)
+                    .addComponent(t16)
+                    .addComponent(t17)
+                    .addComponent(t18)
+                    .addComponent(t19)
+                    .addComponent(t20)
+                    .addComponent(t21))
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t22)
+                    .addComponent(t23)
+                    .addComponent(t24)
+                    .addComponent(t25)
+                    .addComponent(t26)
+                    .addComponent(t27)
+                    .addComponent(t28))
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t29)
+                    .addComponent(t30)
+                    .addComponent(t31)
+                    .addComponent(t32)
+                    .addComponent(t33)
+                    .addComponent(t34)
+                    .addComponent(t35))
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t36)
+                    .addComponent(t37)
+                    .addComponent(t39)
+                    .addComponent(t38)
+                    .addComponent(t40)
+                    .addComponent(t41)
+                    .addComponent(t42))
+                .addContainerGap(488, Short.MAX_VALUE))
         );
 
         SemanaPagina1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -520,9 +456,9 @@ public class Agenda extends javax.swing.JInternalFrame {
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(20, 20, 20)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(33, 33, 33)
                 .addComponent(AnoPagina1)
                 .addGap(69, 69, 69)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,7 +469,7 @@ public class Agenda extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(SemanaPagina1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(AnoPagina2)
                         .addGap(89, 89, 89))))
         );
@@ -541,9 +477,6 @@ public class Agenda extends javax.swing.JInternalFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -554,8 +487,11 @@ public class Agenda extends javax.swing.JInternalFrame {
                             .addComponent(DiaPagina1)
                             .addComponent(AnoPagina1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MesPagina1)))
-                .addContainerGap(347, Short.MAX_VALUE))
+                        .addComponent(MesPagina1))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -563,16 +499,13 @@ public class Agenda extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(40, 40, 40)
                 .addComponent(jLayeredPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1)
-                .addContainerGap())
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
