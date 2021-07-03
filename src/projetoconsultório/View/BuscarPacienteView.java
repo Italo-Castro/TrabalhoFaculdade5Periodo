@@ -13,6 +13,7 @@ public class BuscarPacienteView extends javax.swing.JFrame {
     public BuscarPacienteView() {
         initComponents();
         carregarTabela();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);  
     }
     public void carregarTabela() {
         PacienteController controller = new PacienteController();

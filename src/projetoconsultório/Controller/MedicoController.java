@@ -1,7 +1,7 @@
 package projetoconsultório.Controller;
 
 
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import projetoconsultório.Model.Medico;
 import projetoconsultório.Util.Conexao;
-
+import java.util.Date;
 
 public class MedicoController {
     public Boolean cadastrarMedico(Medico medico){
@@ -24,13 +24,12 @@ public class MedicoController {
         try{
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             
-            sentenca.setString(1, medico.getNome());   
-            //sentenca.setDate(2,  medico.getDataNascimento());   
-            sentenca.setString(2, medico.getEspecializacao());   
-            sentenca.setString(3, medico.getSexo());   
-            sentenca.setBoolean(4, medico.isDisponibilidade());   
-            sentenca.setString(5, medico.getCpf());
-            sentenca.setString(6, medico.getCrm());
+            sentenca.setDate(2, (java.sql.Date)  medico.getDataNascimento());   
+            sentenca.setString(3, medico.getEspecializacao());   
+            sentenca.setString(4, medico.getSexo());   
+            sentenca.setBoolean(5, medico.isDisponibilidade());   
+            sentenca.setString(6, medico.getCpf());
+            sentenca.setString(7, medico.getCrm());
             
             if(sentenca.execute()){
                 retorno = true;

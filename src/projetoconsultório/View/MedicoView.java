@@ -3,9 +3,9 @@ package projetoconsultório.View;
 
 import java.awt.Color;
 import static java.awt.event.KeyEvent.VK_ENTER;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import projetoconsultório.Controller.MedicoController;
@@ -16,8 +16,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
     MedicoController controller = new MedicoController();
     
     public MedicoView() {
-        initComponents();
-       
+        initComponents(); 
     }
 
     @SuppressWarnings("unchecked")
@@ -126,7 +125,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jTextDataNascimento.setText("00/00/0000");
+        jTextDataNascimento.setText("01/02/0321");
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("Sexo");
@@ -271,7 +270,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jTextNome.requestFocus();
         jTextNome.setText("");
         jTextCpf.setText("");
-        jTextDataNascimento.setText("");
+        //jTextDataNascimento.setText("");
         jRadioMasculino.setSelected(false);
         jRadioFeminino.setSelected(false);
         jTextEspecializacao.setText("");
@@ -308,9 +307,11 @@ public class MedicoView extends javax.swing.JInternalFrame {
         
         try {
             
-           Date dataNascimento  =  sdf.parse(data); 
-
-            medico.setDataNascimento(dataNascimento);
+           Date dataNascimento  = new Date(0);
+           dataNascimento =  (Date) sdf.parse(data); 
+           JOptionPane.showMessageDialog(null,"A data esta assim \n "+dataNascimento);
+           
+           // medico.setDataNascimento();
            
             JOptionPane.showMessageDialog(null, sdf.format(dataNascimento));
 
@@ -320,7 +321,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
             else if (jRadioMasculino.isSelected()) {
                 sexo = "MASCULINO";
             }
-           
+                
                 medico.setNome(jTextNome.getText());
                 medico.setCpf(jTextCpf.getText());
                 medico.setEspecializacao(jTextEspecializacao.getText());

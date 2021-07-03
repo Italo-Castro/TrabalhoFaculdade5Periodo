@@ -2,6 +2,10 @@ package projetoconsultório.Model;
 
 import java.util.Date;
 
+
+
+
+
 public class Medico {
 
     private int id;

@@ -13,6 +13,7 @@ public class BuscarMedicoView extends javax.swing.JFrame {
     public BuscarMedicoView() {
         initComponents();
          carregarTabela();
+         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);  
     }
 
     public void carregarTabela(){
