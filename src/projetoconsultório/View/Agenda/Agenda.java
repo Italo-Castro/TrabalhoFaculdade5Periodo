@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 public class Agenda extends javax.swing.JInternalFrame {
 
@@ -20,6 +19,7 @@ public class Agenda extends javax.swing.JInternalFrame {
         initComponents();
         IniciaCalendario ();
         Calendario ();
+        Calendario_EVT ();
     }
     
     
@@ -91,6 +91,10 @@ public class Agenda extends javax.swing.JInternalFrame {
         MesPagina1 = new javax.swing.JLabel();
         AnoPagina1 = new javax.swing.JLabel();
         AnoPagina2 = new javax.swing.JLabel();
+        VoltarDataInicial = new javax.swing.JButton();
+        MesPagina2 = new javax.swing.JLabel();
+        DiaPagina2 = new javax.swing.JLabel();
+        SemanaPagina2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -114,8 +118,24 @@ public class Agenda extends javax.swing.JInternalFrame {
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         SelecaoAno.setEditable(true);
+        SelecaoAno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelecaoAnoActionPerformed(evt);
+            }
+        });
 
         SelecaoMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro ", "Dezembro" }));
+        SelecaoMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelecaoMesActionPerformed(evt);
+            }
+        });
+
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner1StateChanged(evt);
+            }
+        });
 
         s1.setBackground(new java.awt.Color(0, 255, 255));
         s1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -141,6 +161,11 @@ public class Agenda extends javax.swing.JInternalFrame {
         s7.setText("Sab");
 
         t1.setText("0");
+        t1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                t1MouseClicked(evt);
+            }
+        });
 
         t2.setText("0");
 
@@ -282,14 +307,12 @@ public class Agenda extends javax.swing.JInternalFrame {
         jLayeredPane2Layout.setHorizontalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addContainerGap(259, Short.MAX_VALUE)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(SelecaoMes, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SelecaoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(s1)
@@ -325,8 +348,10 @@ public class Agenda extends javax.swing.JInternalFrame {
                             .addComponent(t18)
                             .addComponent(t25)
                             .addComponent(t32)
-                            .addComponent(t38))
-                        .addGap(18, 18, 18)
+                            .addComponent(t38))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(s5)
                             .addComponent(t5)
@@ -352,8 +377,9 @@ public class Agenda extends javax.swing.JInternalFrame {
                             .addComponent(t21)
                             .addComponent(t14)
                             .addComponent(t7)
-                            .addComponent(s7))))
-                .addGap(0, 282, Short.MAX_VALUE))
+                            .addComponent(s7)))
+                    .addComponent(SelecaoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,7 +452,7 @@ public class Agenda extends javax.swing.JInternalFrame {
                     .addComponent(t40)
                     .addComponent(t41)
                     .addComponent(t42))
-                .addContainerGap(488, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         SemanaPagina1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -444,54 +470,101 @@ public class Agenda extends javax.swing.JInternalFrame {
         AnoPagina2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         AnoPagina2.setText("2021");
 
+        VoltarDataInicial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                VoltarDataInicialMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                VoltarDataInicialMouseExited(evt);
+            }
+        });
+        VoltarDataInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoltarDataInicialActionPerformed(evt);
+            }
+        });
+
+        MesPagina2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        MesPagina2.setText("Janeiro");
+
+        DiaPagina2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        DiaPagina2.setText("1");
+
+        SemanaPagina2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        SemanaPagina2.setText("Sexta");
+
         jLayeredPane1.setLayer(jLayeredPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(SemanaPagina1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(DiaPagina1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(MesPagina1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(AnoPagina1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(AnoPagina2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(VoltarDataInicial, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(MesPagina2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(DiaPagina2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(SemanaPagina2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(35, 35, 35)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(AnoPagina1)
-                .addGap(69, 69, 69)
+                .addGap(5, 5, 5)
+                .addComponent(VoltarDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DiaPagina1)
-                            .addComponent(MesPagina1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(SemanaPagina1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MesPagina1)
+                    .addComponent(AnoPagina1)
+                    .addComponent(SemanaPagina1)
+                    .addComponent(DiaPagina1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(AnoPagina2)
-                        .addGap(89, 89, 89))))
+                        .addGap(228, 228, 228))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DiaPagina2)
+                            .addComponent(SemanaPagina2))
+                        .addGap(220, 220, 220))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addComponent(MesPagina2)
+                        .addContainerGap())))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(491, 491, 491))
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SemanaPagina1)
-                            .addComponent(AnoPagina2))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(SemanaPagina1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DiaPagina1))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(VoltarDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DiaPagina1)
-                            .addComponent(AnoPagina1))
+                        .addComponent(MesPagina1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MesPagina1))
+                        .addComponent(AnoPagina1))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addGap(17, 17, 17)
+                        .addComponent(SemanaPagina2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DiaPagina2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MesPagina2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(AnoPagina2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -511,15 +584,89 @@ public class Agenda extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SelecaoMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelecaoMesActionPerformed
+       
+        DiaAltera = DiaFixo;
+        Calendario();
+        
+        
+    }//GEN-LAST:event_SelecaoMesActionPerformed
+
+    private void SelecaoAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelecaoAnoActionPerformed
+       try {
+           
+           int x = Integer.parseInt(SelecaoAno.getSelectedItem().toString());
+           DiaAltera = DiaFixo;
+           Calendario();
+           AnoPagina1.setText(SelecaoAno.getSelectedItem().toString());
+           AnoPagina2.setText(SelecaoAno.getSelectedItem().toString());
+           
+       }catch(Exception e) {
+           SelecaoAno.setSelectedItem(AnoFixo);
+       }
+    }//GEN-LAST:event_SelecaoAnoActionPerformed
+
+    private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
+      
+        
+        valorSelecao = Integer.parseInt(jSpinner1.getValue().toString());
+        int x = SelecaoMes.getSelectedIndex();
+        int ano = Integer.parseInt(SelecaoAno.getSelectedItem().toString());
+        
+        if (valorSelecao == - 1){
+            if(SelecaoMes.getSelectedIndex() != 11) {
+                SelecaoMes.setSelectedIndex(x + 1);
+            } else {
+                SelecaoMes.setSelectedIndex(0);
+                ano = ano + 1;
+                SelecaoAno.setSelectedItem(ano);
+            }
+        }
+        
+        if(valorSelecao == 1){
+            if(SelecaoMes.getSelectedIndex() != 0){
+                SelecaoMes.setSelectedIndex(x - 1);
+            } else {
+                SelecaoMes.setSelectedIndex(11);
+                ano = ano - 1;
+                SelecaoAno.setSelectedItem(ano);
+            }
+            
+        }
+        jSpinner1.setValue(0);
+        //JOptionPane.showMessageDialog(null,jSpinner1.getValue());
+    }//GEN-LAST:event_jSpinner1StateChanged
+
+    private void VoltarDataInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarDataInicialActionPerformed
+        IniciaCalendario();
+        Calendario();
+    }//GEN-LAST:event_VoltarDataInicialActionPerformed
+
+    private void VoltarDataInicialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VoltarDataInicialMouseEntered
+        VoltarDataInicial.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+    }//GEN-LAST:event_VoltarDataInicialMouseEntered
+
+    private void VoltarDataInicialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VoltarDataInicialMouseExited
+       VoltarDataInicial.setBorder(null);
+    }//GEN-LAST:event_VoltarDataInicialMouseExited
+
+    private void t1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnoPagina1;
     private javax.swing.JLabel AnoPagina2;
     private javax.swing.JLabel DiaPagina1;
+    private javax.swing.JLabel DiaPagina2;
     private javax.swing.JLabel MesPagina1;
+    private javax.swing.JLabel MesPagina2;
     private javax.swing.JComboBox<String> SelecaoAno;
     private javax.swing.JComboBox<String> SelecaoMes;
     private javax.swing.JLabel SemanaPagina1;
+    private javax.swing.JLabel SemanaPagina2;
+    private javax.swing.JButton VoltarDataInicial;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
@@ -646,7 +793,7 @@ public class Agenda extends javax.swing.JInternalFrame {
         
         
     }
-     public void Calendario (){
+    public void Calendario (){
         
          t1.setText("");
          t2.setText("");
@@ -763,7 +910,7 @@ public class Agenda extends javax.swing.JInternalFrame {
          }
           else if ( Semana == Calendar.THURSDAY){
              SetaDia = 5;
-              System.out.print("qUINTA");
+              System.out.print("Quinta");
          }
           else if ( Semana == Calendar.FRIDAY){
              SetaDia = 6;
@@ -920,11 +1067,701 @@ public class Agenda extends javax.swing.JInternalFrame {
             SetaDia ++;
          }
         
-         
+         VerificaSemana();
          
          
          
      }   
+    public void VerificaSemana() {
+       //este metodo verifica o dia da semana, para setar nas paginas 1 e 2
+        try {
+            MesAltera  = SelecaoMes.getSelectedIndex();
+            AnoAltera = Integer.parseInt(SelecaoAno.getSelectedItem().toString());
+            
+            Calendar calendarN = Calendar.getInstance();
+            calendarN.set(AnoAltera,MesAltera,DiaAltera);
+            
+            MesPagina1.setText(SelecaoMes.getSelectedItem().toString());
+            MesPagina2.setText(SelecaoMes.getSelectedItem().toString());
+            
+            DiaPagina1.setText("" +DiaAltera);
+            DiaPagina2.setText(""+ DiaAltera);
+            
+            int SemanaN = calendarN.get(Calendar.DAY_OF_WEEK);
+            
+            if(SemanaN == Calendar.SUNDAY){
+                SemanaPagina1.setText("Domingo");
+                SemanaPagina2.setText("Domingo");
+            }
+            else if ( SemanaN == Calendar.MONDAY){
+                SemanaPagina1.setText("Segunda");
+                SemanaPagina2.setText("Segunda");
+            }
+            else if ( SemanaN == Calendar.TUESDAY){
+                SemanaPagina1.setText("Terça");
+                SemanaPagina2.setText("Terça");
+            }
+            else if ( SemanaN == Calendar.WEDNESDAY){
+                SemanaPagina1.setText("Quarta");
+                SemanaPagina2.setText("Quarta");
+            }
+            else if ( SemanaN == Calendar.THURSDAY){
+                SemanaPagina1.setText("Quinta");
+                SemanaPagina2.setText("Quinta");
+            }
+            else if ( SemanaN == Calendar.WEDNESDAY){
+                SemanaPagina1.setText("Sexta");
+                SemanaPagina2.setText("Sexta");
+            }
+            else if ( SemanaN == Calendar.WEDNESDAY){
+                SemanaPagina1.setText("Sabado");
+                SemanaPagina2.setText("Sabado");
+            }
+        }catch (Exception e) {
+            System.out.print(e);
+        }
+    }
+    
+    public void Calendario_EVT (){
         
-}
+        t1.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t1.getText())){
+                    t1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t1.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t12.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t2.getText())){
+                    t2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t2.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t3.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t3.getText())){
+                    t3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t3.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t4.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t4.getText())){
+                    t4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t4.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t5.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t5.getText())){
+                    t5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t5.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t6.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t6.getText())){
+                    t6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t6.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t7.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t7.getText())){
+                    t7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t7.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t8.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t8.getText())){
+                    t8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t8.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t9.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t9.getText())){
+                    t9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t9.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t10.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t10.getText())){
+                    t10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t10.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t11.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t11.getText())){
+                    t11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t11.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t12.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t12.getText())){
+                    t12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t12.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t13.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t13.getText())){
+                    t13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t13.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        
+        t14.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t14.getText())){
+                    t14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t14.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        t15.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t15.getText())){
+                    t15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t15.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+          t16.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t16.getText())){
+                    t16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t16.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+            t17.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t17.getText())){
+                    t17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t17.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+            t18.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t18.getText())){
+                    t18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t18.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+          t19.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t19.getText())){
+                    t19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t19.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+          t20.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t20.getText())){
+                    t20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t20.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+        
+           t21.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t21.getText())){
+                    t21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t21.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t22.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t22.getText())){
+                    t22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t22.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t23.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t23.getText())){
+                    t23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t23.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t24.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t24.getText())){
+                    t24.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t24.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t25.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t25.getText())){
+                    t25.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t25.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t26.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t26.getText())){
+                    t26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t26.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t27.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t27.getText())){
+                    t27.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t27.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t28.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t28.getText())){
+                    t28.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t28.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t29.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t29.getText())){
+                    t29.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t29.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t30.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t30.getText())){
+                    t30.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t30.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+           t31.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t31.getText())){
+                    t31.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t31.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+          t32.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t32.getText())){
+                    t32.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t32.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+          t33.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t33.getText())){
+                    t33.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t33.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+          t34.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t34.getText())){
+                    t34.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t34.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+          t35.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t35.getText())){
+                    t35.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t35.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+          t36.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t36.getText())){
+                    t36.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t36.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+          
+          t37.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t37.getText())){
+                    t37.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t37.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+            
+         t38.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t38.getText())){
+                    t38.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t38.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+            
+          t39.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t39.getText())){
+                    t39.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t39.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+            
+           t40.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t40.getText())){
+                    t40.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t40.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+            t41.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t41.getText())){
+                    t41.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t41.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+             t42.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseEntered (java.awt.event.MouseEvent evt){
+                if(! "".equals(t42.getText())){
+                    t42.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                }
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt){
+                t42.setBorder(null);
+            }
+            public void  mouseClicked(java.awt.event.MouseEvent evt){
+                
+            }
+        });
+        
+        
+        
+        
+        
+        }
+        
+    }
+     
+
 
