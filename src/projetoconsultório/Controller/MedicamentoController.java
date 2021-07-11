@@ -11,7 +11,7 @@ public class MedicamentoController {
     public Boolean cadastrarMedicamento(Medicamento medicamento){
         boolean retorno = false;
         
-        String sql = "INSERT INTO medicamento (nome, dataValidade, bula) VALUES(?,?,?)";
+        String sql = "INSERT INTO medicamento (nome) VALUES(?)";
         
         Conexao conexao = new Conexao();
         
@@ -20,9 +20,8 @@ public class MedicamentoController {
         try{
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             
-            sentenca.setString(1, medicamento.getNome());
-            sentenca.setDate(2, medicamento.getDataValidade());
-            sentenca.setString(3, medicamento.getBula());
+            sentenca.setString(1, medicamento.getNome());         
+           
             
             if(sentenca.execute()){
                 retorno = true;
@@ -51,8 +50,8 @@ public class MedicamentoController {
                 Medicamento medicamento = new Medicamento();
                 
                 medicamento.setNome(resultSet.getString("nome"));
-                medicamento.setBula(resultSet.getString("bula"));
-                medicamento.setDataValidade(resultSet.getDate("dataValidade"));
+                
+               
                 
                 medicamentos.add(medicamento);
             }
@@ -80,8 +79,7 @@ public class MedicamentoController {
             if(resultSet.next()){
                 medicamento.setId(id);
                 medicamento.setNome(resultSet.getString("nome"));
-                medicamento.setDataValidade(resultSet.getDate("dataValidade"));
-                medicamento.setBula(resultSet.getString("bula"));
+               
             }
         }catch(SQLException e){
             System.out.println("Falha ao cadastrar medicamento: \n" + e.getMessage());
@@ -90,4 +88,56 @@ public class MedicamentoController {
         conexao.desconectar();
         return medicamento;
     }
+     public Medicamento buscarPorNome(String  nome){
+        Medicamento medicamento = null;
+        
+        String sql = "SELECT * FROM medicamento WHERE nome = ?";
+        
+        Conexao conexao = new Conexao();
+        
+        conexao.conectar();
+        
+        try{
+            PreparedStatement sentenca = conexao.con.prepareStatement(sql);
+            sentenca.setString(1, nome);
+            ResultSet resultSet = sentenca.executeQuery();
+            
+            if(resultSet.next()){
+                medicamento.setId(resultSet.getInt("id"));
+                medicamento.setNome(resultSet.getString("nome"));
+                
+            }
+            
+        }catch(SQLException e){
+            System.out.println("Falha ao buscar medicamento: \n" + e.getMessage());
+        }
+        
+        conexao.desconectar();
+        return medicamento;
+    }
+     public Medicamento retornarUltimoCadastrado(){
+         String sql = "select * from medicamento order by id desc limit 1";
+         Medicamento medicamento = new Medicamento();
+         
+         Conexao conexao = new Conexao();
+        
+         conexao.conectar();
+         try{
+            PreparedStatement sentenca = conexao.con.prepareStatement(sql);
+            ResultSet resultSet = sentenca.executeQuery();
+            
+            if(resultSet.next()){
+              medicamento.setId(resultSet.getInt("id"));
+              medicamento.setNome(resultSet.getString("nome"));
+                
+            }
+            
+        }catch(SQLException e){
+            System.out.println("Falha ao buscar medicamento: \n" + e.getMessage());
+        }
+        
+        conexao.desconectar();
+        return medicamento;
+         
+     }
 }

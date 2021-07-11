@@ -1,12 +1,22 @@
 
 package projetoconsultório.View;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import projetoconsultório.Controller.MedicamentoController;
+import projetoconsultório.Controller.ReceitaController;
 import projetoconsultório.Model.Medicamento;
+import projetoconsultório.Model.Receita;
 
 public class ReceitaView extends javax.swing.JFrame {
 
+    ArrayList<Medicamento> listaMedicamento = new ArrayList(); 
     
     public ReceitaView(String nomePaciente, String nomeMedico) {
         initComponents();
@@ -243,34 +253,93 @@ public class ReceitaView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonAddMedicamentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddMedicamentActionPerformed
-       DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+      DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+      MedicamentoController controller = new MedicamentoController();
+      Medicamento m = new Medicamento();
+      
+       String nomeMedicamento = jTextDescricao.getText();
+       m = controller.buscarPorNome(nomeMedicamento);
        
+      
+       if(m == null) {  
+           
+                Medicamento medicamento = new Medicamento();
+                medicamento.setNome(nomeMedicamento);
+                controller.cadastrarMedicamento(medicamento);
+                listaMedicamento.add(controller.retornarUltimoCadastrado());
+                
+                JOptionPane.showMessageDialog(null,"Medicamento cadastrado com sucesso");
+    
+                modelo.addRow(new Object[]{
+                jTextDescricao.getText(),
+                jTextDosagem.getText(),
+                jTextObservacao.getText(),
+       });
+
+       }else{
+           System.out.print("Medicamento ja cadastrado");
+           System.out.print("\n nome medicamento \n"+m.getNome());   
+       }
+       
+       
+       //JOptionPane.showMessageDialog(null,"Adicionar na tabela somente apos o cadastro do produto estiver ok");
+       /*
        modelo.addRow(new Object[]{
             jTextDescricao.getText(),
             jTextDosagem.getText(),
             jTextObservacao.getText(),
        });
+       */
+      
        
     }//GEN-LAST:event_jButtonAddMedicamentActionPerformed
 
     private void jButtonFinishRecipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishRecipeActionPerformed
-            Medicamento medicamento = new Medicamento();
-            String[] vectMedicamento = new String[]{};
-            
-            
-            DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-           
+        ReceitaController receitaController = new ReceitaController();
+        Receita receita = new Receita();
+        Date data = new Date();
+        
+        
+     
+         
+          receita.setMedicamentos(listaMedicamento);
           
+          /*  
+          SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+           
+
+         String d = data.toString();
+        
+        try {
+          
+           java.util.Date dateUtil = new java.util.Date();
+           
+            dateUtil = sdf.parse(d);
             
-            
-            
-            for (int i=0; i<10;i++) {
-                vectMedicamento[i] =  jTable1.getValueAt(1, 1).toString(); //ArrayIndexOutOfBoundsException
-            }
-            JOptionPane.showMessageDialog(null,"Peguei vou printar");
-            for (int i=0; i< jTable1.getRowCount();i++) {
-                System.out.print(vectMedicamento[i]);
-            }
+           java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime());
+           
+           dateUtil = sdf.parse(d);
+           
+           receita.setDataReceita(dateSql);
+           
+          } catch (ParseException ex) {
+           JOptionPane.showMessageDialog(null,"Erro ao gravar data "+ex.getMessage());
+        }
+          
+          */
+          
+        boolean retorno = receitaController.cadastrarReceita(receita);
+        
+        if(retorno){
+           JOptionPane.showMessageDialog(null,"Erro ao gravar receita");
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Receita gravada com sucesso ");
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_jButtonFinishRecipeActionPerformed
 
     

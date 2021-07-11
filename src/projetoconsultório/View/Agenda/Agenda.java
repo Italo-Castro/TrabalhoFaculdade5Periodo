@@ -5,21 +5,22 @@ import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class Agenda extends javax.swing.JInternalFrame {
 
     int AnoFixo =0, MesFixo =0, DiaFixo = 0; //ano mes e dia atual; <-
     int AnoAltera =0, MesAltera =0, DiaAltera =0; // dias que vaõ ser alterados
     int valorSelecao =0; //
-    
+    int DiaCliq = 0;
     
     
     
     public Agenda() {
         initComponents();
-        IniciaCalendario ();
-        Calendario ();
-        Calendario_EVT ();
+        IniciaCalendario();
+        Calendario();
+        Calendario_EVT();
     }
     
     
@@ -160,6 +161,8 @@ public class Agenda extends javax.swing.JInternalFrame {
         s7.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         s7.setText("Sab");
 
+        t1.setBackground(new java.awt.Color(153, 153, 153));
+        t1.setForeground(new java.awt.Color(255, 0, 51));
         t1.setText("0");
         t1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -167,6 +170,7 @@ public class Agenda extends javax.swing.JInternalFrame {
             }
         });
 
+        t2.setBackground(new java.awt.Color(153, 153, 153));
         t2.setText("0");
 
         t3.setText("0");
@@ -179,14 +183,19 @@ public class Agenda extends javax.swing.JInternalFrame {
 
         t7.setText("0");
 
+        t8.setForeground(new java.awt.Color(255, 0, 51));
         t8.setText("0");
 
+        t15.setForeground(new java.awt.Color(255, 0, 51));
         t15.setText("0");
 
+        t22.setForeground(new java.awt.Color(255, 0, 51));
         t22.setText("0");
 
+        t29.setForeground(new java.awt.Color(204, 0, 51));
         t29.setText("0");
 
+        t36.setForeground(new java.awt.Color(204, 0, 0));
         t36.setText("0");
 
         t9.setText("0");
@@ -378,8 +387,7 @@ public class Agenda extends javax.swing.JInternalFrame {
                             .addComponent(t14)
                             .addComponent(t7)
                             .addComponent(s7)))
-                    .addComponent(SelecaoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                    .addComponent(SelecaoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,7 +517,7 @@ public class Agenda extends javax.swing.JInternalFrame {
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(47, 47, 47)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(VoltarDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1067,10 +1075,263 @@ public class Agenda extends javax.swing.JInternalFrame {
             SetaDia ++;
          }
         
-         VerificaSemana();
          
          
+         if ("".equals(t1.getText())){
+             t1.setOpaque(true);
+            
+         }else {
+             t1.setOpaque(false);
+         }
          
+         
+           if (!"".equals(t2.getText())){
+             t2.setOpaque(true);
+         }else {
+             t2.setOpaque(false);
+         }
+           
+           if (!"".equals(t3.getText())){
+             t3.setOpaque(true);
+         }else {
+             t3.setOpaque(false);
+         }
+           
+           if (!"".equals(t4.getText())){
+             t4.setOpaque(true);
+         }else {
+             t4.setOpaque(false);
+         }
+   
+           if (!"".equals(t5.getText())){
+             t5.setOpaque(true);
+         }else {
+             t5.setOpaque(false);
+         }
+           
+           if (!"".equals(t6.getText())){
+             t6.setOpaque(true);
+         }else {
+             t6.setOpaque(false);
+         }
+           
+           if (!"".equals(t7.getText())){
+             t7.setOpaque(true);
+         }else {
+             t7.setOpaque(false);
+         }
+           
+           if (!"".equals(t8.getText())){
+             t8.setOpaque(true);
+         }else {
+             t8.setOpaque(false);
+         }
+           
+           if (!"".equals(t9.getText())){
+             t9.setOpaque(true);
+         }else {
+             t9.setOpaque(false);
+         }
+           
+           if (!"".equals(t10.getText())){
+             t10.setOpaque(true);
+         }else {
+             t10.setOpaque(false);
+         }
+           
+           if (!"".equals(t11.getText())){
+             t11.setOpaque(true);
+         }else {
+             t11.setOpaque(false);
+         }
+           
+           if (!"".equals(t12.getText())){
+             t12.setOpaque(true);
+         }else {
+             t12.setOpaque(false);
+         }
+           
+           if (!"".equals(t13.getText())){
+             t13.setOpaque(true);
+         }else {
+             t13.setOpaque(false);
+         }
+           
+           if (!"".equals(t14.getText())){
+             t14.setOpaque(true);
+         }else {
+             t14.setOpaque(false);
+         }
+           
+           if (!"".equals(t15.getText())){
+             t15.setOpaque(true);
+         }else {
+             t15.setOpaque(false);
+         }
+           
+           if (!"".equals(t16.getText())){
+             t16.setOpaque(true);
+         }else {
+             t16.setOpaque(false);
+         }
+           
+           if (!"".equals(t17.getText())){
+             t17.setOpaque(true);
+         }else {
+             t17.setOpaque(false);
+         }
+           
+           if (!"".equals(t18.getText())){
+             t18.setOpaque(true);
+         }else {
+             t18.setOpaque(false);
+         }
+           if (!"".equals(t19.getText())){
+             t19.setOpaque(true);
+         }else {
+             t19.setOpaque(false);
+         }
+           
+           if (!"".equals(t20.getText())){
+             t20.setOpaque(true);
+         }else {
+             t20.setOpaque(false);
+         }
+           
+           if (!"".equals(t21.getText())){
+             t21.setOpaque(true);
+         }else {
+             t21.setOpaque(false);
+         }
+           
+           if (!"".equals(t22.getText())){
+             t22.setOpaque(true);
+         }else {
+             t22.setOpaque(false);
+         }
+           
+           if (!"".equals(t23.getText())){
+             t23.setOpaque(true);
+         }else {
+             t23.setOpaque(false);
+         }
+           
+           if (!"".equals(t24.getText())){
+             t24.setOpaque(true);
+         }else {
+             t24.setOpaque(false);
+         }
+           
+           if (!"".equals(t25.getText())){
+             t25.setOpaque(true);
+         }else {
+             t25.setOpaque(false);
+         }
+           
+           if (!"".equals(t26.getText())){
+             t26.setOpaque(true);
+         }else {
+             t26.setOpaque(false);
+         }
+           
+           if (!"".equals(t27.getText())){
+             t27.setOpaque(true);
+         }else {
+             t27.setOpaque(false);
+         }
+           
+           if (!"".equals(t28.getText())){
+             t28.setOpaque(true);
+         }else {
+             t28.setOpaque(false);
+         }
+           
+           if (!"".equals(t29.getText())){
+             t29.setOpaque(true);
+         }else {
+             t29.setOpaque(false);
+         }
+           
+           if (!"".equals(t30.getText())){
+             t30.setOpaque(true);
+         }else {
+             t30.setOpaque(false);
+         }
+           
+           if (!"".equals(t31.getText())){
+             t31.setOpaque(true);
+         }else {
+             t31.setOpaque(false);
+         }
+           
+         if (!"".equals(t32.getText())){
+             t32.setOpaque(true);
+         }else {
+             t32.setOpaque(false);
+         }
+         
+           if (!"".equals(t33.getText())){
+             t33.setOpaque(true);
+         }else {
+             t33.setOpaque(false);
+         }
+           
+           if (!"".equals(t34.getText())){
+             t34.setOpaque(true);
+         }else {
+             t34.setOpaque(false);
+         }
+           
+           if (!"".equals(t35.getText())){
+             t35.setOpaque(true);
+         }else {
+             t35.setOpaque(false);
+         }
+           
+           if (!"".equals(t36.getText())){
+             t36.setOpaque(true);
+         }else {
+             t36.setOpaque(false);
+         }
+           
+           if (!"".equals(t37.getText())){
+             t37.setOpaque(true);
+             System.out.print("t37");
+         }else {
+             t37.setOpaque(false);
+         }
+           
+           if (!"".equals(t38.getText())){
+             t38.setOpaque(true);
+         }else {
+             t38.setOpaque(false);
+         }
+           
+           if (!"".equals(t39.getText())){
+             t39.setOpaque(true);
+         }else {
+             t39.setOpaque(false);
+         }
+           
+           if (!"".equals(t40.getText())){
+             t40.setOpaque(true);
+         }else {
+             t40.setOpaque(false);
+         }
+           
+           if (!"".equals(t41.getText())){
+             t41.setOpaque(true);
+         }else {
+             t41.setOpaque(false);
+         }
+           
+           if (!"".equals(t42.getText())){
+             t42.setOpaque(true);
+         }else {
+             t42.setOpaque(false);
+         }
+
+         VerificaSemana();   
      }   
     public void VerificaSemana() {
        //este metodo verifica o dia da semana, para setar nas paginas 1 e 2
@@ -1135,6 +1396,16 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t1.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
+                if (!"".equals(t1.getText())) {
+                    DiaPagina1.setText(t1.getText());
+                    DiaPagina2.setText(t1.getText());
+                    
+                    DiaAltera = Integer.parseInt(t1.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
+                
                 
             }
         });
@@ -1150,7 +1421,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t2.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t2.getText())) {
+                    DiaPagina1.setText(t2.getText());
+                    DiaPagina2.setText(t2.getText());
+                    
+                    DiaAltera = Integer.parseInt(t2.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1165,7 +1444,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t3.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                  if (!"".equals(t3.getText())) {
+                    DiaPagina1.setText(t3.getText());
+                    DiaPagina2.setText(t3.getText());
+                    
+                    DiaAltera = Integer.parseInt(t3.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1180,7 +1467,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t4.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                  if (!"".equals(t4.getText())) {
+                    DiaPagina1.setText(t4.getText());
+                    DiaPagina2.setText(t4.getText());
+                    
+                    DiaAltera = Integer.parseInt(t4.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1195,7 +1490,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t5.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                  if (!"".equals(t5.getText())) {
+                    DiaPagina1.setText(t5.getText());
+                    DiaPagina2.setText(t5.getText());
+                    
+                    DiaAltera = Integer.parseInt(t5.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1210,7 +1513,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t6.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                  if (!"".equals(t6.getText())) {
+                    DiaPagina1.setText(t6.getText());
+                    DiaPagina2.setText(t6.getText());
+                    
+                    DiaAltera = Integer.parseInt(t6.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1225,7 +1536,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t7.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                  if (!"".equals(t7.getText())) {
+                    DiaPagina1.setText(t7.getText());
+                    DiaPagina2.setText(t7.getText());
+                    
+                    DiaAltera = Integer.parseInt(t7.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1240,7 +1559,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t8.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                  if (!"".equals(t8.getText())) {
+                    DiaPagina1.setText(t8.getText());
+                    DiaPagina2.setText(t8.getText());
+                    
+                    DiaAltera = Integer.parseInt(t8.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1255,7 +1582,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t9.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                  if (!"".equals(t9.getText())) {
+                    DiaPagina1.setText(t9.getText());
+                    DiaPagina2.setText(t9.getText());
+                    
+                    DiaAltera = Integer.parseInt(t9.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1270,7 +1605,16 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t10.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                 if (!"".equals(t10.getText())) {
+                    DiaPagina1.setText(t10.getText());
+                    DiaPagina2.setText(t10.getText());
+                    
+                    DiaAltera = Integer.parseInt(t10.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
+            
             }
         });
         
@@ -1285,7 +1629,16 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t11.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                 if (!"".equals(t11.getText())) {
+                    DiaPagina1.setText(t11.getText());
+                    DiaPagina2.setText(t11.getText());
+                    
+                    DiaAltera = Integer.parseInt(t11.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
+            
             }
         });
         
@@ -1300,7 +1653,16 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t12.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                 if (!"".equals(t12.getText())) {
+                    DiaPagina1.setText(t12.getText());
+                    DiaPagina2.setText(t12.getText());
+                    
+                    DiaAltera = Integer.parseInt(t12.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
+            
             }
         });
         
@@ -1315,7 +1677,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t13.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t13.getText())) {
+                    DiaPagina1.setText(t13.getText());
+                    DiaPagina2.setText(t13.getText());
+                    
+                    DiaAltera = Integer.parseInt(t13.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1331,7 +1701,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t14.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t14.getText())) {
+                    DiaPagina1.setText(t14.getText());
+                    DiaPagina2.setText(t14.getText());
+                    
+                    DiaAltera = Integer.parseInt(t14.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1346,7 +1724,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t15.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t15.getText())) {
+                    DiaPagina1.setText(t15.getText());
+                    DiaPagina2.setText(t15.getText());
+                    
+                    DiaAltera = Integer.parseInt(t15.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1361,7 +1747,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t16.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t16.getText())) {
+                    DiaPagina1.setText(t16.getText());
+                    DiaPagina2.setText(t16.getText());
+                    
+                    DiaAltera = Integer.parseInt(t16.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1376,7 +1770,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t17.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t17.getText())) {
+                    DiaPagina1.setText(t17.getText());
+                    DiaPagina2.setText(t17.getText());
+                    
+                    DiaAltera = Integer.parseInt(t17.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1391,7 +1793,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t18.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t18.getText())) {
+                    DiaPagina1.setText(t18.getText());
+                    DiaPagina2.setText(t18.getText());
+                    
+                    DiaAltera = Integer.parseInt(t18.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1406,7 +1816,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t19.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t19.getText())) {
+                    DiaPagina1.setText(t19.getText());
+                    DiaPagina2.setText(t19.getText());
+                    
+                    DiaAltera = Integer.parseInt(t19.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1421,7 +1839,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t20.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t20.getText())) {
+                    DiaPagina1.setText(t20.getText());
+                    DiaPagina2.setText(t20.getText());
+                    
+                    DiaAltera = Integer.parseInt(t20.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1437,7 +1863,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t21.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t21.getText())) {
+                    DiaPagina1.setText(t21.getText());
+                    DiaPagina2.setText(t21.getText());
+                    
+                    DiaAltera = Integer.parseInt(t21.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1452,7 +1886,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t22.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t22.getText())) {
+                    DiaPagina1.setText(t22.getText());
+                    DiaPagina2.setText(t22.getText());
+                    
+                    DiaAltera = Integer.parseInt(t22.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1467,7 +1909,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t23.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t23.getText())) {
+                    DiaPagina1.setText(t23.getText());
+                    DiaPagina2.setText(t23.getText());
+                    
+                    DiaAltera = Integer.parseInt(t23.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1482,7 +1932,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t24.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t24.getText())) {
+                    DiaPagina1.setText(t24.getText());
+                    DiaPagina2.setText(t24.getText());
+                    
+                    DiaAltera = Integer.parseInt(t24.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1497,7 +1955,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t25.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t25.getText())) {
+                    DiaPagina1.setText(t25.getText());
+                    DiaPagina2.setText(t25.getText());
+                    
+                    DiaAltera = Integer.parseInt(t25.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1512,7 +1978,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t26.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t26.getText())) {
+                    DiaPagina1.setText(t26.getText());
+                    DiaPagina2.setText(t2.getText());
+                    
+                    DiaAltera = Integer.parseInt(t26.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1527,7 +2001,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t27.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t27.getText())) {
+                    DiaPagina1.setText(t27.getText());
+                    DiaPagina2.setText(t27.getText());
+                    
+                    DiaAltera = Integer.parseInt(t27.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1542,7 +2024,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t28.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t28.getText())) {
+                    DiaPagina1.setText(t28.getText());
+                    DiaPagina2.setText(t28.getText());
+                    
+                    DiaAltera = Integer.parseInt(t28.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1557,7 +2047,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t29.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t29.getText())) {
+                    DiaPagina1.setText(t29.getText());
+                    DiaPagina2.setText(t29.getText());
+                    
+                    DiaAltera = Integer.parseInt(t29.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1572,7 +2070,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t30.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t30.getText())) {
+                    DiaPagina1.setText(t30.getText());
+                    DiaPagina2.setText(t30.getText());
+                    
+                    DiaAltera = Integer.parseInt(t30.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1587,7 +2093,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t31.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t31.getText())) {
+                    DiaPagina1.setText(t31.getText());
+                    DiaPagina2.setText(t31.getText());
+                    
+                    DiaAltera = Integer.parseInt(t31.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1602,7 +2116,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t32.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t32.getText())) {
+                    DiaPagina1.setText(t32.getText());
+                    DiaPagina2.setText(t32.getText());
+                    
+                    DiaAltera = Integer.parseInt(t32.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1617,7 +2139,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t33.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t33.getText())) {
+                    DiaPagina1.setText(t33.getText());
+                    DiaPagina2.setText(t33.getText());
+                    
+                    DiaAltera = Integer.parseInt(t33.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1632,7 +2162,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t34.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t34.getText())) {
+                    DiaPagina1.setText(t34.getText());
+                    DiaPagina2.setText(t34.getText());
+                    
+                    DiaAltera = Integer.parseInt(t34.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1647,7 +2185,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t35.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t35.getText())) {
+                    DiaPagina1.setText(t35.getText());
+                    DiaPagina2.setText(t35.getText());
+                    
+                    DiaAltera = Integer.parseInt(t35.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1662,7 +2208,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t36.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t36.getText())) {
+                    DiaPagina1.setText(t36.getText());
+                    DiaPagina2.setText(t36.getText());
+                    
+                    DiaAltera = Integer.parseInt(t36.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
           
@@ -1677,7 +2231,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t37.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t37.getText())) {
+                    DiaPagina1.setText(t37.getText());
+                    DiaPagina2.setText(t37.getText());
+                    
+                    DiaAltera = Integer.parseInt(t37.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
             
@@ -1692,7 +2254,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t38.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t38.getText())) {
+                    DiaPagina1.setText(t38.getText());
+                    DiaPagina2.setText(t38.getText());
+                    
+                    DiaAltera = Integer.parseInt(t38.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
             
@@ -1707,7 +2277,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t39.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t39.getText())) {
+                    DiaPagina1.setText(t39.getText());
+                    DiaPagina2.setText(t39.getText());
+                    
+                    DiaAltera = Integer.parseInt(t39.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
             
@@ -1722,7 +2300,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t40.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t40.getText())) {
+                    DiaPagina1.setText(t40.getText());
+                    DiaPagina2.setText(t40.getText());
+                    
+                    DiaAltera = Integer.parseInt(t40.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
@@ -1737,7 +2323,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t41.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t41.getText())) {
+                    DiaPagina1.setText(t41.getText());
+                    DiaPagina2.setText(t41.getText());
+                    
+                    DiaAltera = Integer.parseInt(t41.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
              t42.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1751,7 +2345,15 @@ public class Agenda extends javax.swing.JInternalFrame {
                 t42.setBorder(null);
             }
             public void  mouseClicked(java.awt.event.MouseEvent evt){
-                
+                if (!"".equals(t42.getText())) {
+                    DiaPagina1.setText(t42.getText());
+                    DiaPagina2.setText(t42.getText());
+                    
+                    DiaAltera = Integer.parseInt(t42.getText());
+                    DiaCliq = 0 ;
+                    VerificaSemana();
+                    //LEAgenda();
+                }
             }
         });
         
