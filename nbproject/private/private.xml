@@ -6,9 +6,11 @@
             <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/View/ReceitaView.java</file>
             <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Controller/ConsultaController.java</file>
             <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Controller/MedicamentoController.java</file>
+            <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Model/ItemReceita.java</file>
             <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Controller/ReceitaController.java</file>
             <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/View/ConsultaView.java</file>
             <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Model/Receita.java</file>
+            <file>file:/C:/ProjetoConsultorio/src/projetoconsultório/Controller/ItemReceitaController.java</file>
         </group>
     </open-files>
 </project-private>

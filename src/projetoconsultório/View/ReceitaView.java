@@ -5,12 +5,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import projetoconsultório.Controller.ItemReceitaController;
 import projetoconsultório.Controller.MedicamentoController;
 import projetoconsultório.Controller.ReceitaController;
+import projetoconsultório.Model.ItemReceita;
 import projetoconsultório.Model.Medicamento;
 import projetoconsultório.Model.Receita;
 
@@ -296,47 +296,80 @@ public class ReceitaView extends javax.swing.JFrame {
 
     private void jButtonFinishRecipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishRecipeActionPerformed
         ReceitaController receitaController = new ReceitaController();
-        Receita receita = new Receita();
-        Date data = new Date();
-        
-        
-     
+        ItemReceitaController itemController = new ItemReceitaController();
          
-          receita.setMedicamentos(listaMedicamento);
-          
-          /*  
-          SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-           
-
-         String d = data.toString();
+         boolean retornoReceita = true;
+        
+        Receita receita = new Receita(); //crio o objeto receita
+        ItemReceita item = new ItemReceita(); //crio o objeto item_receita
+        Date data = new Date(); //pegando a data atual
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String d = sdf.format(data); //formatando a data no padrão dia/mes/ano
         
         try {
-          
-           java.util.Date dateUtil = new java.util.Date();
-           
-            dateUtil = sdf.parse(d);
-            
-           java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime());
-           
+           java.util.Date dateUtil = new java.util.Date(); //criando um objeto do java.util.Date
+           dateUtil = sdf.parse(d);
+           java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime()); //pegando a data do objeto dateUtil e transformando para o tipo sql.Date
            dateUtil = sdf.parse(d);
            
            receita.setDataReceita(dateSql);
-           
+            retornoReceita = receitaController.cadastrarReceita(receita); //cadastro a receita para gerar um novo id, setando a data da mesma         
           } catch (ParseException ex) {
            JOptionPane.showMessageDialog(null,"Erro ao gravar data "+ex.getMessage());
         }
           
-          */
-          
-        boolean retorno = receitaController.cadastrarReceita(receita);
         
-        if(retorno){
+       
+        
+        Receita r = receitaController.getLastId(); //pegando o ultimo da receita cadastrada
+        
+        item.setIdReceita(r);
+        
+        
+        //daqui pra baixo so Deus pode me ajudar
+        
+        
+       
+        //int idItemReceita = itemController.getLastId();
+        
+        
+        boolean retornoItens = true;
+        
+        if (listaMedicamento.isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Não há nenhum medicamento para ser adicionado a receita. ");
+        }
+        
+        for(int i=0;i<listaMedicamento.size();i++) {
+            Medicamento m = new Medicamento();
+            m.setId(listaMedicamento.get(i).getId());
+            
+            item.setIdReceita(r);
+            item.setIdMedicamento(m); 
+            
+            item.setDosagem("italo");
+            retornoItens = itemController.insertItemReceita(item);
+            
+        }
+        
+        
+        // // a receita ja e cadastra la em cima para gerar o id es
+        
+        
+        if(retornoReceita){
            JOptionPane.showMessageDialog(null,"Erro ao gravar receita");
         }
         else {
-            JOptionPane.showMessageDialog(null,"Receita gravada com sucesso ");
+            JOptionPane.showMessageDialog(null,"RECEITA gravada com sucesso ");
         }
         
+        if(retornoItens) {
+            
+          JOptionPane.showMessageDialog(null,"Erro ao gravar itens receita");
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Itens receita gravados com sucesso ");
+        }
         
         
         
