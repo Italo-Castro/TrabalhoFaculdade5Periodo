@@ -14,7 +14,8 @@ public class PacienteController {
         boolean retorno = false;
         
         String sql = "INSERT INTO paciente (nome, cpf, sexo, idEndereco, idPlanoSaude) VALUES(?,?,?,?,?)";
-        System.out.print("dentro do insert");
+        
+        System.out.print("\ndentro do insert paciente\n");
         Conexao conexao = new Conexao();
         
         conexao.conectar();
@@ -26,7 +27,7 @@ public class PacienteController {
             sentenca.setString(2, paciente.getCpf());   
             sentenca.setString(3, paciente.getSexo());   
             sentenca.setInt(4, paciente.getIdEndereco().getId());   
-            sentenca.setInt(5, paciente.getIdPlanoSaude().getId());   
+            sentenca.setInt(5,paciente.getIdPlanoSaude().getId());   
             
             if(sentenca.execute()){
                 retorno = true;

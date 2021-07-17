@@ -42,9 +42,12 @@ public class CarregaRelatorios {
             //COMPILA EM ARQUIVO JASPER
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conexao.con);
             
+            
             //ABRE JANELA DE VISUALIZAÇÃO
-            JasperViewer viewer = new JasperViewer(jasperPrint, true);
+            JasperViewer viewer = new JasperViewer(jasperPrint, false);  //paramentro boolena identifica se e pra fechar ou nao a aplicação
+            
             viewer.setVisible(true);
+            
             
             //EXPORTA ARQUIVO JASPER EM PDF - SE FOR NECESSARIO!
             //JasperExportManager.exportReportToPdfFile(jasperPrint, "Relatorio.pdf");

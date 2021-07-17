@@ -327,7 +327,7 @@ public class ReceitaView extends javax.swing.JFrame {
         item.setIdReceita(r);
         
         
-        //daqui pra baixo so Deus pode me ajudar
+        //daqui pra baixo so Deus pode me ajudar // Funcionou Deus e bao d maiss
         
         
        

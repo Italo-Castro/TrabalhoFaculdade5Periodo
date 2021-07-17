@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import projetoconsultório.Model.PlanoDeSaude;
 import projetoconsultório.Util.Conexao;
 
@@ -76,11 +77,11 @@ public class PlanoDeSaudeController {
         conexao.conectar();
         
         try{
+            PlanoDeSaude plano = new PlanoDeSaude();
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             ResultSet resultSet = sentenca.executeQuery();
+            
             while(resultSet.next()){
-                PlanoDeSaude plano = new PlanoDeSaude();
-                
                 plano.setId(resultSet.getInt("id"));
                 plano.setDataExpiracao(resultSet.getDate("dataExpiracao"));
                 plano.setTipo(resultSet.getString("tipo"));
@@ -127,7 +128,7 @@ public class PlanoDeSaudeController {
         PlanoDeSaude plano = new PlanoDeSaude();
         
         String sql = "SELECT * FROM planoSaude where tipo = '"+tipo+"'";
-        
+        JOptionPane.showMessageDialog(null,"O tipo que esou consultadno o do tipo "+tipo);
         Conexao conexao = new Conexao();
         
         conexao.conectar();

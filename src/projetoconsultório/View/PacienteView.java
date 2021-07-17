@@ -5,6 +5,7 @@ import br.com.parg.viacep.ViaCEP;
 import br.com.parg.viacep.ViaCEPException;
 import java.awt.Color;
 import static java.awt.event.KeyEvent.VK_ENTER;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
@@ -31,21 +32,15 @@ public class PacienteView extends javax.swing.JInternalFrame {
         PlanoDeSaudeController controller = new PlanoDeSaudeController();
         
         lista = controller.buscarPlanoSaude();
-        
         if(lista.isEmpty()){
             jComboPlanoDeSaude.addItem("NÃO HÁ PLANOS DE SAUDE CADASTRADOS");
-        }
-        
+        }       
         else {
-            
-        for (PlanoDeSaude planos : lista){
-            
-            jComboPlanoDeSaude.addItem(planos.getTipo());
-            
+            for (PlanoDeSaude planos : lista){
+                jComboPlanoDeSaude.addItem(planos.getTipo());  
             }
         }
     }
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -482,8 +477,8 @@ public class PacienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-
-        if(jTextNome.getText().equals("")){
+    
+       if(jTextNome.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Informe o nome do paciente","ARGUMENT INVALID",JOptionPane.WARNING_MESSAGE);
             jTextNome.setBorder(new LineBorder(Color.RED));
         }
@@ -546,24 +541,24 @@ public class PacienteView extends javax.swing.JInternalFrame {
         if(jRadioSim.isSelected()) {
             
         PlanoDeSaudeController controllerPlanoSaude = new PlanoDeSaudeController();
-        plano = controllerPlanoSaude.buscarPlanoSaudePorTipo(jComboPlanoDeSaude.getSelectedItem().toString());
+        
+        plano = controllerPlanoSaude.buscarPlanoSaudePorTipo(jComboPlanoDeSaude.getSelectedItem().toString()); //busca o plano de saude selecionado
         
         if(plano == null) {
-                paciente.getIdPlanoSaude().setId(null);
+             JOptionPane.showMessageDialog(null,"O plano e = null"); // não to conseguindo passar por esse if
+                paciente.getIdPlanoSaude().setId(1);
             }
             else {
              paciente.getIdPlanoSaude().setId(plano.getId());
             }
         
         }
-        else if(jRadioNao.isSelected()){
-            if(plano == null) {
-                paciente.getIdPlanoSaude().setId(null);
-            }           
+        if (jRadioNao.isSelected()) {
+            paciente.getIdPlanoSaude().setId(1);
         }
+       
         
         
-        controller.cadastrarPaciente(paciente);
         
         if(controller.cadastrarPaciente(paciente)){
             JOptionPane.showMessageDialog(null,"Paciente cadastrado");
