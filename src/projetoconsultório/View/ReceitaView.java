@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import projetoconsultório.Controller.ItemReceitaController;
 import projetoconsultório.Controller.MedicamentoController;
+import projetoconsultório.Controller.MedicoController;
 import projetoconsultório.Controller.ReceitaController;
 import projetoconsultório.Model.ItemReceita;
 import projetoconsultório.Model.Medicamento;
@@ -20,7 +21,7 @@ public class ReceitaView extends javax.swing.JFrame {
     
     public ReceitaView(String nomePaciente, String nomeMedico) {
         initComponents();
-        jTextNomeMedico.setText(nomeMedico);
+        jLabelNomeMedico.setText(nomeMedico);
         
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);  
     }
@@ -37,7 +38,7 @@ public class ReceitaView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextNomeMedico = new javax.swing.JLabel();
+        jLabelNomeMedico = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextDescricao = new javax.swing.JTextField();
@@ -62,8 +63,8 @@ public class ReceitaView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setText("Medico Responsavel");
 
-        jTextNomeMedico.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jTextNomeMedico.setText("Nome Medico");
+        jLabelNomeMedico.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jLabelNomeMedico.setText("Nome Medico");
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("Prescreva Abaixo os Medicamentos para o cliente");
@@ -135,7 +136,7 @@ public class ReceitaView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(317, 317, 317)
-                        .addComponent(jTextNomeMedico))
+                        .addComponent(jLabelNomeMedico))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(303, 303, 303)
                         .addComponent(jButtonAddMedicament, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -187,7 +188,7 @@ public class ReceitaView extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jButtonFinishRecipe))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextNomeMedico)
+                        .addComponent(jLabelNomeMedico)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -297,8 +298,9 @@ public class ReceitaView extends javax.swing.JFrame {
     private void jButtonFinishRecipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishRecipeActionPerformed
         ReceitaController receitaController = new ReceitaController();
         ItemReceitaController itemController = new ItemReceitaController();
-         
-         boolean retornoReceita = true;
+        MedicoController medicoController = new MedicoController();
+        
+        boolean retornoReceita = true;
         
         Receita receita = new Receita(); //crio o objeto receita
         ItemReceita item = new ItemReceita(); //crio o objeto item_receita
@@ -310,11 +312,13 @@ public class ReceitaView extends javax.swing.JFrame {
         try {
            java.util.Date dateUtil = new java.util.Date(); //criando um objeto do java.util.Date
            dateUtil = sdf.parse(d);
-           java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime()); //pegando a data do objeto dateUtil e transformando para o tipo sql.Date
+           java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime()); //pegando a data do objeto dateUtil e transformando para o tipo sql.Date  
            dateUtil = sdf.parse(d);
            
-           receita.setDataReceita(dateSql);
-            retornoReceita = receitaController.cadastrarReceita(receita); //cadastro a receita para gerar um novo id, setando a data da mesma         
+           receita.setIdMedico(medicoController.buscarPorNome(jLabelNomeMedico.getText()));
+           receita.setDataReceita(dateSql);    
+           retornoReceita = receitaController.cadastrarReceita(receita); //InsertReceita cadastro a receita para gerar um novo id, setando a data da mesma        
+            
           } catch (ParseException ex) {
            JOptionPane.showMessageDialog(null,"Erro ao gravar data "+ex.getMessage());
         }
@@ -390,6 +394,7 @@ public class ReceitaView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelNomeMedico;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -397,7 +402,6 @@ public class ReceitaView extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextDescricao;
     private javax.swing.JTextField jTextDosagem;
-    private javax.swing.JLabel jTextNomeMedico;
     private javax.swing.JTextField jTextObservacao;
     // End of variables declaration//GEN-END:variables
 }

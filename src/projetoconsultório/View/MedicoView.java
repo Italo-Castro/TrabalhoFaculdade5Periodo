@@ -46,6 +46,7 @@ public class MedicoView extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextCrm = new javax.swing.JTextField();
 
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);

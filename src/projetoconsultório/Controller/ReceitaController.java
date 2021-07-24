@@ -4,8 +4,7 @@ package projetoconsultório.Controller;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import projetoconsultório.Model.Medicamento;
+import projetoconsultório.Model.Medico;
 import projetoconsultório.Model.Receita;
 import projetoconsultório.Util.Conexao;
 
@@ -19,7 +18,7 @@ public class ReceitaController {
      public Boolean cadastrarReceita(Receita receita) {
         boolean retorno = false;
 
-        String sql = "INSERT INTO receita (dataReceita) VALUES(?)";
+        String sql = "INSERT INTO receita (dataReceita,idMedico) VALUES(?,?)";
 
         Conexao conexao = new Conexao();
 
@@ -28,7 +27,7 @@ public class ReceitaController {
         try {
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             sentenca.setDate(1,(java.sql.Date) receita.getDataReceita());
-              
+            sentenca.setInt(2,receita.getIdMedico().getId());
             
             if (sentenca.execute()) {
                 retorno = true;
@@ -55,7 +54,7 @@ public class ReceitaController {
             
             if(resultSet.next()){
              receita.setId(resultSet.getInt("id"));
-            
+             receita.setIdMedico(resultSet.getObject("idMedico", Medico.class));
                 
             }
             
@@ -67,7 +66,7 @@ public class ReceitaController {
         return receita;
          
      }
-    
+   /* 
    public Boolean insertRevenue(Receita receita) {
         boolean retorno = false;
 
@@ -99,4 +98,5 @@ public class ReceitaController {
         conexao.desconectar();
         return retorno;
     }
+*/
 }

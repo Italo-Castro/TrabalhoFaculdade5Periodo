@@ -10,19 +10,20 @@ public class Receita {
     private Date validade;
     private String dosagem;
     private Date dataReceita;
+    private Medico idMedico;
 
-    public Receita() {
-        this.medicamentos = new ArrayList<>();
-        this.validade = new Date(0);
-        this.dosagem = "";
-    }
-
-    public Receita(int id, ArrayList<Medicamento> medicamentos, Date validade, String dosagem) {
+    public Receita(){};
+     
+    public Receita(int id, ArrayList<Medicamento> medicamentos, Date validade, String dosagem, Date dataReceita, Medico idMedico) {
         this.id = id;
         this.medicamentos = medicamentos;
         this.validade = validade;
         this.dosagem = dosagem;
+        this.dataReceita = dataReceita;
+        this.idMedico = idMedico;
     }
+
+   
 
     public int getId() {
         return id;
@@ -64,4 +65,12 @@ public class Receita {
         this.dataReceita = dataReceita;
     }
 
+    public Medico getIdMedico() {
+        return idMedico;
+    }
+
+    public void setIdMedico(Medico idMedico) {
+        this.idMedico = idMedico;
+    }
+    
 }
