@@ -276,10 +276,11 @@ public class ReceitaView extends javax.swing.JFrame {
                 jTextDosagem.getText(),
                 jTextObservacao.getText(),
        });
-
-       }else{
-           System.out.print("Medicamento ja cadastrado");
-           System.out.print("\n nome medicamento \n"+m.getNome());   
+                
+                
+       }else if(m != null) {
+            JOptionPane.showMessageDialog(null,"Medicamento ja cadastrado");
+           System.out.print("\n nome medicamento \n"+m.getId());   
        }
        
        
