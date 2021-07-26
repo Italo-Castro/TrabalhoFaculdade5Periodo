@@ -175,4 +175,40 @@ public class MedicoController {
         conexao.desconectar();
         return medico;
     }
+    
+     public ArrayList<Medico> pesquisaMedico(String nome){
+        ArrayList<Medico> listaMedicos = new ArrayList<>();
+        Medico medico = new Medico();
+        
+        String sql = "SELECT * FROM medico where nome like '%"+nome+"%'";
+        
+        Conexao conexao = new Conexao();
+        
+        conexao.conectar();
+        
+        try{
+            PreparedStatement sentenca = conexao.con.prepareStatement(sql);
+            ResultSet resultSet = sentenca.executeQuery();
+            
+            while(resultSet.next()){
+                               
+                medico.setId(resultSet.getInt("id"));
+                medico.setNome(resultSet.getString("nome"));
+                medico.setCpf(resultSet.getString("cpf"));
+                medico.setDataNascimento(resultSet.getDate("dataNascimento"));
+                medico.setSexo(resultSet.getString("sexo"));
+                medico.setEspecializacao(resultSet.getString("especializacao"));
+                medico.setDisponibilidade(resultSet.getBoolean("disponibilidade"));
+                medico.setCrm(resultSet.getString("crm"));
+                
+                listaMedicos.add(medico);
+                
+            }
+        }catch(SQLException e){
+            System.out.println("Falha ao buscar médicos: \n" + e.getMessage());
+        }
+        
+        conexao.desconectar();
+        return listaMedicos;
+    }
 }
