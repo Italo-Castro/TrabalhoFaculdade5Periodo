@@ -426,8 +426,26 @@ public class PacienteView extends javax.swing.JInternalFrame {
             }
         else {
             int id = Integer.parseInt(jTextCodigo.getText());
-            
             Paciente p = controller.buscarPacientePorId(id);
+            
+            if(p.getNome() == null) {
+               jTextNome.requestFocus();
+               jTextNome.setText("");
+               jTextCpf.setText("");
+               jTextCep.setText("");
+               jRadioMasculino.setSelected(false);
+               jRadioFeminino.setSelected(false);
+               jRadioIndiferente.setSelected(false);
+               jTextRua.setText("");
+               jTextBairro.setText("");
+               jTextCidade.setText("");
+               jRadioSim.setSelected(false);
+               jRadioNao.setSelected(false);
+               jComboPlanoDeSaude.setSelectedIndex(0);
+            }
+            else {
+                
+            JOptionPane.showMessageDialog(null,"Codigo "+id+" encontrado no paciente "+p.getNome(),"",JOptionPane.WARNING_MESSAGE);
             
             jTextNome.setText(p.getNome());
             jTextCpf.setText(p.getCpf());
@@ -444,19 +462,23 @@ public class PacienteView extends javax.swing.JInternalFrame {
             EnderecoController endController = new EnderecoController();
             Endereco end = new Endereco();
             
+            System.out.print(p.getIdEndereco().getId());
+            
             end = endController.buscarEnderecoPorId(p.getIdEndereco().getId());
             
             jTextCep.setText(end.getCep());
             jTextRua.setText(end.getRua());
             jTextBairro.setText(end.getBairro());
             jTextCidade.setText(end.getCidade());   
+            jComboEstado.setSelectedItem(end.getEstado());
            }
-              
+            } 
           }
          
     }//GEN-LAST:event_jTextCodigoKeyPressed
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
+        jTextCodigo.setText("0");
         jButtonRegister.setEnabled(true);
         jTextCodigo.setEnabled(false);
         jTextNome.setText("");

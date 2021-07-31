@@ -46,7 +46,7 @@ public class EnderecoController {
     public Endereco buscarEnderecoPorId(int id){
         Endereco endereco = new Endereco();
         
-        String sql = "SELECT * FROM endereco WHERE id = ?";
+        String sql = "SELECT * FROM endereco WHERE id = "+id;
         
         Conexao conexao = new Conexao();
         
@@ -54,7 +54,6 @@ public class EnderecoController {
         
         try{
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
-            sentenca.setInt(1, id);
             ResultSet resultSet = sentenca.executeQuery();
             if(resultSet.next()){
                 endereco.setId(resultSet.getInt("id"));
