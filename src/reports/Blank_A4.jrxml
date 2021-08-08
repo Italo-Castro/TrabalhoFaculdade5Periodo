@@ -45,7 +45,7 @@ FROM projetoconsultorio.medico]]>
 			</line>
 			<image>
 				<reportElement x="18" y="8" width="50" height="50" uuid="4418bd96-1343-45e7-ae14-c2df779559cc"/>
-				<imageExpression><![CDATA["src\\reports\\Clinic-icon.png"]]></imageExpression>
+				<imageExpression><![CDATA["/imagens/Clinic-icon.png"]]></imageExpression>
 			</image>
 			<line>
 				<reportElement x="-1" y="86" width="561" height="1" uuid="297e8866-38f0-4fc1-b7b6-eb3477b5d083"/>
@@ -63,7 +63,7 @@ FROM projetoconsultorio.medico]]>
 		<band height="51" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="39" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<staticText>
 				<reportElement x="18" y="2" width="164" height="30" uuid="47884ce1-8275-4cf9-9e7e-8076dc5322e8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a971719-ff3f-4ee8-96d9-732386f0e5f7"/>
@@ -73,9 +73,6 @@ FROM projetoconsultorio.medico]]>
 				</textElement>
 				<text><![CDATA[Nome do Medico]]></text>
 			</staticText>
-			<line>
-				<reportElement x="4" y="32" width="549" height="1" uuid="6c55b6f1-032b-4aae-8e98-3391a3eab336"/>
-			</line>
 			<staticText>
 				<reportElement x="197" y="2" width="152" height="30" uuid="24b58d48-2bc3-4efe-9b0c-934e29916436"/>
 				<textElement>
@@ -84,7 +81,7 @@ FROM projetoconsultorio.medico]]>
 				<text><![CDATA[Area de Atuacao]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="358" y="2" width="100" height="30" uuid="32523ba6-7adf-4e27-8574-e4d0b5aa8110">
+				<reportElement x="401" y="2" width="100" height="30" uuid="32523ba6-7adf-4e27-8574-e4d0b5aa8110">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69759d5d-64f3-434e-b300-4b42cda12bec"/>
 				</reportElement>
 				<textElement>
@@ -95,9 +92,9 @@ FROM projetoconsultorio.medico]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="65" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField>
-				<reportElement x="20" y="2" width="62" height="30" uuid="77606172-e42b-4449-a045-6e855499d421">
+				<reportElement x="48" y="-1" width="62" height="30" uuid="77606172-e42b-4449-a045-6e855499d421">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a971719-ff3f-4ee8-96d9-732386f0e5f7"/>
 				</reportElement>
 				<textElement>
@@ -106,19 +103,25 @@ FROM projetoconsultorio.medico]]>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="192" y="2" width="100" height="30" uuid="5d33dd21-bfa0-49fc-a3c3-276b892076c6">
+				<reportElement x="223" y="2" width="100" height="30" uuid="5d33dd21-bfa0-49fc-a3c3-276b892076c6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cce3e4b9-d3f5-497e-9b51-1fde51ca0ede"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{especializacao}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="358" y="9" width="100" height="30" uuid="e79343a7-2ae1-4713-9985-6e928fdd800b">
+				<reportElement x="401" y="2" width="100" height="30" uuid="e79343a7-2ae1-4713-9985-6e928fdd800b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69759d5d-64f3-434e-b300-4b42cda12bec"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{crm}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="-1" y="32" width="561" height="1" uuid="c7ad0e3a-b17e-4c7b-afd5-170734f2bbaa"/>
+			</line>
+			<line>
+				<reportElement x="182" y="-33" width="1" height="66" uuid="809bd5e7-c4ea-4391-9490-2f7a12954674"/>
+			</line>
+			<line>
+				<reportElement x="380" y="-33" width="1" height="66" uuid="0640cde5-f702-412f-8ea3-57035d190f63"/>
 			</line>
 		</band>
 	</detail>

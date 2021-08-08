@@ -2,11 +2,13 @@
 package ProjetoConsultorio;
 
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import projetoconsultório.View.Agenda.Agenda;
 import projetoconsultório.View.ConsultaView;
 import projetoconsultório.View.MedicoView;
 import projetoconsultório.View.PacienteView;
 import projetoconsultório.View.PlanoDeSaudeView;
+import projetoconsultório.View.Relatorios;
 import reports.CarregaRelatorios;
 
 public class Principal extends javax.swing.JFrame {
@@ -63,6 +65,11 @@ public class Principal extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jPopupMenu2 = new javax.swing.JPopupMenu();
+        jPopupMenu3 = new javax.swing.JPopupMenu();
+        jPopupMenu4 = new javax.swing.JPopupMenu();
+        jPopupMenu5 = new javax.swing.JPopupMenu();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -76,7 +83,9 @@ public class Principal extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuPacientes = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
 
         jMenu2.setText("jMenu2");
@@ -171,6 +180,14 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu9.setText("Relatorios");
 
+        jMenuItem9.setText("Relatorios ");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem9);
+
         jMenuItem7.setText("Medicos");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +195,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu9.add(jMenuItem7);
+
+        jMenuPacientes.setText("Pacientes");
+        jMenuPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPacientesActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuPacientes);
 
         jMenuItem8.setText("Plano Saude Filtro");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -250,10 +275,26 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+      
+     
+        
       CarregaRelatorios t = new CarregaRelatorios();
-      t.gerarRelatorio("src\\reports\\RelatorioPlanoFiltro.jrxml", "10");
+      t.gerarRelatorio("src\\reports\\RelatorioPlanoFiltro.jrxml", "50");
        
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPacientesActionPerformed
+       
+        CarregaRelatorios t = new CarregaRelatorios();
+        t.gerarRelatorio("C:\\ProjetoConsultorio\\src\\reports\\Pacientes.jrxml", "");
+        
+    }//GEN-LAST:event_jMenuPacientesActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        Relatorios r = new Relatorios();
+        jDesktopPane1.add(r);
+        r.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -309,6 +350,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuPacientes;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JPopupMenu jPopupMenu3;
+    private javax.swing.JPopupMenu jPopupMenu4;
+    private javax.swing.JPopupMenu jPopupMenu5;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables

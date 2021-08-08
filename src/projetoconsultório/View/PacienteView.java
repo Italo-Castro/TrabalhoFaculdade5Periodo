@@ -89,6 +89,8 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jTextCpf = new javax.swing.JFormattedTextField();
         jLabel13 = new javax.swing.JLabel();
         jComboEstado = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jTextTelefone = new javax.swing.JFormattedTextField();
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -149,7 +151,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
                 .add(jButtonRegister)
                 .add(18, 18, 18)
                 .add(jButtonExit)
-                .addContainerGap(618, Short.MAX_VALUE))
+                .addContainerGap(654, Short.MAX_VALUE))
         );
 
         jSplitPane2.setLeftComponent(jPanel3);
@@ -251,15 +253,68 @@ public class PacienteView extends javax.swing.JInternalFrame {
 
         jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RJ", "SP", "MG", "SC" }));
 
+        jLabel14.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel14.setText("Telefone de Contato");
+
+        try {
+            jTextTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ##### - ####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextTelefone.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+
         org.jdesktop.layout.GroupLayout jPanel5Layout = new org.jdesktop.layout.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jLabel3)
-                    .add(jLabel1)
+                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel5Layout.createSequentialGroup()
+                        .add(6, 6, 6)
+                        .add(jLabel9))
+                    .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(jLabel3)
+                        .add(jLabel1)
+                        .add(jPanel5Layout.createSequentialGroup()
+                            .add(9, 9, 9)
+                            .add(jRadioSim)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                            .add(jRadioNao))
+                        .add(jLabel4)
+                        .add(jPanel5Layout.createSequentialGroup()
+                            .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jPanel5Layout.createSequentialGroup()
+                                    .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                        .add(jLabel6)
+                                        .add(jLabel5)
+                                        .add(jLabel8))
+                                    .add(15, 15, 15))
+                                .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel5Layout.createSequentialGroup()
+                                    .add(jLabel7)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
+                            .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                                .add(jTextCidade)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, jTextRua)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, jTextBairro)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel5Layout.createSequentialGroup()
+                                    .add(jTextCep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 213, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                    .add(jLabel11))))
+                        .add(jPanel5Layout.createSequentialGroup()
+                            .add(jTextCodigo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 72, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(jLabel10))
+                        .add(jTextNome)
+                        .add(jComboPlanoDeSaude, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(jLabel12)
+                        .add(jTextCpf)
+                        .add(jPanel5Layout.createSequentialGroup()
+                            .add(jLabel13)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(jComboEstado, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .add(jTextTelefone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 172, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jLabel14)
                     .add(jPanel5Layout.createSequentialGroup()
                         .add(jRadioMasculino)
                         .add(18, 18, 18)
@@ -268,45 +323,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
                         .add(jRadioIndiferente))
                     .add(jPanel5Layout.createSequentialGroup()
                         .add(9, 9, 9)
-                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel5Layout.createSequentialGroup()
-                                .add(jRadioSim)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jRadioNao))
-                            .add(jLabel2)))
-                    .add(jLabel4)
-                    .add(jPanel5Layout.createSequentialGroup()
-                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel5Layout.createSequentialGroup()
-                                .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jLabel6)
-                                    .add(jLabel5)
-                                    .add(jLabel8))
-                                .add(15, 15, 15))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .add(jLabel7)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
-                        .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                            .add(jTextCidade)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextRua)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextBairro)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel5Layout.createSequentialGroup()
-                                .add(jTextCep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 213, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabel11))))
-                    .add(jPanel5Layout.createSequentialGroup()
-                        .add(jTextCodigo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 72, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jLabel10))
-                    .add(jTextNome)
-                    .add(jComboPlanoDeSaude, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jLabel9)
-                    .add(jLabel12)
-                    .add(jTextCpf)
-                    .add(jPanel5Layout.createSequentialGroup()
-                        .add(jLabel13)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jComboEstado, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .add(jLabel2)))
                 .addContainerGap(492, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -326,22 +343,26 @@ public class PacienteView extends javax.swing.JInternalFrame {
                 .add(jLabel12)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jTextCpf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jLabel14)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jTextTelefone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(24, 24, 24)
                 .add(jLabel9)
                 .add(2, 2, 2)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jRadioMasculino)
                     .add(jRadioFeminino)
                     .add(jRadioIndiferente))
-                .add(36, 36, 36)
+                .add(18, 18, 18)
                 .add(jLabel2)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jRadioSim)
                     .add(jRadioNao))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jComboPlanoDeSaude, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(31, 31, 31)
+                .add(33, 33, 33)
                 .add(jLabel4)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -366,7 +387,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
                 .add(jPanel5Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel13)
                     .add(jComboEstado, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .add(41, 41, 41))
         );
 
         jScrollPane2.setViewportView(jPanel5);
@@ -376,13 +397,13 @@ public class PacienteView extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -536,17 +557,18 @@ public class PacienteView extends javax.swing.JInternalFrame {
            idEndereco = en.getId();          
        }
        else if( en.getId() == 0) {
-            JOptionPane.showMessageDialog(null,"Cep não encontrado adicionando cep a base de dados");
+            //JOptionPane.showMessageDialog(null,"Cep não encontrado adicionando cep a base de dados");
+            
             controllerEndereco.cadastrarEndereco(endereco);                    // se o objeto for nulo cadastro o endereco;
             en = controllerEndereco.buscarEnderecoPorCep(jTextCep.getText()); //busco o cep que acabei de cadastrar
             idEndereco = en.getId();                                                       //pego o id do cep recem cadastrado
        }
        
-       JOptionPane.showMessageDialog(null,"Fora do iff tenho isso ->"+idEndereco);
+       
        paciente.getIdEndereco().setId(idEndereco);     
        paciente.setCpf(jTextCpf.getText());
        paciente.setNome(jTextNome.getText());
-       
+       paciente.setTelefone(jTextTelefone.getText());
        
         String sexo = "";
         if(jRadioFeminino.isSelected()) {
@@ -626,6 +648,7 @@ public class PacienteView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -656,5 +679,6 @@ public class PacienteView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextNome;
     private javax.swing.JTextField jTextRua;
+    private javax.swing.JFormattedTextField jTextTelefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,7 +13,7 @@ public class PacienteController {
     public Boolean cadastrarPaciente(Paciente paciente){
         boolean retorno = false;
         
-        String sql = "INSERT INTO paciente (nome, cpf, sexo, idEndereco, idPlanoSaude) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO paciente (nome, cpf, sexo, idEndereco, idPlanoSaude,telefone) VALUES(?,?,?,?,?,?)";
         
         System.out.print("\ndentro do insert paciente\n");
         Conexao conexao = new Conexao();
@@ -28,6 +28,7 @@ public class PacienteController {
             sentenca.setString(3, paciente.getSexo());   
             sentenca.setInt(4, paciente.getIdEndereco().getId());   
             sentenca.setInt(5,paciente.getIdPlanoSaude().getId());   
+            sentenca.setString(6, paciente.getTelefone());
             
             if(sentenca.execute()){
                 retorno = true;
@@ -63,6 +64,7 @@ public class PacienteController {
                 paciente.setSexo(resultSet.getString("sexo"));
                 paciente.getIdEndereco().setId(resultSet.getInt("idEndereco"));
                 paciente.getIdPlanoSaude().setId(resultSet.getInt("idPlanoSaude"));
+                paciente.setTelefone(resultSet.getString("telefone"));
             }
         }catch(SQLException e){
             System.out.println("Falha ao buscar paciente:\n" + e.getMessage());
@@ -93,6 +95,7 @@ public class PacienteController {
                 paciente.setSexo(resultSet.getString("sexo"));
                 paciente.getIdEndereco().setId(resultSet.getInt("idEndereco"));
                 paciente.getIdPlanoSaude().setId(resultSet.getInt("idPlanoSaude"));
+                paciente.setTelefone(resultSet.getString("telefone"));
                 
                 pacientes.add(paciente);
             }
@@ -122,7 +125,7 @@ public class PacienteController {
             sentenca.setInt(4,paciente.getIdEndereco().getId());
             sentenca.setInt(5,paciente.getIdPlanoSaude().getId());
             sentenca.setInt(6, paciente.getId());
-            
+             paciente.setTelefone(paciente.getTelefone());
             if(!sentenca.execute()){
                 retorno = true;
             }

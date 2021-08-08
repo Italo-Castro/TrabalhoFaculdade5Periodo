@@ -1,6 +1,5 @@
 package projetoconsultório.Model;
 
-import java.io.Serializable;
 
 public class Paciente {
 
@@ -8,6 +7,7 @@ public class Paciente {
     private String nome;
     private String cpf; 
     private String sexo;
+    private String telefone;
     private Endereco idEndereco;
     private PlanoDeSaude idPlanoSaude;
 
@@ -18,6 +18,14 @@ public class Paciente {
        
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    
     
     public int getId() {
         return id;
