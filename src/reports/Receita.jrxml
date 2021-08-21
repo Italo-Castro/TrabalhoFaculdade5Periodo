@@ -3,13 +3,14 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Receita" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f44992e-3157-4ff9-855f-c097084f1014">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="basededados.xml"/>
 	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[aXRlbnNyZWNlaXRhICwxNSwxNSw0MWU1N2I2OC00NDA1LTQ3MDgtYTQ0ZS1iZjY2NTdiNTY4YmM7
-cHJvamV0b2NvbnN1bHRvcmlvLmVtcHJlc2EgQVMgLDI2NSwyOCw5MzIzYjA3NC1hOTkyLTRkZDct
-OTkzNy05ZDg2OTNlOTkwZjA7bWVkaWNhbWVudG8gLDEzMCwyOCw2OWE1MDkyMC0yNWVlLTQ4M2Et
-ODkyZC00ZDM3ZGZhYWU1NWY7]]>
+		<![CDATA[bWVkaWNhbWVudG8gLDE1NywxMzgsNzJiYjU2N2MtMzk5Yy00ZjJjLTlkZTAtZjA5ODQ5ZGU0MDBi
+O2l0ZW5zcmVjZWl0YSAsMTUsMTUsYmU4ODBjMGYtMzhiOC00YzJiLThjYTYtM2FlOTBlNWM3MDdj
+O3Byb2pldG9jb25zdWx0b3Jpby5lbXByZXNhICwxNSwxNTYsNzc2YjQ4MzQtNzBhMy00YTc5LWJi
+ODAtOWQwOTRlMjMxN2Q1Ow==]]>
 	</property>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="642"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="357"/>
+	<parameter name="idReceita" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[SELECT medicamento.nome,
 	itensreceita.dosagem,
@@ -26,7 +27,7 @@ FROM medicamento
 	 itensreceita.`codItem` = medicamento.id ,
 	projetoconsultorio.empresa
 WHERE 
-	 itensreceita.`idReceita` = '23']]>
+	 itensreceita.`idReceita` =  $P{idReceita} ]]>
 	</queryString>
 	<field name="nome" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nome"/>

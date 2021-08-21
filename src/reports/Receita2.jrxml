@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Receita2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4c553559-38e5-4523-a981-40fdc2119aa1">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="basededados.xml"/>
+	<parameter name="idReceita" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT medicamento.nome,
+	itensreceita.dosagem,
+	projetoconsultorio.empresa.`nomeEmpresa`,
+	projetoconsultorio.empresa.telefone2,
+	projetoconsultorio.empresa.rua,
+	projetoconsultorio.empresa.bairro,
+	projetoconsultorio.empresa.complemento,
+	projetoconsultorio.empresa.cidade,
+	projetoconsultorio.empresa.numero,
+	projetoconsultorio.empresa.telefone1
+FROM medicamento
+	JOIN itensreceita ON 
+	 itensreceita.`codItem` = medicamento.id ,
+	projetoconsultorio.empresa
+WHERE 
+	 itensreceita.`idReceita` =   $P{idReceita}]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="medicamento"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dosagem" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dosagem"/>
+		<property name="com.jaspersoft.studio.field.label" value="dosagem"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="itensreceita"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeEmpresa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomeEmpresa"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomeEmpresa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefone2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telefone2"/>
+		<property name="com.jaspersoft.studio.field.label" value="telefone2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rua" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="rua"/>
+		<property name="com.jaspersoft.studio.field.label" value="rua"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bairro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bairro"/>
+		<property name="com.jaspersoft.studio.field.label" value="bairro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="complemento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="complemento"/>
+		<property name="com.jaspersoft.studio.field.label" value="complemento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numero" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="numero"/>
+		<property name="com.jaspersoft.studio.field.label" value="numero"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefone1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telefone1"/>
+		<property name="com.jaspersoft.studio.field.label" value="telefone1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="116" splitType="Stretch">
+			<textField>
+				<reportElement x="170" y="1" width="350" height="32" uuid="3f74a0b8-1f37-49a9-a433-47454291b5fa"/>
+				<textElement>
+					<font fontName="Bradley Hand ITC" size="24" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="60" width="160" height="46" uuid="21f8f9cd-46b2-4f0b-9b99-da5480e958b7"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rua}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="60" width="77" height="46" uuid="031d2001-acad-44ba-b367-5315a10bee87"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="60" width="37" height="46" uuid="395a3e50-f287-45f6-b8dc-352addf99887"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="60" width="80" height="46" uuid="09ee2a59-b8a5-4b27-8576-6abc34093510"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{complemento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="59" width="120" height="48" uuid="b281b9c7-20d6-40e7-80ad-614e4eec02b2"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="169" y="60" width="3" height="46" uuid="f5269656-89ee-4e86-8fee-24056c021664"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="60" width="8" height="46" uuid="0ae3faa5-0e06-4e75-980a-94b6c7375e8b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<line>
+				<reportElement x="9" y="108" width="561" height="1" uuid="61a8a057-c5b9-4ae8-9410-70d541d58239"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="29" width="100" height="30" uuid="f54cbd1f-b046-4677-8da0-c35155cfea3c"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="30" width="100" height="30" uuid="e30d43d1-e940-448c-8d66-6f87a716e198"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Dosagem]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="52" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="10" y="10" width="100" height="30" uuid="f7fe6c34-e671-4a3c-a23f-182739013719"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="10" width="100" height="30" uuid="f31bc25e-90ec-46ba-99d9-597f85c46784"/>
+				<textFieldExpression><![CDATA[$F{dosagem}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="193" splitType="Stretch">
+			<staticText>
+				<reportElement x="240" y="103" width="70" height="26" uuid="b0dffda5-47de-4982-9b00-cde7c316eae2"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CRM]]></text>
+			</staticText>
+			<image>
+				<reportElement x="240" y="20" width="60" height="60" uuid="c6a224a1-5a60-4e15-bd58-1637e9e34ad1"/>
+				<imageExpression><![CDATA["D:/PASTA/icones/doctor128x128.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="373" y="160" width="117" height="30" uuid="3ef74c0d-7d3d-472f-a572-ef0fa704ab66"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="490" y="160" width="70" height="30" uuid="432b87b0-936a-41d6-b78d-e94c6e442896"/>
+				<textElement textAlignment="Left">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
