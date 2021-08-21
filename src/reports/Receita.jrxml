@@ -3,31 +3,46 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Receita" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f44992e-3157-4ff9-855f-c097084f1014">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="basededados.xml"/>
 	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[cHJvamV0b2NvbnN1bHRvcmlvLmVtcHJlc2EgLDE1LDE1LDRhN2U0NmY0LWYwYTgtNGUxNi1iM2Qw
-LWViNjBlZGMzOWNhZDs=]]>
+		<![CDATA[aXRlbnNyZWNlaXRhICwxNSwxNSw0MWU1N2I2OC00NDA1LTQ3MDgtYTQ0ZS1iZjY2NTdiNTY4YmM7
+cHJvamV0b2NvbnN1bHRvcmlvLmVtcHJlc2EgQVMgLDI2NSwyOCw5MzIzYjA3NC1hOTkyLTRkZDct
+OTkzNy05ZDg2OTNlOTkwZjA7bWVkaWNhbWVudG8gLDEzMCwyOCw2OWE1MDkyMC0yNWVlLTQ4M2Et
+ODkyZC00ZDM3ZGZhYWU1NWY7]]>
 	</property>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="642"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="357"/>
 	<queryString>
-		<![CDATA[SELECT `nomeEmpresa`,
-	telefone1,
-	telefone2,
-	rua,
-	bairro,
-	complemento,
-	cidade,
-	numero
-FROM projetoconsultorio.empresa]]>
+		<![CDATA[SELECT medicamento.nome,
+	itensreceita.dosagem,
+	projetoconsultorio.empresa.`nomeEmpresa`,
+	projetoconsultorio.empresa.telefone2,
+	projetoconsultorio.empresa.rua,
+	projetoconsultorio.empresa.bairro,
+	projetoconsultorio.empresa.complemento,
+	projetoconsultorio.empresa.cidade,
+	projetoconsultorio.empresa.numero,
+	projetoconsultorio.empresa.telefone1
+FROM medicamento
+	JOIN itensreceita ON 
+	 itensreceita.`codItem` = medicamento.id ,
+	projetoconsultorio.empresa
+WHERE 
+	 itensreceita.`idReceita` = '23']]>
 	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="medicamento"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dosagem" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dosagem"/>
+		<property name="com.jaspersoft.studio.field.label" value="dosagem"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="itensreceita"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nomeEmpresa" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nomeEmpresa"/>
 		<property name="com.jaspersoft.studio.field.label" value="nomeEmpresa"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="telefone1" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="telefone1"/>
-		<property name="com.jaspersoft.studio.field.label" value="telefone1"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -67,6 +82,12 @@ FROM projetoconsultorio.empresa]]>
 		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="telefone1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telefone1"/>
+		<property name="com.jaspersoft.studio.field.label" value="telefone1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<variable name="complemento1" class="java.lang.Integer" resetType="Page" calculation="Count">
 		<variableExpression><![CDATA[$F{complemento}]]></variableExpression>
 	</variable>
@@ -85,94 +106,135 @@ FROM projetoconsultorio.empresa]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="31" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="10" width="100" height="30" uuid="e9a9f9ba-820a-4071-ab9f-f115d7632026">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b78af4db-4409-42aa-bbaa-b89ab272cfe1"/>
+				</reportElement>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="10" width="100" height="30" uuid="a0536268-6a60-40c3-8c36-5eeebaef242a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="269412c8-637b-435e-b264-6b4c19693505"/>
+				</reportElement>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Dosagem]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="40" width="550" height="1" uuid="6587b2a9-77b4-4152-9d8d-d88a2d2e6945"/>
+			</line>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="56" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="10" width="222" height="66" uuid="015b7ad6-2e97-4f4b-9fad-181ed14fd3e5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b78af4db-4409-42aa-bbaa-b89ab272cfe1"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="10" width="122" height="66" uuid="cd6ce6d7-4a57-4e7c-94fc-7597f7b04f10">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="269412c8-637b-435e-b264-6b4c19693505"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dosagem}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="42" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="101" splitType="Stretch">
+		<band height="110" splitType="Stretch">
 			<textField>
-				<reportElement x="130" y="7" width="140" height="30" uuid="ec7eba62-8250-43fe-95eb-1c98013561c1"/>
+				<reportElement x="130" y="7" width="121" height="30" uuid="ec7eba62-8250-43fe-95eb-1c98013561c1"/>
 				<textElement>
 					<font size="19"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{telefone1}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="270" y="7" width="1" height="30" uuid="9d00c7bf-89a6-432e-b0b8-3e00e89e3315"/>
+				<reportElement x="250" y="7" width="1" height="30" uuid="9d00c7bf-89a6-432e-b0b8-3e00e89e3315"/>
 			</line>
 			<textField>
-				<reportElement x="280" y="7" width="153" height="30" uuid="d7b7ede6-aa81-4623-93ef-efaf0b8c173b"/>
+				<reportElement x="260" y="7" width="153" height="30" uuid="d7b7ede6-aa81-4623-93ef-efaf0b8c173b"/>
 				<textElement>
 					<font size="19"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{telefone2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="10" y="50" width="240" height="30" uuid="02e7bf10-2cdb-4733-8aa8-6dcc2e4b0b0a"/>
+				<reportElement x="10" y="50" width="200" height="50" uuid="02e7bf10-2cdb-4733-8aa8-6dcc2e4b0b0a"/>
 				<textElement>
 					<font fontName="Berlin Sans FB Demi" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{rua}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="250" y="50" width="3" height="30" uuid="1b4ee900-5b64-4677-a927-d10186d29764"/>
+				<reportElement x="210" y="50" width="3" height="30" uuid="1b4ee900-5b64-4677-a927-d10186d29764"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
 				<text><![CDATA[,]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="303" y="50" width="70" height="30" uuid="70052ada-6bbc-4c65-b192-87c63017b0b8"/>
+				<reportElement x="263" y="50" width="57" height="40" uuid="70052ada-6bbc-4c65-b192-87c63017b0b8"/>
 				<textElement>
 					<font fontName="Berlin Sans FB Demi" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{complemento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="253" y="50" width="40" height="30" uuid="26f2bf46-d900-40e8-9ef7-c2650d07f049"/>
+				<reportElement x="213" y="50" width="40" height="50" uuid="26f2bf46-d900-40e8-9ef7-c2650d07f049"/>
 				<textElement>
 					<font fontName="Berlin Sans FB Demi" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="293" y="50" width="10" height="30" uuid="5689a98d-dd30-4940-bf60-1e8de0097686"/>
+				<reportElement x="253" y="50" width="10" height="30" uuid="5689a98d-dd30-4940-bf60-1e8de0097686"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="370" y="50" width="10" height="30" uuid="29ed25ed-be0b-40d2-a461-a7da4da454dd"/>
+				<reportElement x="333" y="50" width="10" height="30" uuid="29ed25ed-be0b-40d2-a461-a7da4da454dd"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="373" y="50" width="60" height="30" uuid="a029fbf3-1868-40fb-83c5-010ff2a1eeb8"/>
+				<reportElement x="343" y="50" width="60" height="30" uuid="a029fbf3-1868-40fb-83c5-010ff2a1eeb8"/>
 				<textElement>
 					<font fontName="Berlin Sans FB Demi" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="433" y="50" width="10" height="30" uuid="247558f9-bc03-448f-98fa-13b357f8787f"/>
+				<reportElement x="403" y="50" width="10" height="30" uuid="247558f9-bc03-448f-98fa-13b357f8787f"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
 				<text><![CDATA[-]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="443" y="50" width="100" height="30" uuid="96095b16-beea-46c2-9260-e0d35c74f30c"/>
+				<reportElement x="413" y="50" width="100" height="30" uuid="96095b16-beea-46c2-9260-e0d35c74f30c"/>
 				<textElement>
 					<font fontName="Berlin Sans FB Demi" size="16"/>
 				</textElement>

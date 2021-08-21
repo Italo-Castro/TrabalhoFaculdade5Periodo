@@ -97,7 +97,7 @@ FROM paciente
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<staticText>
-				<reportElement x="200" y="0" width="260" height="30" uuid="40b019f0-2268-4ee0-a88a-377c992e0f32"/>
+				<reportElement x="170" y="0" width="260" height="30" uuid="40b019f0-2268-4ee0-a88a-377c992e0f32"/>
 				<textElement>
 					<font fontName="Copperplate Gothic Light" size="14" isBold="true"/>
 				</textElement>
@@ -106,7 +106,7 @@ FROM paciente
 		</band>
 	</title>
 	<pageHeader>
-		<band height="81" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<staticText>
 				<reportElement x="10" y="30" width="30" height="18" uuid="72c271df-131a-4be3-ad42-8f9632bc7ad1"/>
 				<text><![CDATA[Cod.]]></text>
@@ -166,16 +166,10 @@ FROM paciente
 			<line>
 				<reportElement x="450" y="31" width="1" height="18" uuid="4222ba2d-9c82-4df0-a0b5-669c28dd10c4"/>
 			</line>
-			<line>
-				<reportElement x="560" y="30" width="1" height="18" uuid="f876f8fa-91a1-447b-8051-8843a574b0be"/>
-			</line>
-			<line>
-				<reportElement x="10" y="30" width="1" height="18" uuid="40374159-a171-41d1-9c74-961a07d19b89"/>
-			</line>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="67" splitType="Immediate">
+		<band height="38" splitType="Immediate">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
 				<reportElement x="10" y="0" width="30" height="20" uuid="9e046ecf-631f-4096-afa1-0f0c83b92735"/>
@@ -186,7 +180,7 @@ FROM paciente
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="140" y="10" width="71" height="20" uuid="aff5007f-fd45-4062-833f-1e2e8127e2f0"/>
+				<reportElement x="140" y="0" width="71" height="30" uuid="aff5007f-fd45-4062-833f-1e2e8127e2f0"/>
 				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -194,7 +188,7 @@ FROM paciente
 				<textFieldExpression><![CDATA[$F{rua}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="30" width="560" height="1" uuid="2b25e791-7731-4b56-8678-b7f820e858ee"/>
+				<reportElement x="-20" y="30" width="595" height="3" uuid="2b25e791-7731-4b56-8678-b7f820e858ee"/>
 			</line>
 			<textField>
 				<reportElement x="320" y="0" width="60" height="30" uuid="051915ad-56d1-4f7a-ae04-2259b17ad084"/>

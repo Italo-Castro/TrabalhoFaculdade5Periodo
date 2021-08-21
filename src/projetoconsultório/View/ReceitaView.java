@@ -14,6 +14,7 @@ import projetoconsultório.Controller.ReceitaController;
 import projetoconsultório.Model.ItemReceita;
 import projetoconsultório.Model.Medicamento;
 import projetoconsultório.Model.Receita;
+import reports.CarregaRelatorios;
 
 public class ReceitaView extends javax.swing.JFrame {
 
@@ -320,6 +321,8 @@ public class ReceitaView extends javax.swing.JFrame {
            receita.setDataReceita(dateSql);    
            retornoReceita = receitaController.cadastrarReceita(receita); //InsertReceita cadastro a receita para gerar um novo id, setando a data da mesma        
             
+          
+           
           } catch (ParseException ex) {
            JOptionPane.showMessageDialog(null,"Erro ao gravar data "+ex.getMessage());
         }
@@ -376,7 +379,10 @@ public class ReceitaView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Itens receita gravados com sucesso ");
         }
         
-        
+            int idReceita = r.getId();
+            
+            CarregaRelatorios t = new CarregaRelatorios();
+            t.gerarRelatorio("src\\reports\\Receita.jrxml",String.valueOf(idReceita));
         
     }//GEN-LAST:event_jButtonFinishRecipeActionPerformed
 
