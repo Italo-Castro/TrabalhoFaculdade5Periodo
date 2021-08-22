@@ -44,7 +44,7 @@ public class ReceitaController {
          Receita receita = new Receita();
          String sql = "select * from receita order by id desc limit 1";
          
-         int id = 0;
+         
          Conexao conexao = new Conexao();
         
          conexao.conectar();

@@ -102,10 +102,10 @@ public class ConsultaController {
         Consulta consulta = new Consulta();
          String sql = "select * from consulta order by id desc limit 1";
          
-         int id = 0;
+         
          Conexao conexao = new Conexao();
         
-     
+         conexao.conectar();
          try{
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
             ResultSet resultSet = sentenca.executeQuery();
