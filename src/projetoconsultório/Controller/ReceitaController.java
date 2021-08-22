@@ -41,7 +41,7 @@ public class ReceitaController {
         return retorno;
     }
     public Receita getLastId() {
-        Receita receita = new Receita();
+         Receita receita = new Receita();
          String sql = "select * from receita order by id desc limit 1";
          
          int id = 0;

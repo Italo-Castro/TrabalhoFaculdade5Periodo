@@ -280,7 +280,7 @@ public class ReceitaView extends javax.swing.JFrame {
                 
                 
        }else if(m != null) {
-            JOptionPane.showMessageDialog(null,"Medicamento ja cadastrado");
+           JOptionPane.showMessageDialog(null,"Medicamento ja cadastrado");
            System.out.print("\n nome medicamento \n"+m.getId());   
        }
        
@@ -296,8 +296,10 @@ public class ReceitaView extends javax.swing.JFrame {
       
        
     }//GEN-LAST:event_jButtonAddMedicamentActionPerformed
-
+     //neste metedo devo gravar a receita e a consulta
     private void jButtonFinishRecipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishRecipeActionPerformed
+        
+       
         ReceitaController receitaController = new ReceitaController();
         ItemReceitaController itemController = new ItemReceitaController();
         MedicoController medicoController = new MedicoController();
@@ -320,9 +322,7 @@ public class ReceitaView extends javax.swing.JFrame {
            receita.setIdMedico(medicoController.buscarPorNome(jLabelNomeMedico.getText()));
            receita.setDataReceita(dateSql);    
            retornoReceita = receitaController.cadastrarReceita(receita); //InsertReceita cadastro a receita para gerar um novo id, setando a data da mesma        
-            
-          
-           
+
           } catch (ParseException ex) {
            JOptionPane.showMessageDialog(null,"Erro ao gravar data "+ex.getMessage());
         }
@@ -383,6 +383,8 @@ public class ReceitaView extends javax.swing.JFrame {
             
             CarregaRelatorios t = new CarregaRelatorios();
             t.gerarRelatorio("src\\reports\\Receita.jrxml",String.valueOf(idReceita));
+            
+            
         
     }//GEN-LAST:event_jButtonFinishRecipeActionPerformed
 

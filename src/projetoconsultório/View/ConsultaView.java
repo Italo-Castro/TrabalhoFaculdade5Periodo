@@ -2,9 +2,10 @@
 package projetoconsultório.View;
 
 import static java.awt.event.KeyEvent.VK_ENTER;
-import javax.swing.JOptionPane;
+import projetoconsultório.Controller.ConsultaController;
 import projetoconsultório.Controller.MedicoController;
 import projetoconsultório.Controller.PacienteController;
+import projetoconsultório.Model.Consulta;
 import projetoconsultório.Model.Medico;
 import projetoconsultório.Model.Paciente;
 
@@ -13,13 +14,34 @@ public class ConsultaView extends javax.swing.JInternalFrame {
     
     public static PacienteController pacienteController = new PacienteController();
     public static MedicoController medicoController = new MedicoController();
-    
+    public static ConsultaController consultaController = new ConsultaController();
+
     public ConsultaView() {
         initComponents();
-        
     }
-
+        /*
+        String nomePaciente ="", nomeMedico ="";
+        nomePaciente = BuscarPacienteView.getInstance().nomePaciente;
+        
+        
+       //jTextIdPaciente.setText(""+idPaciente);
+        jTextNomePaciente.setText(nomePaciente);
+        jTextNomePaciente.setText(nomePaciente);
+        
+        JOptionPane.showMessageDialog(null,"nome paciente \n"+nomePaciente);
+    }
+    /*
+   public void consultaParametroPaciente(int idPaciente,String nomePaciente){
+       
+       
+       this.idPaciente = idPaciente;
+       this.nomePaciente = nomePaciente;
+       
+        JOptionPane.showMessageDialog(null,"nnome paciente que acabei de setar \n"+nomePaciente);
+        ConsultaView.getInstance().setVisible(true);
+   }
     
+    */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,7 +64,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         jTextRelatoPaciente = new javax.swing.JTextArea();
         jButtonGerarReceita = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextCodPaciente = new javax.swing.JTextField();
+        jTextIdPaciente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextCodMedico = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
@@ -111,6 +133,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         jLabel3.setText("Relato Paciente");
 
         jTextRelatoPaciente.setColumns(20);
+        jTextRelatoPaciente.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jTextRelatoPaciente.setRows(5);
         jScrollPane1.setViewportView(jTextRelatoPaciente);
 
@@ -124,9 +147,9 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jLabel4.setText("Codigo");
 
-        jTextCodPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextIdPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextCodPacienteKeyPressed(evt);
+                jTextIdPacienteKeyPressed(evt);
             }
         });
 
@@ -142,6 +165,11 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         jButton4.setText("Solicitar Enxames ");
 
         jButton6.setText("Agendar Retorno");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -171,7 +199,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
                             .add(jPanel2Layout.createSequentialGroup()
                                 .add(jLabel4)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jTextCodPaciente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 82, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(jTextIdPaciente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 82, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(jPanel2Layout.createSequentialGroup()
                                 .add(jLabel5)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -202,7 +230,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
                 .add(1, 1, 1)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel4)
-                    .add(jTextCodPaciente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jTextIdPaciente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(jLabel2)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -238,7 +266,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jSplitPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+            .add(jSplitPane1)
         );
 
         pack();
@@ -255,7 +283,28 @@ public class ConsultaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonBuscarClienteActionPerformed
 
     private void jButtonGerarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarReceitaActionPerformed
-
+        Medico medico = new Medico();
+        medico.setId(Integer.parseInt(jTextCodMedico.getText()));
+        medico.setNome(jTextNomeMedico.getText());
+        
+        Paciente paciente = new Paciente();
+        paciente.setId(Integer.parseInt(jTextIdPaciente.getText()));
+        paciente.setNome(jTextNomePaciente.getText());
+        
+        Consulta c = new Consulta();
+        c.setIdMedico(medico);
+        c.setIdPaciente(paciente);
+        consultaController.cadastrarConsulta(c);
+        
+        Consulta  ultimaConsulta = consultaController.getLastId();
+        
+        c.setRelatoPaciente(jTextRelatoPaciente.getText());
+     
+       
+        c.setId(ultimaConsulta.getId());
+        consultaController.cadastrarConsulta(c);
+        
+        
         ReceitaView receita = new ReceitaView(jTextNomePaciente.getText(),jTextNomeMedico.getText());
         receita.setVisible(true);
     }//GEN-LAST:event_jButtonGerarReceitaActionPerformed
@@ -267,15 +316,15 @@ public class ConsultaView extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jTextCodPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCodPacienteKeyPressed
+    private void jTextIdPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextIdPacienteKeyPressed
        
         if(evt.getKeyCode() == VK_ENTER){
-          int idPaciente = Integer.parseInt(jTextCodPaciente.getText());
+          int idPaciente = Integer.parseInt(jTextIdPaciente.getText());
             Paciente p = pacienteController.buscarPacientePorId(idPaciente);
             jTextNomePaciente.setText(p.getNome());
        }
         
-    }//GEN-LAST:event_jTextCodPacienteKeyPressed
+    }//GEN-LAST:event_jTextIdPacienteKeyPressed
 
     private void jTextCodMedicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCodMedicoKeyPressed
         if(evt.getKeyCode() == VK_ENTER){
@@ -284,6 +333,10 @@ public class ConsultaView extends javax.swing.JInternalFrame {
             jTextNomeMedico.setText(m.getNome());
        }
     }//GEN-LAST:event_jTextCodMedicoKeyPressed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -306,7 +359,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextField jTextCodMedico;
-    private javax.swing.JTextField jTextCodPaciente;
+    private javax.swing.JTextField jTextIdPaciente;
     private javax.swing.JTextField jTextNomeMedico;
     private javax.swing.JTextField jTextNomePaciente;
     private javax.swing.JTextArea jTextRelatoPaciente;

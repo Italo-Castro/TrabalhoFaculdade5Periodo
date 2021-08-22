@@ -2,14 +2,29 @@
 package projetoconsultório.View;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import projetoconsultório.Controller.PacienteController;
 import projetoconsultório.Model.Paciente;
 
 
 public class BuscarPacienteView extends javax.swing.JFrame {
-
+    /*
+    public  int idPaciente = 0 , idMedico =0;
+    public  String nomePaciente ="", nomeMedico ="";
    
+     private static BuscarPacienteView instance = null;
+
+    public static BuscarPacienteView getInstance() {
+        if (instance == null) {
+            instance = new BuscarPacienteView();
+          
+        }
+        return instance;
+    }
+*/
+    
+    
     public BuscarPacienteView() {
         initComponents();
         carregarTabela();
@@ -89,11 +104,19 @@ public class BuscarPacienteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        this.dispose();
-        ConsultaView consulta = new ConsultaView();
-        consulta.setVisible(true);
+      
+      
         
-       
+        this.dispose();
+        ConsultaView c = new ConsultaView();
+        c.setVisible(true);
+   
+       /*
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        
+        int idPaciente = Integer.parseInt(modelo.getValueAt(jTable1.getSelectedRow(),0).toString());
+        this.nomePaciente = modelo.getValueAt(jTable1.getSelectedRow(),1).toString();
+        */
     }//GEN-LAST:event_jButtonExitActionPerformed
 
    

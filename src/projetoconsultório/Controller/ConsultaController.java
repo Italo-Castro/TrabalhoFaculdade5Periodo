@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import projetoconsultório.Model.Consulta;
+import projetoconsultório.Model.Receita;
 import projetoconsultório.Util.Conexao;
 
 public class ConsultaController {
@@ -20,7 +21,7 @@ public class ConsultaController {
 
         try {
             PreparedStatement sentenca = conexao.con.prepareStatement(sql);
-
+            
             sentenca.setInt(1, consulta.getIdMedico().getId());
             sentenca.setInt(2, consulta.getIdPaciente().getId());
             sentenca.setInt(3, consulta.getIdReceita().getId());
@@ -97,4 +98,29 @@ public class ConsultaController {
         conexao.desconectar();
         return consultas;
     }
+        public Consulta getLastId(){
+        Consulta consulta = new Consulta();
+         String sql = "select * from consulta order by id desc limit 1";
+         
+         int id = 0;
+         Conexao conexao = new Conexao();
+        
+     
+         try{
+            PreparedStatement sentenca = conexao.con.prepareStatement(sql);
+            ResultSet resultSet = sentenca.executeQuery();
+            
+            if(resultSet.next()){
+             consulta.setId(resultSet.getInt("id"));                          
+            }
+            
+        }catch(SQLException e){
+            System.out.println("Erro ao buscar ultimo id da receita -> \n" + e.getMessage());
+        }
+        
+        conexao.desconectar();
+        return consulta;
+         
+     }
+    
 }
