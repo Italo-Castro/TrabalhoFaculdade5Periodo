@@ -15,9 +15,14 @@ public class ConsultaView extends javax.swing.JInternalFrame {
     public static PacienteController pacienteController = new PacienteController();
     public static MedicoController medicoController = new MedicoController();
     public static ConsultaController consultaController = new ConsultaController();
-
+    public static int idConsulta;
+    
     public ConsultaView() {
         initComponents();
+    }
+    
+    public static int getIdConsulta(){
+        return idConsulta;
     }
         /*
         String nomePaciente ="", nomeMedico ="";
@@ -294,15 +299,10 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         Consulta c = new Consulta();
         c.setIdMedico(medico);
         c.setIdPaciente(paciente);
+        c.setRelatoPaciente(jTextRelatoPaciente.getText());   
         consultaController.cadastrarConsulta(c);
-        
         Consulta  ultimaConsulta = consultaController.getLastId();
-        
-        c.setRelatoPaciente(jTextRelatoPaciente.getText());
-     
-       
-        c.setId(ultimaConsulta.getId());
-        consultaController.cadastrarConsulta(c);
+        this.idConsulta = ultimaConsulta.getId();
         
         
         ReceitaView receita = new ReceitaView(jTextNomePaciente.getText(),jTextNomeMedico.getText());

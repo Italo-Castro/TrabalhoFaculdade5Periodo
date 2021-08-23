@@ -122,5 +122,21 @@ public class ConsultaController {
         return consulta;
          
      }
-    
+    public void updateConsultaSetIdReceita (int idReceita,int idConsulta){
+        boolean retorno = false;
+        String sql = "update consulta set idReceita = '"+ idReceita+"' where id = '"+ idConsulta+"'";
+        
+        Conexao conexao = new Conexao();
+        conexao.conectar();
+        
+        try {
+            PreparedStatement sentenca = conexao.con.prepareStatement(sql);
+            if(!sentenca.execute()){
+                retorno = true;
+            }
+            
+        }catch (SQLException e) {
+              System.out.println("Erro ao atualizar tabela consulta -> \n" + e.getMessage());
+        }
+    }
 }

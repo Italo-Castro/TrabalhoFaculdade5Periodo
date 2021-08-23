@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import projetoconsultório.Controller.ConsultaController;
 import projetoconsultório.Controller.ItemReceitaController;
 import projetoconsultório.Controller.MedicamentoController;
 import projetoconsultório.Controller.MedicoController;
 import projetoconsultório.Controller.ReceitaController;
+import projetoconsultório.Model.Consulta;
 import projetoconsultório.Model.ItemReceita;
 import projetoconsultório.Model.Medicamento;
 import projetoconsultório.Model.Receita;
@@ -330,9 +332,16 @@ public class ReceitaView extends javax.swing.JFrame {
         
        
         
-        Receita r = receitaController.getLastId(); //pegando o ultimo da receita cadastrada
+        Receita ultimaReceita = receitaController.getLastId(); //pegando o ultimo da receita cadastrada
+        Consulta c = new Consulta();
         
-        item.setIdReceita(r);
+        c.setId(ConsultaView.getIdConsulta());
+        c.setIdReceita(ultimaReceita);
+        
+        ConsultaController consultaController = new ConsultaController();
+        consultaController.updateConsultaSetIdReceita(ultimaReceita.getId(), c.getId());
+        
+        item.setIdReceita(ultimaReceita);
         
         
         //daqui pra baixo so Deus pode me ajudar // Funcionou Deus e bao d maiss
@@ -352,7 +361,7 @@ public class ReceitaView extends javax.swing.JFrame {
             Medicamento m = new Medicamento();
             m.setId(listaMedicamento.get(i).getId());
             
-            item.setIdReceita(r);
+            item.setIdReceita(ultimaReceita);
             item.setIdMedicamento(m); 
             
             item.setDosagem("italo");
@@ -379,8 +388,7 @@ public class ReceitaView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Itens receita gravados com sucesso ");
         }
         
-            int idReceita = r.getId();
-            
+            int idReceita = ultimaReceita.getId();
             CarregaRelatorios t = new CarregaRelatorios();
             t.gerarRelatorio("src\\reports\\Receita.jrxml",String.valueOf(idReceita));
             
