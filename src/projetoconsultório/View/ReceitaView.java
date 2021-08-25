@@ -53,7 +53,7 @@ public class ReceitaView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jTextObservacao = new javax.swing.JTextField();
-        jButtonFinishRecipe = new javax.swing.JButton();
+        jButtonFinalizarReceita = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,11 +121,11 @@ public class ReceitaView extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel8.setText("Observação");
 
-        jButtonFinishRecipe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoconsultório/icones/16X16/accept.png"))); // NOI18N
-        jButtonFinishRecipe.setText("Finalizar Receita");
-        jButtonFinishRecipe.addActionListener(new java.awt.event.ActionListener() {
+        jButtonFinalizarReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoconsultório/icones/16X16/accept.png"))); // NOI18N
+        jButtonFinalizarReceita.setText("Finalizar Receita");
+        jButtonFinalizarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFinishRecipeActionPerformed(evt);
+                jButtonFinalizarReceitaActionPerformed(evt);
             }
         });
 
@@ -157,7 +157,7 @@ public class ReceitaView extends javax.swing.JFrame {
                                             .addComponent(jLabel2))
                                         .addGap(92, 92, 92)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonFinishRecipe))
+                                .addComponent(jButtonFinalizarReceita))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,7 +189,7 @@ public class ReceitaView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jButtonFinishRecipe))
+                            .addComponent(jButtonFinalizarReceita))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelNomeMedico)
                         .addGap(18, 18, 18)
@@ -306,7 +306,7 @@ public class ReceitaView extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButtonAddMedicamentActionPerformed
      //neste metedo devo gravar a receita e a consulta
-    private void jButtonFinishRecipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishRecipeActionPerformed
+    private void jButtonFinalizarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarReceitaActionPerformed
         
        
         ReceitaController receitaController = new ReceitaController();
@@ -400,10 +400,10 @@ public class ReceitaView extends javax.swing.JFrame {
             int idReceita = ultimaReceita.getId();
             CarregaRelatorios t = new CarregaRelatorios();
             t.gerarRelatorio("src\\reports\\Receita2.jrxml",String.valueOf(idReceita));
-            
-            
+            jButtonFinalizarReceita.setEnabled(false);
+            this.dispose();
         
-    }//GEN-LAST:event_jButtonFinishRecipeActionPerformed
+    }//GEN-LAST:event_jButtonFinalizarReceitaActionPerformed
 
     
 
@@ -411,7 +411,7 @@ public class ReceitaView extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAddMedicament;
-    private javax.swing.JButton jButtonFinishRecipe;
+    private javax.swing.JButton jButtonFinalizarReceita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

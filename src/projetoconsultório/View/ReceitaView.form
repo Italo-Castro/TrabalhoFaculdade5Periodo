@@ -106,7 +106,7 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButtonFinishRecipe" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonFinalizarReceita" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -152,7 +152,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonFinishRecipe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonFinalizarReceita" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelNomeMedico" min="-2" max="-2" attributes="0"/>
@@ -288,7 +288,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextObservacao">
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonFinishRecipe">
+            <Component class="javax.swing.JButton" name="jButtonFinalizarReceita">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/projetoconsult&#xf3;rio/icones/16X16/accept.png"/>
@@ -296,7 +296,7 @@
                 <Property name="text" type="java.lang.String" value="Finalizar Receita"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFinishRecipeActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFinalizarReceitaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">

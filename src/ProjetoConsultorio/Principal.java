@@ -308,7 +308,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
             String idReceita = JOptionPane.showInputDialog("Id da receita");
             CarregaRelatorios t = new CarregaRelatorios();
-            t.gerarRelatorio("src\\reports\\Receita2.jrxml",idReceita);
+            t.gerarRelatorio("src\\reports\\Receita2.jrxml","3");
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     public static void main(String args[]) {

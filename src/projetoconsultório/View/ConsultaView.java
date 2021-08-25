@@ -313,6 +313,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         
         ReceitaView receita = new ReceitaView(jTextNomePaciente.getText(),jTextNomeMedico.getText());
         receita.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonGerarReceitaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
