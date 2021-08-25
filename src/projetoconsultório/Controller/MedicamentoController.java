@@ -89,7 +89,7 @@ public class MedicamentoController {
         return medicamento;
     }
      public Medicamento buscarPorNome(String  nome){
-        Medicamento medicamento = null;
+        Medicamento medicamento = new Medicamento();
         
         String sql = "SELECT * FROM medicamento WHERE nome = ?";
         

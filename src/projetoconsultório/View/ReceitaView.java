@@ -262,7 +262,13 @@ public class ReceitaView extends javax.swing.JFrame {
       Medicamento m = new Medicamento();
       
        String nomeMedicamento = jTextDescricao.getText();
-       m = controller.buscarPorNome(nomeMedicamento);
+       
+      
+       m = controller.buscarPorNome(nomeMedicamento); // ta me retornando NullPointerExceptionQuando o medicamento ja foi cadastrado
+
+       
+      
+  
        
       
        if(m == null) {  
@@ -283,18 +289,19 @@ public class ReceitaView extends javax.swing.JFrame {
                 
        }else if(m != null) {
            JOptionPane.showMessageDialog(null,"Medicamento ja cadastrado");
-           System.out.print("\n nome medicamento \n"+m.getId());   
-       }
-       
-       
-       //JOptionPane.showMessageDialog(null,"Adicionar na tabela somente apos o cadastro do produto estiver ok");
-       /*
-       modelo.addRow(new Object[]{
-            jTextDescricao.getText(),
-            jTextDosagem.getText(),
-            jTextObservacao.getText(),
+           System.out.print("\n nome medicamento \n"+m.getId());
+            JOptionPane.showMessageDialog(null,nomeMedicamento + "Já esta cadastrado no banco de dados do consultorio","ERROR",JOptionPane.CLOSED_OPTION);
+           listaMedicamento.add(m);
+           System.out.print("Id medicamento ja cadastrado ->      "+m.getId());
+              
+                modelo.addRow(new Object[]{
+                jTextDescricao.getText(),
+                jTextDosagem.getText(),
+                jTextObservacao.getText(),
        });
-       */
+           
+       }
+
       
        
     }//GEN-LAST:event_jButtonAddMedicamentActionPerformed
@@ -326,8 +333,8 @@ public class ReceitaView extends javax.swing.JFrame {
            retornoReceita = receitaController.cadastrarReceita(receita); //InsertReceita cadastro a receita para gerar um novo id, setando a data da mesma        
 
           } catch (ParseException ex) {
-           JOptionPane.showMessageDialog(null,"Erro ao gravar data "+ex.getMessage());
-        }
+            JOptionPane.showMessageDialog(null,"Erro ao gravar data "+ex.getMessage());
+            }
           
         
        
@@ -388,9 +395,11 @@ public class ReceitaView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Itens receita gravados com sucesso ");
         }
         
+   
+        
             int idReceita = ultimaReceita.getId();
             CarregaRelatorios t = new CarregaRelatorios();
-            t.gerarRelatorio("src\\reports\\Receita.jrxml",String.valueOf(idReceita));
+            t.gerarRelatorio("src\\reports\\Receita2.jrxml",String.valueOf(idReceita));
             
             
         

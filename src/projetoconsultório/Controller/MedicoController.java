@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import projetoconsultório.Model.Medico;
 import projetoconsultório.Util.Conexao;
-import java.util.Date;
 
 public class MedicoController {
     public Boolean cadastrarMedico(Medico medico){

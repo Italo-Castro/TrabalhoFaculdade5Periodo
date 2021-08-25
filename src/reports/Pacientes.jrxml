@@ -106,7 +106,7 @@ FROM paciente
 		</band>
 	</title>
 	<pageHeader>
-		<band height="60" splitType="Stretch">
+		<band height="81" splitType="Stretch">
 			<staticText>
 				<reportElement x="10" y="30" width="30" height="18" uuid="72c271df-131a-4be3-ad42-8f9632bc7ad1"/>
 				<text><![CDATA[Cod.]]></text>
@@ -169,7 +169,7 @@ FROM paciente
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="38" splitType="Immediate">
+		<band height="67" splitType="Immediate">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
 				<reportElement x="10" y="0" width="30" height="20" uuid="9e046ecf-631f-4096-afa1-0f0c83b92735"/>
@@ -188,7 +188,7 @@ FROM paciente
 				<textFieldExpression><![CDATA[$F{rua}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="-20" y="30" width="595" height="3" uuid="2b25e791-7731-4b56-8678-b7f820e858ee"/>
+				<reportElement x="-20" y="37" width="595" height="3" uuid="2b25e791-7731-4b56-8678-b7f820e858ee"/>
 			</line>
 			<textField>
 				<reportElement x="320" y="0" width="60" height="30" uuid="051915ad-56d1-4f7a-ae04-2259b17ad084"/>

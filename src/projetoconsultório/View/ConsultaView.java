@@ -2,6 +2,7 @@
 package projetoconsultório.View;
 
 import static java.awt.event.KeyEvent.VK_ENTER;
+import javax.swing.JOptionPane;
 import projetoconsultório.Controller.ConsultaController;
 import projetoconsultório.Controller.MedicoController;
 import projetoconsultório.Controller.PacienteController;
@@ -288,6 +289,11 @@ public class ConsultaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonBuscarClienteActionPerformed
 
     private void jButtonGerarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarReceitaActionPerformed
+        
+        if(jTextNomePaciente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,"Informe o nome do paciente da consulta","ERROR",JOptionPane.CANCEL_OPTION);
+        }
+
         Medico medico = new Medico();
         medico.setId(Integer.parseInt(jTextCodMedico.getText()));
         medico.setNome(jTextNomeMedico.getText());
