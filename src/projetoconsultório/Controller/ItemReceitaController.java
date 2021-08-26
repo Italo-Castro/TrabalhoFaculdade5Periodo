@@ -43,7 +43,7 @@ public class ItemReceitaController {
      public Boolean insertItemReceita(ItemReceita itemReceita) {
         boolean retorno = false;
 
-        String sql = "INSERT INTO itensReceita (idReceita,coditem,dosagem) VALUES(?,?,?)";
+        String sql = "INSERT INTO itensReceita (idReceita,coditem,dosagem,observacao) VALUES(?,?,?,?)";
 
         Conexao conexao = new Conexao();
 
@@ -56,6 +56,7 @@ public class ItemReceitaController {
             sentenca.setInt(1, itemReceita.getIdReceita().getId());
             sentenca.setInt(2, itemReceita.getIdMedicamento().getId());
             sentenca.setString(3, itemReceita.getDosagem());
+            sentenca.setString(4, itemReceita.getObservacao());
 
             if (sentenca.execute()) {
                 retorno = true;

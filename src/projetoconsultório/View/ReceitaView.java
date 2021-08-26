@@ -371,7 +371,10 @@ public class ReceitaView extends javax.swing.JFrame {
             item.setIdReceita(ultimaReceita);
             item.setIdMedicamento(m); 
             
-            item.setDosagem("italo");
+            for(int j=0;j<jTable1.getRowCount();j++){
+                item.setObservacao(jTable1.getValueAt(j, 2).toString());
+            }
+          
             retornoItens = itemController.insertItemReceita(item);
             
         }

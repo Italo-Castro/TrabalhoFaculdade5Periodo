@@ -8,6 +8,7 @@ public class ItemReceita {
     private Medicamento idMedicamento;
     private Receita idReceita;
     private String dosagem;
+    private String observacao;
 
     public ItemReceita() {
         
@@ -16,12 +17,13 @@ public class ItemReceita {
     
    
 
-    public ItemReceita(int id, int idItemReceita, Medicamento idMedicamento, Receita idReceita, String dosagem) {
+    public ItemReceita(int id, int idItemReceita, Medicamento idMedicamento, Receita idReceita, String dosagem,String observacao) {
         this.id = id;
         this.idItemReceita = idItemReceita;
         this.idMedicamento = idMedicamento;
         this.idReceita = idReceita;
         this.dosagem = dosagem;
+        this.observacao = observacao;
     }
     
     public int getId() {
@@ -62,6 +64,14 @@ public class ItemReceita {
 
     public void setDosagem(String dosagem) {
         this.dosagem = dosagem;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
     
   
