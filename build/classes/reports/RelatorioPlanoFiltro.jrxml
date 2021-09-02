@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioPlanoFiltro" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b775f94c-76c7-43f1-9f1d-a8ce06071078">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="basededados.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="valor" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT valor,
+	`dataExpiracao`,
+	tipo
+FROM projetoconsultorio.planosaude
+WHERE 
+	 projetoconsultorio.planosaude.valor >= $P{valor}]]>
+	</queryString>
+	<field name="valor" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="valor"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="planosaude"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataExpiracao" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="dataExpiracao"/>
+		<property name="com.jaspersoft.studio.field.label" value="dataExpiracao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="planosaude"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="planosaude"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="10" width="390" height="30" uuid="c180c4cd-7f4e-4d0b-938e-f94fee676d83"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Planos de Saude com valor superior a R$
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="10" width="160" height="30" uuid="d3dc5e9d-2e15-446d-8945-5c51c66424f8"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{valor} + ",00"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="126" height="30" uuid="ba18e119-cdf0-4fa7-98c2-4a36249a0e3d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51b4f7d7-9c43-4aee-8133-6b39f6e0ac68"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Tipo Do Plano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="0" width="100" height="30" uuid="4684636a-99ca-4fc4-897a-2a3f2f1591f8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="26a2aec9-d977-4ca6-ba16-bbcd636a493d"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Valido Ate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="100" height="30" uuid="bd1f5605-6b78-40d2-aaa6-1337c8f32adc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cec94126-d81f-4eea-9bb8-85b4688f67c5"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Custo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<textField>
+				<reportElement x="24" y="14" width="139" height="30" uuid="64bfb19b-0671-4c54-ba25-6c1a25f0fa2c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51b4f7d7-9c43-4aee-8133-6b39f6e0ac68"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="11" width="93" height="30" uuid="d96866ff-6efa-4ac8-8e4e-50651552697e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="26a2aec9-d977-4ca6-ba16-bbcd636a493d"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataExpiracao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="11" width="100" height="30" uuid="01365d48-f305-43ed-a72d-25587ac700f2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cec94126-d81f-4eea-9bb8-85b4688f67c5"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="44" width="575" height="1" uuid="f38a2200-b628-4199-bf36-39e0a91efb15"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
